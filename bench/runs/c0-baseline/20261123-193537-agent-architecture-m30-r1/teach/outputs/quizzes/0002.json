@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your assistant on Monday and says they are left-handed. On Wednesday they open a new chat and ask which scissors to use. The assistant has no saved notes. What does the model have available on Wednesday?",
+      "options": [
+        {"id": "a", "text": "Only Wednesday's chat, since a new session starts with an empty window"},
+        {"id": "b", "text": "Monday's chat, because the model keeps what it learns from each student"},
+        {"id": "c", "text": "Monday's chat, because the window carries over for a few days"},
+        {"id": "d", "text": "Only Monday's summary, which the model writes for itself at the end"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In one run, the system prompt and tool descriptions take 1,000 tokens and the question takes 50. The assistant makes 3 model calls. After call 1 a 500-token tool result is added; after call 2 a 100-token tool result is added; ignore the tokens of the model's own tool requests. Each call sends the whole history. How many input tokens are sent across all 3 calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant must answer from a 200-page set of machine manuals, and each answer needs about two pages. Which design best keeps the cost per request low and answers from your own manuals?",
+      "options": [
+        {"id": "a", "text": "Put all 200 pages in the system prompt so the model always has them"},
+        {"id": "b", "text": "Give the model a search tool that returns only the best-matching pages"},
+        {"id": "c", "text": "Rely on the model's training, which already covers most machine manuals"},
+        {"id": "d", "text": "Pick a model whose window is large enough to hold all 200 pages"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Give one reason, in a sentence, why \"the laser cutter is free Friday at 3 pm\" is a poor fact to save as a note between sessions."
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A run has gone 25 steps and its window is nearly full, mostly old tool results the task no longer needs. Name one thing the program can do so the run can continue, and say what it does."
+    }
+  ]
+}

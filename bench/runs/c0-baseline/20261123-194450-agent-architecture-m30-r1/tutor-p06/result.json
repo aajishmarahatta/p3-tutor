@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 19652,
+  "stop_reason": "end_turn",
+  "session_id": "e27eedc9-9503-450d-931c-543ebdef3b20",
+  "total_cost_usd": 0.1208348,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23634,
+    "cache_read_input_tokens": 67068,
+    "output_tokens": 1958,
+    "output_tokens_details": {
+      "thinking_tokens": 512
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23634,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 626,
+        "cache_read_input_tokens": 33792,
+        "cache_creation_input_tokens": 853,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 853
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1958,
+      "cacheReadInputTokens": 67068,
+      "cacheCreationInputTokens": 23634,
+      "webSearchRequests": 0,
+      "costUSD": 0.1208348,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 512,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23634,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Picture a manager who works in a windowless office. They can't leave, can't use a phone, and can only pass handwritten notes under the door. They're smart and good at reading and writing, but they can't do anything themselves.\n\nNext to the door is a runner. Taped to the door is a **menu of services**, with one line for each: \"Booking calendar: tell me a machine and a date, and I'll bring back the open slots.\" \"Manual lookup: give me a question, and I'll bring back the matching page.\"\n\nA student slides a question under the door: \"Can I use the laser cutter Thursday afternoon?\" The manager can't know that, so they write a note: *\"Calendar check: laser cutter, Thursday.\"* The manager does nothing else. They don't go anywhere or check anything.\n\nThe runner reads the note, goes to the real calendar, and slides back the result: *\"Open 2–4pm.\"* Now the manager writes the reply to the student: \"Yes, 2–4pm is free.\"\n\nThree ideas to take from this:\n\n1. **The model only writes text.** A tool call is the model writing a request, in a set format, that says which tool and what to give it.\n2. **Your program is the runner.** It reads the request, does the real work, and passes the result back as more text for the model to read.\n3. **The menu is the tool description.** The manager picks a service only because of what the menu says it does. A vague menu line leads to wrong requests.\n\nThis is the agent loop you already know. The manager writes a note, the runner replies, and the manager writes another note or the final answer.\n\nThe analogy breaks down in one place. A real manager remembers the morning. The model re-reads the whole pile of notes and replies each time, which is why cost grows with the pile.\n\nQuick check: if the manager writes \"Calendar check: laser cutter, Thursday\", has anything been checked yet? Who does the checking?\n\nIf you want, I can make this a full lesson on tool calling, including how to write a good menu line for your makerspace tools.",
+  "ttft_ms": 1906,
+  "type": "result",
+  "duration_ms": 19867,
+  "uuid": "d9e717d6-e18f-4734-a2e7-1725cd38124c",
+  "ttft_stream_ms": 1368,
+  "time_to_request_ms": 168,
+  "first_content_frame_ms": 1368,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1958,
+      "cacheReadInputTokens": 67068,
+      "cacheCreationInputTokens": 23634,
+      "webSearchRequests": 0,
+      "costUSD": 0.1208348,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 512,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23634,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.910Z"
+}

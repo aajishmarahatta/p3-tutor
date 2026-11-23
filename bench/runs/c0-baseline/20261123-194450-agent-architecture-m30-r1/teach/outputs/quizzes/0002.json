@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student finishes a chat with your assistant on Monday. On Thursday they start a new session, and your program loads nothing from Monday. What does the model know about Monday's chat?",
+      "options": [
+        {"id": "a", "text": "Nothing, because only the text sent in the call is visible"},
+        {"id": "b", "text": "A short summary, because models keep the gist of chats"},
+        {"id": "c", "text": "Everything, because the model stores each chat it has had"},
+        {"id": "d", "text": "Only the student's name, because names are always retained"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent's instructions, tool descriptions and question total 2,000 tokens. It makes two tool calls, each returning a 500-token result, and then writes its answer (3 model calls). Count only the tokens sent as input, and ignore the size of the model's own tool requests. The whole transcript is resent on every call. How many input tokens are sent in total over the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your manual is split into chunks. The chunk \"Set the speed to 40 and the power to 90\" never names the machine or material, and searches for the right machine often miss it. Which change is most likely to fix this?",
+      "options": [
+        {"id": "a", "text": "Put the entire manual into the context window on every call"},
+        {"id": "b", "text": "Add a short note naming the machine and topic to each chunk"},
+        {"id": "c", "text": "Tell the model in its prompt to search more carefully"},
+        {"id": "d", "text": "Save each chunk in the student's notes after every visit"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your assistant uses a memory tool so the model can save and read notes files between sessions. When the model decides to save a note, what actually writes the file: the model itself, or your program? Answer in a few words."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A long agent run has 60 steps, and most of the transcript is old tool results the model finished using. Answers are getting slower, costlier and less accurate. What is the best response?",
+      "options": [
+        {"id": "a", "text": "Clear old tool results, keeping key facts in a short notes file"},
+        {"id": "b", "text": "Switch to a model with a window ten times as large"},
+        {"id": "c", "text": "Keep everything so the model never loses any information"},
+        {"id": "d", "text": "End the session and start over with no notes at all"}
+      ]
+    }
+  ]
+}

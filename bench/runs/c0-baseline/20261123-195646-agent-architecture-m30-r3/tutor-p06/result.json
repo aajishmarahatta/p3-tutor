@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 18545,
+  "stop_reason": "end_turn",
+  "session_id": "4bd10eec-ea9c-46e7-a678-1a8130342cb1",
+  "total_cost_usd": 0.12916719999999998,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 25071,
+    "cache_read_input_tokens": 67512,
+    "output_tokens": 2212,
+    "output_tokens_details": {
+      "thinking_tokens": 877
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 25071,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1223,
+        "cache_read_input_tokens": 34009,
+        "cache_creation_input_tokens": 2073,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2073
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2212,
+      "cacheReadInputTokens": 67512,
+      "cacheCreationInputTokens": 25071,
+      "webSearchRequests": 0,
+      "costUSD": 0.12916719999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 877,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25071,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Picture a receptionist in a windowless room. They can't leave and can't touch anything outside. The room has a slot in the door and a laminated menu of services on the wall.\n\nThe menu might say \"Check calendar: needs a machine and a date\" and \"Look up manual: needs a search phrase\". Outside the door is a runner.\n\nA visitor asks, \"Is the laser cutter free tomorrow?\" The receptionist can't answer from memory. They pick the right service from the menu and write a slip: *Check calendar. Machine: laser cutter. Date: tomorrow.* They push the slip through the slot.\n\nThe receptionist does nothing else. The runner reads the slip, goes to the booking system, does the work and slides back a new slip: *Free 2–5 pm.* The receptionist reads it and either writes the answer to the visitor or sends another slip.\n\nThree ideas sit in that picture:\n- **The model only writes requests.** It never runs anything itself.\n- **The program around the model is the runner.** It does the actual work and hands the result back.\n- **The menu is all the model knows about your tools.** It has never seen how the runner does the job. It picks a service from the wording on the menu, so vague wording gets the wrong pick. That is why writing clear tool descriptions is on your mission list.\n\nThe analogy breaks in one place. A real receptionist remembers earlier slips. The model doesn't. Each time, the runner hands over the whole stack of slips so far, and that stack is the context. This is also why long loops cost more.\n\nQuiz 0001 is still ungraded, so I haven't tied any of this to its questions. I'm happy to grade it whenever you like.\n\nQuick check: in your own words, who actually reads the booking calendar, the receptionist or the runner?",
+  "ttft_ms": 1686,
+  "type": "result",
+  "duration_ms": 18784,
+  "uuid": "6d6cfdb8-24cc-46fb-b038-ba38f864ab85",
+  "ttft_stream_ms": 1222,
+  "time_to_request_ms": 193,
+  "first_content_frame_ms": 1222,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2212,
+      "cacheReadInputTokens": 67512,
+      "cacheCreationInputTokens": 25071,
+      "webSearchRequests": 0,
+      "costUSD": 0.12916719999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 877,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25071,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.910Z"
+}

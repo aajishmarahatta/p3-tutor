@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A model called from code keeps nothing between sessions: a new session starts with an empty message list. Only what the program saves and sends back reaches the model. Options a, c and d each assume the model remembers on its own.",
+      "distractors": {"a": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 6400,
+      "tolerance": 0,
+      "rationale": "The whole context is resent on every call: 1,600 tokens times 4 calls = 6,400. Answering 1,600 treats the context as sent once; the model does not keep it between calls."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "The model reads only what is in its context, and the log shows the right chunk was absent, so the fault is in retrieval (the search step). The model does not go and read the manual itself (b), and it is not a matter of window size when the chunk was never retrieved (c). Training does not hold this manual (d).",
+      "distractors": {"b": "M8", "c": "M7", "d": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "In saved notes in a file or database that the program owns, and at the start of each session the program loads that student's notes into the context.",
+      "accepted": [
+        "In a file or database the program keeps outside the model, and the program loads the student's record into the context at the start of each session.",
+        "Save it in notes or a database, and read it back into the context when the session starts."
+      ],
+      "rationale": "Full credit needs both parts: a store outside the context that survives the session (notes, file or database), and the program loading it into the context at the start of the next session. Saying only that the model should remember it, or that it goes in the system prompt for everyone, is wrong; giving only one of the two parts is partial. Believing the model carries it over unaided is M3."
+    },
+    {
+      "id": "q5",
+      "answer": "The calendar changes constantly, so a saved copy goes stale and the assistant would give wrong availability; a fresh tool call is always current.",
+      "accepted": [
+        "The saved calendar would be out of date quickly, so it should be looked up with the tool each time.",
+        "It is large and changes all the time, so the notes would be stale and waste tokens on every session."
+      ],
+      "rationale": "Any one sound reason is full credit: the data changes quickly so notes go stale, or it is not specific to the student and takes up tokens on every load. Notes are for small, stable, personal facts. An answer that only says the notes file would be too big for the model to ever read, as if the window were the issue, is partial."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow?",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Engineers often say a system is a workflow rather than an agent. What is the difference?",
+      "options": [
+        {"id": "a", "text": "A workflow never calls a model; an agent always calls one"},
+        {"id": "b", "text": "In a workflow, code fixes the steps; in an agent, the model does"},
+        {"id": "c", "text": "A workflow uses one model call; an agent uses at least two"},
+        {"id": "d", "text": "In a workflow, tools are skipped; in an agent, tools are used"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A makerspace assistant handles a manual question like this: Python code always searches the manuals for the three best pages, then always makes one model call that writes an answer from those pages, then returns it. Which description fits?",
+      "options": [
+        {"id": "a", "text": "An agent, because it searches the manuals with a tool"},
+        {"id": "b", "text": "An agent, because a model writes the final answer"},
+        {"id": "c", "text": "A workflow, because the code fixes every step in order"},
+        {"id": "d", "text": "Neither, because it has no loop and makes one call"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In one design, a model call reads the student's message and replies with one label: 'manual', 'booking' or 'other'. The code then runs a fixed pipeline written for that label and never calls the model to choose steps again. Who owns the control flow?",
+      "options": [
+        {"id": "a", "text": "The model, because it chose which pipeline runs"},
+        {"id": "b", "text": "The student, because their message started the run"},
+        {"id": "c", "text": "The model, because it made the first decision"},
+        {"id": "d", "text": "The code, because it defines every path and its steps"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student writes: 'Book me the 3D printer for the first free afternoon slot this week, but only if the safety training is done.' The needed tools, in what order and how many times, differ by request. Which design fits this request best?",
+      "options": [
+        {"id": "a", "text": "A fixed workflow, because workflows are always cheaper"},
+        {"id": "b", "text": "A fixed workflow, because every booking runs one path"},
+        {"id": "c", "text": "An agent, because the steps depend on what comes back"},
+        {"id": "d", "text": "An agent, because agents never need a stopping limit"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Suppose every model call costs the same. A fixed workflow for booking confirmations always makes 2 model calls per request. An agent doing the same job averages 6 model calls per request. Over 500 requests, how many more model calls does the agent make than the workflow? Answer as a whole number of calls.",
+      "unit": "calls"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Your team's budget is small. Name the two things an agent usually costs more of than a fixed workflow doing the same job, in a few words."
+    }
+  ]
+}

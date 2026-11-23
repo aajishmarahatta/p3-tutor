@@ -1,0 +1,32 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model keeps nothing between calls or sessions; it only uses what is in the window. Anything remembered must be saved and loaded back by the program. Picking b, c or d shows the idea that the model remembers by itself."
+    },
+    {
+      "id": "q2",
+      "answer": 7500,
+      "tolerance": 0,
+      "rationale": "Call 1 sends 2,000; call 2 sends 2,000 + 500 = 2,500; call 3 sends 2,500 + 500 = 3,000. The total is 2,000 + 2,500 + 3,000 = 7,500. An answer of 3,000 counts only the final transcript once, and misses that it is resent at every step."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "A chunk cut from a manual loses what it is about; adding a short machine-and-topic note to each chunk before indexing (contextual retrieval) restores it. Loading everything is costly, prompting does not change what the index holds, and notes are for facts learned in use."
+    },
+    {
+      "id": "q4",
+      "answer": "your program",
+      "accepted": ["the program", "program", "the application", "your application", "the app", "the client", "application", "your code", "the program, not the model"],
+      "rationale": "The memory tool is client-side: the model only requests the operation and the application carries it out against its own storage, as with any tool in the agent loop. Answering the model shows the misconception that the model runs tools itself."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "Stale tool results are resent and billed every step and can hurt recall, so clear them and keep what matters in short notes. A larger window or keeping everything does not remove the cost or the clutter; starting over loses the work."
+    }
+  ]
+}

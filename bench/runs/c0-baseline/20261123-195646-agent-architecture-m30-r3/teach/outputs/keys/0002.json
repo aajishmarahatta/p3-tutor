@@ -1,0 +1,40 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls, so the program rebuilds the whole context each time: instructions, question and every earlier request and result. Options a and d assume the model remembers or that only the newest item is sent; option c invents summaries the model does not write by itself.",
+      "distractors": {"a": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 4180,
+      "tolerance": 0,
+      "rationale": "The third call's input is everything so far: 1,500 + 100 + 40 + 500 + 40 + 2,000 = 4,180. Answering 2,000 or 2,040 counts only the newest result and shows the belief that earlier steps are not re-sent."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "A new chat is a new, empty context. Persistence needs storage outside the model and a step that loads the record back in. A bigger window (a) or an instruction to remember (b) cannot carry anything across chats, and keeping one call open (d) is not how models work.",
+      "distractors": {"a": "M3", "b": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "It would cost too many tokens on every call, may not fit, and a huge context makes the model's answers worse.",
+      "accepted": [
+        "It is too expensive because all the tokens are paid for on every call.",
+        "It would not fit in the context window.",
+        "Too much text lowers the model's accuracy and recall (context rot).",
+        "Retrieving only the relevant chunks is cheaper and more accurate."
+      ],
+      "rationale": "Any one valid reason is enough: cost (the whole context is paid for on every call), size (it may exceed the window) or quality (accuracy degrades as the context grows). Answers that only say the manuals are long, without a consequence, are partial."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "The memory tool is client-side: the model writes a request, and your application runs the file operation against storage you manage. The model cannot touch your disk (a), and nothing is saved without a request that your code runs (b, c).",
+      "distractors": {"a": "M4"}
+    }
+  ]
+}

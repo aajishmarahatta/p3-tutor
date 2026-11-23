@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 14878,
+  "stop_reason": "end_turn",
+  "session_id": "f90d174f-29d6-4fc3-81f2-b5b9dc7b530e",
+  "total_cost_usd": 0.1199369,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23608,
+    "cache_read_input_tokens": 67129,
+    "output_tokens": 1878,
+    "output_tokens_details": {
+      "thinking_tokens": 359
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23608,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 570,
+        "cache_read_input_tokens": 33855,
+        "cache_creation_input_tokens": 764,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 764
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1878,
+      "cacheReadInputTokens": 67129,
+      "cacheCreationInputTokens": 23608,
+      "webSearchRequests": 0,
+      "costUSD": 0.1199369,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 359,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23608,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither, to start with. The premise is the problem: more agents does not always give better results.\n\nEach agent you add costs you something:\n- **Money.** Every agent re-reads its own instructions and context, so tokens add up. Your budget is small.\n- **Handoff errors.** Agent A summarizes for agent B, and details get lost on the way.\n- **Coordination.** Someone has to decide who does what, and debugging gets harder.\n\nHere is a concrete case. A student asks, \"Can I book the laser cutter Thursday, and what material is safe?\" A single agent with three tools (search manuals, check calendar, book) handles it in one loop. Split into ten agents, a router agent hands the question to a manual agent, then a calendar agent, then a booking agent, and a summarizer puts it together. You pay for about ten model calls where one loop would do, and the answer is no better.\n\nSplitting pays off in two cases:\n- The subtasks are independent and can run in parallel, like researching many topics at once.\n- One agent's context would overflow or get cluttered by the other jobs.\n\nNeither describes your assistant yet. Often the better move is a fixed workflow for the predictable parts, such as \"always check the calendar before booking\". That is a mission goal of yours, and I can teach it.\n\nFor the design review, my recommendation is to start with one agent plus three well-described tools. Split only when you can name a measured problem that a split fixes. I haven't searched for a source in this reply. Anthropic's article \"Building effective agents\" makes the same argument, so check it before you cite it.\n\nQuick check: which of your three jobs (manual lookup, calendar check, booking) would you consider splitting off first, and what problem would the split fix?\n\nI can write a lesson on workflows versus agents if you want one.",
+  "ttft_ms": 1429,
+  "type": "result",
+  "duration_ms": 15154,
+  "uuid": "51902791-fe2d-4428-8429-abf1eba20cb8",
+  "ttft_stream_ms": 966,
+  "time_to_request_ms": 238,
+  "first_content_frame_ms": 966,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1878,
+      "cacheReadInputTokens": 67129,
+      "cacheCreationInputTokens": 23608,
+      "webSearchRequests": 0,
+      "costUSD": 0.1199369,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 359,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23608,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.910Z"
+}

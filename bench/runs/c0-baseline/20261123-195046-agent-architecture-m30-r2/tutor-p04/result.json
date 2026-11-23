@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 14951,
+  "stop_reason": "end_turn",
+  "session_id": "15442f0d-a7f8-404f-a8d9-35e8f90d5a86",
+  "total_cost_usd": 0.11812439999999999,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23492,
+    "cache_read_input_tokens": 67144,
+    "output_tokens": 1743,
+    "output_tokens_details": {
+      "thinking_tokens": 287
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23492,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 591,
+        "cache_read_input_tokens": 33830,
+        "cache_creation_input_tokens": 673,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 673
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1743,
+      "cacheReadInputTokens": 67144,
+      "cacheCreationInputTokens": 23492,
+      "webSearchRequests": 0,
+      "costUSD": 0.11812439999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 287,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23492,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither, to start with. The premise is the problem: more agents don't always give better results.\n\nEach agent you add has costs:\n- **Tokens.** Every agent has its own prompt and context, and it re-reads whatever you hand it. Anthropic's write-up on its multi-agent research system reports that multi-agent runs use many times more tokens than a single chat. That matters on a small budget.\n- **Handoff errors.** Information gets lost or distorted each time one agent passes work to another.\n- **Harder debugging.** When a booking goes wrong, you have more places to look.\n\nSplitting pays off when the work is broad and can run in parallel, or when one context can't hold everything. Your assistant's tasks are small and mostly sequential.\n\nTake a student who asks, \"Can I use the laser cutter Thursday at 3?\" A single agent can look up the manual for the training requirement, check the calendar, and book the slot. That takes three tool calls in one loop. Splitting it into a manual agent, a calendar agent and a booking agent adds two handoffs and gains nothing.\n\nI'd design it this way:\n1. Start with one agent and well-described tools: manual search, calendar check, book.\n2. Make the predictable steps fixed code rather than agent decisions. For example, always check availability before booking.\n3. Split only when you can name a concrete failure that one agent has, such as its context overflowing with manual text.\n\nAt the design review, \"we started with one agent because splitting adds cost and handoff risk, and here is the trigger for splitting\" is a stronger answer than \"we chose five.\"\n\nOne question back: for the Thursday laser-cutter request, which step would you most want to make a fixed workflow step rather than leave to the model, and why?\n\nIf you'd like, I can turn this into a lesson on workflows versus agents and when multi-agent systems pay off.",
+  "ttft_ms": 1400,
+  "type": "result",
+  "duration_ms": 15110,
+  "uuid": "fe0d268c-3087-4257-83ad-4c5b25f499df",
+  "ttft_stream_ms": 791,
+  "time_to_request_ms": 118,
+  "first_content_frame_ms": 791,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1743,
+      "cacheReadInputTokens": 67144,
+      "cacheCreationInputTokens": 23492,
+      "webSearchRequests": 0,
+      "costUSD": 0.11812439999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 287,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23492,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.910Z"
+}

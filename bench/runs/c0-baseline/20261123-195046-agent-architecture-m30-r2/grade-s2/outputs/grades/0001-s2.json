@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes a system an agent is the loop: the model picks an action, the program runs it, and the result comes back for the next step. A longer prompt or a bigger model only changes what a single call can do."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only outputs a request that names check_calendar and gives its arguments (laser cutter, tomorrow's date). The program around it does the actual calendar lookup. You fixed this since your first attempt."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Running longer won't fix it. The agent sees the same failing test every time, so step 41 will look like step 1, and it will keep repeating the same edit. Believing it will get there eventually is tempting, but an agent needs a stopping condition. The fix is a step limit in the program that ends the loop and reports what happened so a person can take over. You answered this correctly in your first attempt, so check whether you recalled the reason or just the letter."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "4 is the right count: three tool requests plus the final answer. But your reason says the model runs the tools itself. It doesn't. Each call, the model only outputs a request, and the program runs the tool and calls the model again with the result. The count works out as one call for the question plus one for each of the three results. Try restating it as: model asks, program runs, model is called again."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and you gave both halves: the result goes back in as the model's next input, and the model uses it to decide what to do next. The group-chat picture works: the model takes its next turn with the reply in front of it. One addition: the model has no memory between calls, so what the program sends back is the only way the result reaches it."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, and the model does choose from what it is given. But the model relies on the whole tool description: the name, what the tool does, and the parameters it takes. A name alone can mislead, for example a tool called check_calendar could cover bookings or machine maintenance. In your first attempt you mentioned the description, so bring that back in. For your own tools, writing a clear description is the main way you steer which tool gets picked."
+    }
+  ],
+  "summary": "Since your first attempt, you have fixed the biggest slip: the model now only requests actions (q2), and you can say what happens to a tool result and why (q5). Two things to work on. First, in q4 you still describe the model as running the tools; the program runs them, and each run is followed by a new model call. Second, q3 shows a stopping condition is not secure yet: a repeating agent needs a step limit, not more time. Next step: trace the laser-cutter request on paper with two columns, 'model outputs' and 'program does', and mark where a step limit would stop it. That also prepares you for the next topic, what the model sees in its context at each step."
+}

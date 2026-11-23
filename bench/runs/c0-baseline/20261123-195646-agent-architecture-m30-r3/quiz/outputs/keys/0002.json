@@ -1,0 +1,45 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "A workflow runs the model and tools along paths written in code in advance; an agent lets the model decide its own steps and tool use. What separates them is who owns the control flow, not whether a model is called (c) or how many times (d). Option b reverses the two."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The code decides what runs next for each label; the model only classifies the message. This is the routing pattern of a workflow. Making a decision (a) or calling a model (b) does not make a system an agent, and the number of model calls (d) is not the test."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "The steps and their order are known and must be reliable, so a fixed workflow is the better choice: it is predictable, cheaper and easier to test. Handing the order or the decision to write the booking to a model (a, b) adds cost and risk with no benefit. A workflow can call tools (d)."
+    },
+    {
+      "id": "q4",
+      "answer": "The steps are fixed, so it makes fewer model calls and costs the same each time, whereas an agent loops a variable number of times and costs more.",
+      "accepted": [
+        "It uses fewer model calls, so each request is cheaper and the cost is predictable.",
+        "An agent keeps looping and re-reading its growing context, which costs more tokens; a workflow does only the needed steps.",
+        "It is cheaper and more predictable because no model call is spent deciding what to do next."
+      ],
+      "rationale": "Any valid cost reason counts: fewer model calls, predictable cost per request, or no model calls spent deciding the next step. Reasons that are only about reliability or speed, with nothing on cost, are partial. Saying a workflow needs no model at all is wrong."
+    },
+    {
+      "id": "q5",
+      "answer": 900,
+      "tolerance": 0,
+      "rationale": "Workflow: 2 calls x $0.01 = $0.02 per request, so $30 / $0.02 = 1500 requests. Agent: 5 x $0.01 = $0.05, so $30 / $0.05 = 600 requests. The difference is 1500 - 600 = 900."
+    },
+    {
+      "id": "q6",
+      "answer": "An agent, because the steps cannot be known in advance and the model has to choose what to look up or ask next based on what it finds.",
+      "accepted": [
+        "Agent: the path is open-ended, so the model needs to decide its own steps.",
+        "An agent, since a fixed sequence of steps cannot be written ahead of time for this problem."
+      ],
+      "rationale": "Open-ended problems with unpredictable steps are where an agent's flexibility is worth its extra cost. Choosing the agent without a reason about unknown steps is partial. Choosing a fixed workflow is wrong, since no fixed path can be written for this request."
+    }
+  ]
+}

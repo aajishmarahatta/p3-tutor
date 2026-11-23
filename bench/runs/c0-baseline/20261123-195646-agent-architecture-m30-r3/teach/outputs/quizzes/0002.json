@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "In one request, your assistant makes its fifth model call, after four tool results have come back. Which description of what the model receives in that call is correct?",
+      "options": [
+        {"id": "a", "text": "Only the newest tool result, since the model remembers the earlier four"},
+        {"id": "b", "text": "The instructions, the question and every earlier request and result so far"},
+        {"id": "c", "text": "A short summary that the model wrote on its own after each step"},
+        {"id": "d", "text": "Only the question and the newest request, to keep the call cheap"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's instructions and tool definitions take 1,500 tokens and the student's question takes 100 tokens. The model makes a 40-token tool request, and the tool returns 500 tokens. The model makes a second 40-token tool request, and that tool returns 2,000 tokens. How many input tokens does the model read in its third call?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student finished band saw training last week and opens a brand-new chat today. Which design lets the assistant know this, without a student having to say so?",
+      "options": [
+        {"id": "a", "text": "Using a model whose context window is ten times larger than before"},
+        {"id": "b", "text": "Telling the model in its instructions to remember every student it meets"},
+        {"id": "c", "text": "Saving the training record outside the model and loading it into each new chat"},
+        {"id": "d", "text": "Asking the model to keep last week's chat open as a long single call"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your team proposes pasting all 600 pages of the machine manuals into the context of every call, instead of searching them. Give one reason this is a bad idea for the assistant."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "You give the model a memory tool that has a create command. The model decides to save a note about a student. What happens next?",
+      "options": [
+        {"id": "a", "text": "The model writes the file itself, directly onto your server's disk"},
+        {"id": "b", "text": "The model's reply is stored automatically, with no program involved"},
+        {"id": "c", "text": "The program notices the note is important and saves it unprompted"},
+        {"id": "d", "text": "The model asks for the file to be created, and your code does it"}
+      ]
+    }
+  ]
+}

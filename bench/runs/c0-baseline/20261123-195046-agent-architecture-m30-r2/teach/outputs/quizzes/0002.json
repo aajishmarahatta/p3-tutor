@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student tells your makerspace assistant, built by calling a model from code with nothing else added, that they finished laser cutter training. On Wednesday they open a new chat and ask to book the laser cutter. What does the model know about Monday?",
+      "options": [
+        {"id": "a", "text": "Everything said on Monday, because the model learns from each chat"},
+        {"id": "b", "text": "Nothing, unless your program saved it and put it in the context"},
+        {"id": "c", "text": "Only the topic of the chat, because models keep a short summary"},
+        {"id": "d", "text": "Everything, as long as the same student account opens the chat"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your system prompt and tool descriptions total 1,500 tokens, and nothing else is added to the context except a 100-token question. A request needs 4 model calls, and the program resends the same 1,600 tokens each time because the tool results are cleared after use. How many input tokens are read across the whole request?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant answers wrongly that the vinyl cutter blade depth is 2 mm; the manual says 0.5 mm. You log the context and find the chunk with 0.5 mm was never in it. Where is the fault most likely to be?",
+      "options": [
+        {"id": "a", "text": "The search step did not return that chunk, so the model never saw it"},
+        {"id": "b", "text": "The model chose not to read that page of the manual this time"},
+        {"id": "c", "text": "The context window was too small to hold the whole manual set"},
+        {"id": "d", "text": "The model forgot the page because it was too long ago in training"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your team wants the assistant to remember which machines each student is trained on. In one or two sentences, say where that information should be kept so it survives between sessions, and what the program must do at the start of each session."
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A teammate proposes saving each day's booking calendar in the student's notes file so the assistant never needs the calendar tool. In one or two sentences, give one reason this is a poor use of notes."
+    }
+  ]
+}

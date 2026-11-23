@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The difference is who owns the control flow. In a workflow, predefined code decides the steps and their order, and models are called inside those steps; in an agent, the model decides what to do next and which tools to use. Both may call models and use tools, and neither is defined by a call count.",
+      "distractors": {"a": "M7", "c": "M7", "d": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The code fixes every step and their order, so this is a workflow (a prompt-chain-like pipeline). Using a tool (a) or having a model write the answer (b) happens in both designs, and a system without a loop is still a workflow, not "neither" (d).",
+      "distractors": {"a": "M7", "b": "M7", "d": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "This is a routing workflow. The model only outputs a label; the code defines the possible paths and the steps in each, and the model is not asked to choose steps afterwards. A model making one decision does not make the system an agent: what matters is whether the model directs the process.",
+      "distractors": {"a": "M8", "c": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "Which tools to call, in what order and how often depends on results that come back (training status, then the calendar, maybe more than one), so the path cannot be fixed in advance; that is where an agent earns its cost. Option a is false because workflows are cheaper only when the task fits a fixed path, b ignores that this request varies, and d is false because agents need a stopping condition.",
+      "distractors": {"d": "M6"}
+    },
+    {
+      "id": "q5",
+      "answer": 2000,
+      "tolerance": 0,
+      "rationale": "The agent makes 6 x 500 = 3000 calls and the workflow 2 x 500 = 1000, so the agent makes 2000 more: (6 - 2) x 500. An answer of 3000 or 1000 gives one design's total instead of the difference."
+    },
+    {
+      "id": "q6",
+      "answer": "cost and latency",
+      "accepted": ["latency and cost", "money and time", "time and money", "cost and time", "price and latency", "cost and slower responses", "more cost and more latency"],
+      "rationale": "An agent makes more model calls, since the model decides each step and re-reads the growing context, so it costs more money and takes more time per request. Naming only one of the two is partial. Predictability is also lost, but the question asks for what costs more."
+    }
+  ]
+}

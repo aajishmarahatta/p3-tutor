@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "In a workflow, predefined code paths orchestrate the model and tools; in an agent, the model directs its own process and tool use. So the deciding question is who owns the control flow. Using several tools (a), model size (c) and memory (d) can all appear in either kind of system."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "Your code fixes the steps and their order, so the control flow belongs to the program: this is a workflow, even though it calls a model twice and uses a calendar tool. Making several model calls (a) or using a tool (b) does not make a system an agent. Option d is wrong on the facts: two steps call a model."
+    },
+    {
+      "id": "q3",
+      "answer": "The model decides the next step in an agent; the program's code decides it in a workflow.",
+      "accepted": [
+        "In an agent the model decides; in a workflow the code decides.",
+        "Agent: the model. Workflow: predefined code or the developer's fixed steps.",
+        "The model chooses in an agent, and the developer's code fixes the order in a workflow."
+      ],
+      "rationale": "Both halves are needed: the model owns the control flow in an agent, and fixed code owns it in a workflow. Swapping them, or naming only one side, is not full credit."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "Booking has the same steps every time, so the path can be fixed in code: it is cheaper, faster and predictable, with no need for the model to choose. Options a, b and c are open-ended, and the number or order of steps is unknown in advance, which is where an agent earns its cost."
+    },
+    {
+      "id": "q5",
+      "answer": "More model calls, which means higher cost and latency, and less predictable behaviour.",
+      "accepted": [
+        "Higher cost",
+        "More model calls",
+        "More tokens",
+        "Slower responses",
+        "More latency",
+        "Less predictable behaviour",
+        "Harder to test",
+        "Errors can compound over steps"
+      ],
+      "rationale": "When the model chooses the path, the number of steps varies and is usually larger, so cost and latency rise and behaviour is harder to predict. Any one of these is a correct answer. An answer that only says the agent is smarter, or does not name a cost, is wrong."
+    },
+    {
+      "id": "q6",
+      "answer": 3000,
+      "tolerance": 0,
+      "rationale": "The agent makes 5 x 1,000 = 5,000 calls and the workflow 2 x 1,000 = 2,000, so the difference is 3,000. An answer of 3 gives the per-question difference rather than the total for 1,000 questions."
+    }
+  ]
+}

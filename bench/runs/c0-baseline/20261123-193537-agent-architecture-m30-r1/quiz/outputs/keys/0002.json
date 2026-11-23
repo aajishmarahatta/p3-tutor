@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference is who owns the control flow: in a workflow, code written in advance decides which step runs next; in an agent, the model decides the next step and when to stop. Both can call models and use tools, so (a) and (b) are wrong, and (d) swaps the two definitions."
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The steps and their order are known and never change, so the program should own the control flow as a fixed workflow; the model is only needed for language work such as extracting the machine and time from the request. Letting the model reorder steps (b) or choose them (c) adds cost and risk with no benefit; using tools does not make a task need an agent. A reviewing model (d) adds calls without removing the need for fixed steps."
+    },
+    {
+      "id": "q3",
+      "answer": "Workflows also use models and tools; it is an agent only if the model, not fixed code, decides which step or tool comes next and when to stop.",
+      "accepted": [
+        "Using a model and tools is not the test; an agent is one where the model decides the next steps and when to stop.",
+        "Workflows can use models and tools too; what makes an agent is that the model controls the flow.",
+        "Because a fixed workflow can use a model and tools as well; the difference is that in an agent the model chooses the steps."
+      ],
+      "rationale": "Full credit needs the point that models and tools appear in both designs and that the model deciding the next step (owning the control flow) is what makes it an agent. Saying only that an agent is 'more advanced' or 'uses more tools' is wrong. Stating that the model decides the steps without saying that tools and models also appear in workflows is mostly correct but incomplete; mark it partial."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "A fixed workflow fits when the steps are known ahead of time: it is cheaper, faster and more predictable, which matters on a small model budget. Flexibility (a) and handling every request (b) are reasons to consider an agent, and a large budget (c) removes one of the main reasons to prefer a workflow."
+    },
+    {
+      "id": "q5",
+      "answer": 900,
+      "tolerance": 0,
+      "rationale": "The agent makes 5 x 300 = 1500 calls and the workflow 2 x 300 = 600 calls, so the agent makes 1500 - 600 = 900 more. An answer of 3 is the per-request difference, not the total; 1500 or 600 is one design's total."
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "Open troubleshooting questions need an unpredictable number of lookups depending on what each result says, so the model should choose the next step. Sending a confirmation (a), checking training status (c) and logging in a set format (d) are fixed, known steps that a workflow handles more cheaply and predictably."
+    }
+  ]
+}

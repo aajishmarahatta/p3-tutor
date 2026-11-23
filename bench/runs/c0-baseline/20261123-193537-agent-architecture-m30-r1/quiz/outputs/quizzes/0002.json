@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow?",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement correctly separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow never calls a model, but an agent always does"},
+        {"id": "b", "text": "A workflow uses fewer tools than an agent ever needs to"},
+        {"id": "c", "text": "In a workflow, code sets the steps; in an agent, the model does"},
+        {"id": "d", "text": "In a workflow, the model sets the steps; in an agent, code does"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Every booking request in the makerspace assistant must (1) check the student's training status, (2) check the calendar for the slot, (3) create the booking, (4) send a confirmation. The steps and their order never change. Who should own the control flow for this part?",
+      "options": [
+        {"id": "a", "text": "The program, as a fixed workflow, with the model only filling in fields"},
+        {"id": "b", "text": "The model, so that it can reorder the four steps whenever it wants"},
+        {"id": "c", "text": "The model, because every one of the four steps involves calling a tool"},
+        {"id": "d", "text": "A second model that reviews each step the first model decides to take"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A teammate says: \"It uses a language model and several tools, so it is an agent.\" In one sentence, explain why that alone does not make it an agent."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "At the design review, someone asks when a fixed workflow is a better choice than an agent for part of the assistant. Which reason is the strongest?",
+      "options": [
+        {"id": "a", "text": "Students will find the assistant more flexible and more natural"},
+        {"id": "b", "text": "The team wants the model to handle every kind of request"},
+        {"id": "c", "text": "The sponsor's budget is large, so the cost per request is not an issue"},
+        {"id": "d", "text": "The steps are known in advance and the cost per request must be predictable"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Suppose each model call costs the same. A fixed workflow for answering a manual question makes exactly 2 model calls per request. An agent doing the same job averages 5 model calls per request, because it loops. Over 300 requests, how many more model calls does the agent make than the workflow?",
+      "unit": "calls"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the best candidate to be an agent, rather than a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "Sending the booking confirmation after a slot is reserved"},
+        {"id": "b", "text": "Answering open troubleshooting questions that may need several manual lookups"},
+        {"id": "c", "text": "Checking the training status before any booking is created"},
+        {"id": "d", "text": "Writing each completed booking to the log in a set format"}
+      ]
+    }
+  ]
+}

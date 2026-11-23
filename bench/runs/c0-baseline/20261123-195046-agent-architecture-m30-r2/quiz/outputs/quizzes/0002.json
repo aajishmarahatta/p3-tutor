@@ -1,0 +1,62 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which question best separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "Whether the system calls more than one tool for a request"},
+        {"id": "b", "text": "Whether code or the model decides the order of steps at run time"},
+        {"id": "c", "text": "Whether the system uses a large model with a long context"},
+        {"id": "d", "text": "Whether the system remembers earlier chats with each student"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In your makerspace assistant, every booking request goes through the same three steps. One model call pulls the machine and time out of the message, then your code checks the calendar, then a second model call writes the confirmation. Your code fixes the order of the steps. What is this system?",
+      "options": [
+        {"id": "a", "text": "An agent, because it makes more than one model call"},
+        {"id": "b", "text": "An agent, because one of its steps uses a calendar tool"},
+        {"id": "c", "text": "A workflow, because your code fixes the steps and their order"},
+        {"id": "d", "text": "A workflow, because no step ever calls a language model"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence: what decides which step comes next in an agent, and what decides it in a workflow?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the best candidate for a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Answering an open question that may need several manuals and follow-up searches"},
+        {"id": "b", "text": "Handling one message that mixes a training question, a booking and a fault report"},
+        {"id": "c", "text": "Diagnosing a machine fault whose cause is unknown until the assistant investigates"},
+        {"id": "d", "text": "Booking a slot: check it is free, write the booking, send the same confirmation"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Your sponsor gave you a small model budget. Name one cost of letting the model, rather than your code, own the control flow."
+    },
+    {
+      "id": "q6",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "A fixed workflow for answering a manual question always makes 2 model calls. An agent doing the same job makes 5 model calls on average, because it decides how many lookups to make. Assume every call costs the same. For 1,000 questions, how many more model calls does the agent make than the workflow?",
+      "unit": "model calls"
+    }
+  ]
+}
