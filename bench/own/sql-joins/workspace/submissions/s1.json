@@ -1,0 +1,19 @@
+{
+  "quiz": "0001",
+  "learner": "Alex",
+  "answers": [
+    {
+      "id": "q1",
+      "response": "a"
+    },
+    {
+      "id": "q2",
+      "response": "3"
+    },
+    {
+      "id": "q3",
+      "response": "An INNER JOIN only shows students who have matching enrollment records. A LEFT JOIN also shows students who have no enrollments, but I think it leaves their enrollment columns blank rather than NULL."
+    }
+  ]
+}
+

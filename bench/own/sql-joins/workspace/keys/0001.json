@@ -1,0 +1,30 @@
+{
+  "id": "0001",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A LEFT JOIN keeps every student from the left table, including students who do not have a matching enrollment. For those unmatched students, the enrollment columns contain NULL values.",
+      "distractors": {
+        "a": "M1",
+        "c": "M2"
+      }
+    },
+    {
+      "id": "q2",
+      "answer": 3,
+      "tolerance": 0.5,
+      "rationale": "An INNER JOIN includes only rows with matching records in both tables. Since exactly 3 students each have one enrollment, the result contains 3 rows. The 2 students without enrollments are excluded."
+    },
+    {
+      "id": "q3",
+      "answer": "An INNER JOIN returns only students who have matching enrollment records. A LEFT JOIN keeps all students, including those without enrollments, and shows NULL values for the unmatched enrollment columns.",
+      "accepted": [
+        "INNER JOIN only includes matching rows, while LEFT JOIN includes all rows from the left table.",
+        "An INNER JOIN excludes students without enrollments, but a LEFT JOIN keeps them with NULL enrollment values.",
+        "LEFT JOIN preserves unmatched students, whereas INNER JOIN removes them from the results."
+      ],
+      "rationale": "A correct answer must explain that INNER JOIN excludes unmatched students, while LEFT JOIN preserves all students from the left table. Mentioning NULL values for missing enrollment data demonstrates additional understanding."
+    }
+  ]
+}

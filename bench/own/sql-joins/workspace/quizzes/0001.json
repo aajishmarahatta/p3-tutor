@@ -1,0 +1,40 @@
+{
+  "id": "0001",
+  "objective": "O1",
+  "title": "SQL Joins: Predicting Query Results",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A students table contains 4 students, but only 3 have matching rows in an enrollments table. If you use a LEFT JOIN from students to enrollments, what happens to the student who has no enrollment? Assume each enrolled student has exactly one enrollment.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The student is excluded because there is no matching enrollment."
+        },
+        {
+          "id": "b",
+          "text": "The student appears with NULL values for the enrollment columns."
+        },
+        {
+          "id": "c",
+          "text": "The student appears only if an INNER JOIN is used instead."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O1",
+      "stem": "A students table has 5 students. Exactly 3 students each have one matching enrollment, and the other 2 have no enrollments. How many rows does an INNER JOIN between students and enrollments return?",
+      "unit": "rows"
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O1",
+      "stem": "In one or two sentences, explain the main difference between INNER JOIN and LEFT JOIN when some students have no matching enrollment records."
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "sql-joins",
+  "title": "Understanding SQL Joins and Their Results",
+  "learner_summary": "The learner is a Computer Science student with basic experience writing SQL queries, including SELECT, WHERE, and ORDER BY. They understand how individual tables work but are still learning how to combine data from multiple tables. They prefer clear explanations with small examples and practical exercises.",
+  "minutes": 30,
+  "teach_objective": "O2",
+  "quiz_objective": "O3",
+  "graded_quiz": "0001",
+  "submissions": [
+    "s1"
+  ],
+  "objectives": [
+    {
+      "id": "O1",
+      "text": "Distinguish INNER JOIN from LEFT JOIN and predict which rows appear in the result when two tables are joined."
+    },
+    {
+      "id": "O2",
+      "text": "Explain how one-to-many relationships affect the number of rows produced by a SQL JOIN and correctly count records without unintended duplication."
+    },
+    {
+      "id": "O3",
+      "text": "Choose the appropriate SQL JOIN type for a real-world data retrieval task and explain how that choice affects the results."
+    }
+  ],
+  "facts": [
+    {
+      "id": "F2.1",
+      "objective": "O2",
+      "text": "In a one-to-many relationship, joining a parent table to its child table can produce multiple result rows for a single parent when that parent matches multiple child records."
+    },
+    {
+      "id": "F2.2",
+      "objective": "O2",
+      "text": "COUNT(*) counts rows in the query result, while COUNT(column_name) counts rows where the specified expression is not NULL. Neither automatically counts distinct entities."
+    },
+    {
+      "id": "F2.3",
+      "objective": "O2",
+      "text": "COUNT(DISTINCT parent.id) can be used to count unique parent records after a one-to-many join, preventing multiple matching child rows from increasing the parent count."
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "M1",
+      "text": "A LEFT JOIN removes rows from the left table when there is no matching row in the right table.",
+      "correction": "A LEFT JOIN preserves every row from the left table. When there is no matching right-side row, the right-side columns contain NULL."
+    },
+    {
+      "id": "M2",
+      "text": "An INNER JOIN returns every row from both tables, even when the join condition does not match.",
+      "correction": "An INNER JOIN returns only combinations of rows that satisfy the join condition. Unmatched rows from either table are excluded."
+    },
+    {
+      "id": "M3",
+      "text": "A JOIN always returns exactly one result row for each row in the left table.",
+      "correction": "A JOIN can produce multiple rows for one left-table row when several right-table rows match. INNER JOIN can also remove unmatched left-table rows."
+    },
+    {
+      "id": "M4",
+      "text": "COUNT(*) always gives the number of unique students or other entities after joining tables.",
+      "correction": "COUNT(*) counts result rows, including multiple rows for the same entity. COUNT(DISTINCT student_id) can be used when unique students are required."
+    },
+    {
+      "id": "M5",
+      "text": "COUNT(column_name) counts NULL values the same way COUNT(*) does.",
+      "correction": "COUNT(column_name) ignores NULL values, while COUNT(*) counts all result rows."
+    }
+  ]
+}

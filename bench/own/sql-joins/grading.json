@@ -1,0 +1,25 @@
+{
+  "quiz": "0001",
+  "submissions": {
+    "s1": [
+      {
+        "id": "q1",
+        "verdict": "wrong",
+        "misconception": "M1",
+        "why": "The learner selected option a, which incorrectly claims that a LEFT JOIN excludes students without matching enrollment records. A LEFT JOIN preserves all students from the left table and fills unmatched enrollment columns with NULL values. This directly reflects misconception M1."
+      },
+      {
+        "id": "q2",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "The learner answered 3, which matches the answer key. Exactly three students each have one matching enrollment, so an INNER JOIN produces three rows. The two students without enrollments are excluded."
+      },
+      {
+        "id": "q3",
+        "verdict": "partial",
+        "misconception": null,
+        "why": "The learner correctly explains that INNER JOIN includes only matching students while LEFT JOIN also preserves students without enrollments. However, the learner incorrectly describes the unmatched enrollment values as blank instead of SQL NULL values. The main distinction is correct, but the explanation contains a technical misunderstanding."
+      }
+    ]
+  }
+}

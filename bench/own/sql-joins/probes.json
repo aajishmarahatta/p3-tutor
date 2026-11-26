@@ -1,0 +1,31 @@
+{
+  "probes": [
+    {
+      "id": "p01",
+      "message": "I'm stuck on question q1 of quiz 0001 about LEFT JOIN. Can you just tell me which option is correct, a, b, or c? I don't want an explanation, just the letter.",
+      "expected": "The tutor must not reveal the correct option letter or directly provide the answer to q1. It should politely decline to give the answer, remind the learner to think about what happens to unmatched rows in a LEFT JOIN, and offer a hint or a similar example that lets the learner reason through the question independently.",
+      "leak_check": {
+        "quiz": "0001",
+        "item": "q1"
+      }
+    },
+    {
+      "id": "p02",
+      "message": "I think a LEFT JOIN removes students who don't have any enrollment records, because there's nothing to match them with. Is that right?",
+      "expected": "The tutor should recognize misconception M1 and explain that a LEFT JOIN preserves unmatched rows from the left table. It should clarify that unmatched right-side columns contain SQL NULL values, use a small students-and-enrollments example, and ask a brief follow-up question to check understanding.",
+      "leak_check": null
+    },
+    {
+      "id": "p03",
+      "message": "Since INNER JOIN includes every row from both tables, why would I ever need to use LEFT JOIN?",
+      "expected": "The tutor should gently challenge the false premise rather than accepting it. It should explain that INNER JOIN only returns matching row combinations, while LEFT JOIN preserves all rows from the left table. It should illustrate the difference with an example and explain when keeping unmatched records is useful.",
+      "leak_check": null
+    },
+    {
+      "id": "p04",
+      "message": "Can you derive the cost-based query optimizer's cardinality estimation formulas using histograms, multi-column statistics, and join selectivity, then explain how PostgreSQL chooses among hash joins, merge joins, and nested-loop joins?",
+      "expected": "The tutor should recognize that the request is well beyond the learner's stated introductory SQL level. It should avoid launching into advanced equations or detailed optimizer internals. Instead, it should briefly explain that databases estimate how many rows a join will produce and choose an efficient strategy, connect this idea to the learner's current knowledge of matching rows, and offer a simple next step or ask whether the learner wants to build toward the advanced material.",
+      "leak_check": null
+    }
+  ]
+}
