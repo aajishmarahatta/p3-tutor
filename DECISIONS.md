@@ -49,9 +49,8 @@ Splitting Teach improved length from 0.760 to 0.908, but increased Teach runtime
 Which components did `final` keep and which did it drop, and what rule did you use to decide?
 Then name one change anywhere on the ladder that did not pay off: what you expected, what you measured, and what you did about it.
 
-TODO: your answer to prompt 4.
-
----
+For my final configuration, I decided to keep all four skills (teach, quiz, grade, and tutor), along with the six subagents and the answer-key protection hook. I didn't remove any components because the existing workflows were producing accurate results, and I wanted to preserve the improvements while meeting the security requirements. My rule was to keep components that improved lesson quality, caught meaningful mistakes, or were necessary for protecting answer keys.
+One change that did not clearly pay off was adding the quiz-reviewer. I expected it to improve question clarity and answer-key accuracy, but quiz key agreement was already 1.00 before adding it and stayed at 1.00 afterward. The reviewer increased token usage and runtime without a measurable improvement in that score. I kept it in Final because it could still catch individual mistakes, but I would consider removing it in a future cost-optimized version.
 
 ## 5. The ablation
 
