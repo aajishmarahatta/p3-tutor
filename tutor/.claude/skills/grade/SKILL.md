@@ -24,6 +24,7 @@ Read `FORMATS.md`, `PREFERENCES.md`, `MISSION.md`, `NOTES.md` and every file in 
 Then read the submission (`submissions/sN.json`), its quiz (`quizzes/NNNN.json`), its key (`keys/NNNN.json`), any earlier grades in `grades/`, and the lesson on the quiz's objective if there is one.
 You may read the key here because you are grading; never copy it into anything the learner reads except as feedback on an answer already given.
 Work only inside this folder, and never write under `.claude/`.
+The draft goes in `drafts/` and the loop's record in `review-records/`; both are yours to create.
 
 `PREFERENCES.md` decides how the feedback sounds: its tone, its length, its format, and the examples to use.
 Follow it as written, whatever it says.
@@ -105,11 +106,27 @@ Rules for all feedback:
 
 If an earlier grade for the same learner exists, you may add one clause on what changed since then, and only if it is true from the files.
 
-## Write the files
+## Draft, review, revise, then write
 
-1. Write `grades/NNNN-sN.json`, named after the quiz number and the submission, exactly as `FORMATS.md` shows: an object with `quiz`, `submission`, `items` (one entry per quiz item, same ids and order, each with `id`, `verdict`, `misconception`, `feedback`) and `summary`.
+The grades are reviewed by a fresh reader before they are final, so write a draft first and the final file once.
+
+1. **Write the draft** to `drafts/NNNN-sN-grades.json` (the quiz number and the submission, as in the final name), exactly as `FORMATS.md` shows: an object with `quiz`, `submission`, `items` (one entry per quiz item, same ids and order, each with `id`, `verdict`, `misconception`, `feedback`) and `summary`.
+   Never write the draft under `grades/`: the bench reads that folder, and a file there is final.
+2. **Check the draft yourself first** and fix what you find: the JSON rules in step 5, every `correct` item for a reason the key contradicts, every id against the workspace, and the feedback rules above.
+3. **Review pass 1.**
+   Start the `grade-reviewer` subagent with the Agent tool.
+   Its task message gives it only: the paths of the draft, the quiz, the key and the submission, and the files to read (`FORMATS.md`, `PREFERENCES.md`, `MISSION.md`, `NOTES.md`, `learning-records/`, the lesson if there is one, earlier grades).
+   Do not give it your reasoning or your opinion of the draft.
+   Wait for its report before you do anything else; never finish while a review is out.
+4. **Revise.**
+   For every finding under "Must fix", change the draft, or decide it is wrong and write down why; a finding about a verdict or an id is checked against the key and the response, not decided by who is more sure.
+   If the report is `PASS` with nothing under "Must fix", go to step 5.
+   Otherwise, after you have revised, run **review pass 2**: start the reviewer again with the same kind of task message, adding "second pass" and the previous findings, and wait for its report.
+   Fix what it still finds.
+   **Two review passes at most**, never a third, even if the reviewer still has findings: the loop ends at the cap, and the record says what was left.
+5. **Write the final file, once**, to `grades/NNNN-sN.json`, named after the quiz and the submission.
    Never overwrite an existing grades file; if one exists for this pair, grade only if the request asks for a regrade, and then say so in your final message.
-2. Read the file back and check it yourself, character by character where a string is long, because a file that does not parse scores as no grade at all:
+   Then read the file back and check it yourself, character by character where a string is long, because a file that does not parse scores as no grade at all:
    - one JSON object, with no comments and no trailing commas;
    - every `"` inside a string is escaped as `\"`, or, better, written as a single quote; feedback often quotes the learner, and a quoted word is the most common way a file breaks;
    - a line break inside a feedback string is written `\n` or left out, never typed raw; with bullets, join them with `\n- `;
@@ -117,11 +134,15 @@ If an earlier grade for the same learner exists, you may add one clause on what 
    - there is one entry for every quiz item, with the same ids in the same order, and `verdict` is exactly `correct`, `partial` or `wrong`.
    If you find a fault, fix the file and read it again.
    Do not rely on the shell: it may not be available in every run.
-3. If the grades show something worth keeping, write to `NOTES.md` what the learner now knows and what they still do not, and a misconception they showed.
+6. **Write the record** to `review-records/NNNN-sN-grades.md`, short: how many passes ran; for each pass the verdict and the findings, one line each; what you changed because of each, or why you did not; and a last line, `Result: passed` when the last pass was `PASS` or every must-fix was handled, or `Result: ended at the cap with open findings: ...`.
+   Keep answers out of the record beyond what the feedback already says.
+7. If the reviewer cannot be started (the Agent tool is denied or fails), do the checks in step 2 once more yourself, note in the record that no review ran and why, and write the final file anyway.
+   Leave the draft where it is.
+8. If the grades show something worth keeping, write to `NOTES.md` what the learner now knows and what they still do not, and a misconception they showed.
    Write a learning record in `learning-records/` when the grades are evidence of real understanding of something non-trivial, or of a misconception to work on, as `FORMATS.md` describes.
    Do not write one for something that was only covered.
 
 ## Finish
 
-End with a short message to the learner, in the way `PREFERENCES.md` asks: the grades file's path, the counts, and the one thing to work on next.
+End with a short message to the learner, in the way `PREFERENCES.md` asks: the grades file's path, the counts, how many review passes ran and whether the last one passed, and the one thing to work on next.
 Do not repeat the feedback, and do not reveal the key beyond what the feedback already says.

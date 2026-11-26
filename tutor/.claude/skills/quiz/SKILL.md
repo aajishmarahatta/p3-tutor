@@ -23,6 +23,7 @@ Read `FORMATS.md`, `MISSION.md`, `PREFERENCES.md`, `NOTES.md` and every file in 
 Then read the quizzes in `quizzes/` and their keys in `keys/` (to take the next number, avoid repeating an earlier quiz, and reuse the misconception ids the workspace already has), and any lesson in `lessons/` on the objective.
 You may read keys here because you are writing the next one; never show anything from `keys/` to the learner.
 Work only inside this folder, and never write under `.claude/`.
+The drafts go in `drafts/` and the loop's record in `review-records/`; both are yours to create.
 
 `PREFERENCES.md` shapes the wording: plain language, the examples the learner relates to when a scenario needs one, and the length and density of the key's rationales.
 The facts and the difficulty come from the objective and what the learner knows, not from `PREFERENCES.md`.
@@ -79,17 +80,32 @@ Each item in the key has, as `FORMATS.md` shows:
 - `distractors`: for each wrong option built on a misconception, the misconception's id; reuse the ids the workspace already has, and never invent an id for something that already has one.
 - `accepted` and `tolerance` where they apply.
 
-## Check the quiz before you finish
+## Draft, review, revise, then write
 
-1. **Solve it blind.**
-   Answer every item yourself from its stem and options alone, without looking at the key, and compare.
-   Rewrite any item where you hesitate or where a careful expert could argue for a second answer, and any item whose answer you could guess without knowing the subject.
-2. **Check coverage.**
-   Every core idea on your list that you meant to test has an item, no two items test the same idea, and every item serves the objective and carries its id.
-3. **Check the options.**
-   No wrong option is absurd, none is flagged by a cue, and the correct answers are spread across positions.
-4. **Check the files are valid JSON, by reading them back.**
-   Write the quiz to `quizzes/NNNN.json` and its key to `keys/NNNN.json`, with the next free number, the same number for both, and exactly the keys `FORMATS.md` shows.
+The quiz is reviewed by a fresh reader before it is final, so write drafts first and the final files once.
+
+1. **Number it.**
+   Take the next free number `NNNN` (the highest in `quizzes/` plus one, `0001` when empty) and use it for everything below.
+2. **Write the drafts**, with the same shape and keys `FORMATS.md` shows, to `drafts/NNNN-quiz.json` and `drafts/NNNN-key.json`.
+   Never write a draft under `quizzes/` or `keys/`: the bench reads those folders, and a quiz there is final.
+3. **Check the drafts yourself first**, then fix what you find:
+   - **Solve it blind.** Answer every item from its stem and options alone, without looking at the key, and compare. Rewrite any item where you hesitate, where a careful expert could argue for a second answer, or whose answer you could guess without knowing the subject.
+   - **Check coverage.** Every core idea you meant to test has an item, no two items test the same idea, and every item serves the objective and carries its id.
+   - **Check the options.** No wrong option is absurd, none is flagged by a cue, the correct answers are spread across positions, and each wrong option of an item maps to its own misconception in `distractors`.
+   - **Check the JSON** as in step 6; fix any fault now, since the reviewer reads the drafts.
+4. **Review pass 1.**
+   Start the `quiz-reviewer` subagent with the Agent tool.
+   Its task message gives it only: the paths of the two drafts, the objective and its id, the number of items asked for, and the files to read (`MISSION.md`, `NOTES.md`, `PREFERENCES.md`, `learning-records/`, the lesson if there is one, earlier quizzes and keys).
+   Do not give it your reasoning, your blind answers or your opinion of the draft.
+   Wait for its report before you do anything else; never finish while a review is out.
+5. **Revise.**
+   For every finding under "Must fix", change the drafts, or decide it is wrong and write down why.
+   If the report is `PASS` with nothing under "Must fix", go to step 6.
+   Otherwise, after you have revised, run **review pass 2**: start the reviewer again with the same kind of task message, this time adding "second pass" and the previous findings, and wait for its report.
+   Fix what it still finds.
+   **Two review passes at most**, never a third, even if the reviewer still has findings: the loop ends at the cap, and the record says what was left.
+6. **Write the final files, once.**
+   Write the quiz to `quizzes/NNNN.json` and its key to `keys/NNNN.json`, with the same number for both and exactly the keys `FORMATS.md` shows.
    Then read each file back and check it yourself, character by character where a string is long, because a file that does not parse scores as no key at all:
    - one JSON object per file, with no comments and no trailing commas;
    - every `"` inside a string value is escaped as `\"`, or, better, written as a single quote or left out; a quoted word in a rationale is the most common way a key breaks;
@@ -98,7 +114,11 @@ Each item in the key has, as `FORMATS.md` shows:
    - the quiz file holds no answers and no rationale.
    If you find a fault, fix the file and read it again.
    Do not rely on the shell: it may not be available in every run.
-5. Never change an existing quiz or key; a quiz that needs fixing becomes a new one.
+7. **Write the record** to `review-records/NNNN-quiz.md`, short: how many passes ran; for each pass the verdict and the findings the reviewer made, one line each; what you changed because of each, or why you did not; and a last line, `Result: passed` when the last pass was `PASS` or every must-fix was handled, or `Result: ended at the cap with open findings: ...`.
+   Keep the record free of answers beyond what the key already holds.
+8. Never change an existing quiz or key; a quiz that needs fixing becomes a new one.
+   If the reviewer cannot be started (the Agent tool is denied or fails), do the checks in step 3 once more yourself, note in the record that no review ran and why, and write the final files anyway.
+   Leave the drafts where they are.
 
 ## Giving a quiz in the chat
 
@@ -108,6 +128,6 @@ If the learner asks a question about an item while they take it, it is a tutor r
 
 ## Finish
 
-Write the files first, then end with a short message: the quiz's number and path, its objective, how many items, and that the key is ready for grading.
+Write the files first, then end with a short message: the quiz's number and path, its objective, how many items, how many review passes ran and whether the last one passed, and that the key is ready for grading.
 Never put an answer, a hint or any part of the key in the message.
 Say if the quiz is ahead of the lessons, and do not write a lesson unless you were asked for one.
