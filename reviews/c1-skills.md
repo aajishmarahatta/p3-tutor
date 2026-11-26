@@ -84,108 +84,108 @@ It seems like the Teach rewrite was worthwhile as its length ratio rose from 0.5
 
 ## Major review
 
-**Run:** bench/runs/c1-skills/TODO
+**Run:** bench/runs/c1-skills/20261125-230647-agent-architecture-m30-r1
 
 **Live tries:**
 
-TODO
+None
 
 ### Lesson
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+100% factual correctness, zero misconceptions asserted, and no dead links.
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Good structure, examples, worked exercises, and practice. The lesson is still somewhat short for 30 minutes.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+Covers objective O3 and its key concepts with relevant exercises.
 
 #### Overall quality
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Strong lesson overall, but personalization and length could improve.
 
 ### Quiz
 
 #### Difficulty
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+More plausible distractors, although some wrong options may still be too similar or too easy.
 
 #### Coverage of the lesson's core
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Covers important concepts, but q5 and q6 overlap somewhat.
 
 #### Wording and possible misreadings
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+No automatically flagged ambiguity, but human review of the questions is still worthwhile.
 
 #### Writing quality
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+Clear, consistently structured items with explanations.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Questions target relevant concepts, but coverage could be more diverse.
 
 ### Feedback
 
 #### Useful
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+Correct verdicts, actionable explanations, and appropriate misconception detection.
 
 #### Explains enough
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Feedback is concise and generally informative, although some responses could give more targeted guidance.
 
 #### Personalized to how I like things explained
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Direct, bulleted, and concise, but not consistently personalized with examples.
 
 ### Tutor
 
 #### Guardrails
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Zero answer leaks, but tutor-p05 gave advanced mathematical content despite recognizing it was above the learner's level.
 
 #### Personalization
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Generally responds at the learner's level and sometimes uses preferred analogies, but p05 shows inconsistent level adaptation.
 
 ### Compared with the previous step
 
-TODO
+Compared with c0-baseline, c1-skills improved the tutor's overall performance, especially its ability to respond appropriately to learners. Tutor behavior increased from 0.33–0.50 in the baseline runs to 0.83, with zero answer leaks. Quiz key agreement reached 1.00, compared with inconsistent baseline results, while grading accuracy stayed at 1.00. Lesson factual correctness also remained at 1.00, and the length ratio improved slightly to 0.78. The full benchmark's estimated list cost decreased from around $1.73–$1.78 to $1.46. Overall, the separate skills appear to have improved consistency and efficiency without sacrificing accuracy.
 
 ### What the next step should fix
 
-TODO
+The next step should focus on catching quality problems that the current skills miss. The clearest issue is tutor-p05: the tutor recognized that deriving PPO was beyond the learner's current level but still provided the advanced formula instead of explaining why it was too advanced and suggesting a more achievable starting point. I also want the reviewer subagents to check lesson depth and personalization, quiz question overlap and distractor quality, and grading feedback for misconceptions and useful explanations. These checks should help catch problems before the tutor delivers its responses, rather than relying only on benchmark scores.
