@@ -55,94 +55,94 @@ Grade improved as the reviewer caught vague feedback, clarified explanations, an
 
 ## Major review
 
-**Run:** bench/runs/c2-review/TODO
+**Run:** bench/runs/c2-review/20261126-030314-agent-architecture-m30-r1
 
 **Live tries:**
 
-TODO
+None
 
 ### Lesson
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+No factual errors or unsupported misconceptions detected.
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Better explanations, but still dense and shorter than requested
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+Relevant concepts and practice.
 
 #### Overall quality
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Useful improvements, but unresolved review findings.
 
 ### Quiz
 
 #### Difficulty
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Better distractors, but no clear stretch item.
 
 #### Coverage of the lesson's core
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+q1 and q2 still overlap.
 
 #### Wording and possible misreadings
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Clearer options and no flagged ambiguity.
 
 #### Writing quality
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Consistent, but some rationales are longer than necessary.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Generally appropriate.
 
 ### Feedback
 
 #### Useful
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+More specific review pointers.
 
 #### Explains enough
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Accurate, but a few items remain wordy.
 
 #### Personalized to how I like things explained
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Relevant examples, but not consistently across items
 
 ### Compared with the previous step
 
-TODO
+Reviewers produced some qualitative gains at roughly 2.6× the token cost. 
 
 ### What the next step should fix
 
-TODO
+The next experiment should test whether splitting lesson production into focused subagents improves teaching enough to justify further complexity.

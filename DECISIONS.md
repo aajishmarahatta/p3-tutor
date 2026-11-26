@@ -26,9 +26,7 @@ They are about what you chose and what you saw, and the Builder and the Guide ne
 Of everything you changed while building `c1-skills`, which one change to a skill made the biggest difference, and how do you know?
 Name the round, and give the evidence: a rating that moved, a check in `REPORT.md` that moved, or a quote from an output before and after.
 
-TODO: your answer to prompt 1.
-
----
+I think the biggest improvement came from Round 1, when I added the dedicated tutor skill. Tutor behavior improved from 0.50 to 1.00 in the focused test, and the responses became shorter and less revealing. Instead of giving hints that narrowed down quiz answers, the tutor helped learners work through the options themselves.
 
 ## 2. Step 2: which review loop earned its cost
 
@@ -36,9 +34,7 @@ In `c2-review` you put reviewers on teach, quiz and grade.
 Which loop earned its cost and which did not?
 For each of the two, give what it cost in tokens against `c1-skills` and one thing its reviewer caught, or say that it caught nothing.
 
-TODO: your answer to prompt 2.
-
----
+I think the Grade reviewer was the most worthwhile because it caught vague feedback and missing explanations while keeping grading accuracy at 100%. It increased token usage from about 135k to 468k, but the feedback became more useful. The Teach reviewer was less worthwhile because tokens increased from 505k to 1.35M while the lesson length ratio slightly decreased from 0.776 to 0.760. Although it caught unclear terminology and dense explanations, the improvement didn't justify the extra cost for me.
 
 ## 3. Step 3: whether splitting the teach job paid
 
