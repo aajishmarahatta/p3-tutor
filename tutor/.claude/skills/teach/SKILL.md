@@ -41,7 +41,14 @@ If `MISSION.md` is missing or vague and the request names what to teach, teach i
    Link only URLs you saw in a search result or opened in this session, exactly as you saw them.
    Add the sources to `RESOURCES.md` (`references/RESOURCES-FORMAT.md`).
 3. **List the core ideas** the objective needs, in a line each, and the misconceptions that go with them (from `NOTES.md`, the records, earlier keys' distractors and your sources).
-4. **Plan to the minutes**, as below, before you write a single section.
+4. **Have the plan made.**
+   Take the next free number `NNNN` in `lessons/` and a slug now, since the plan and the draft share them.
+   Start the `lesson-planner` subagent with the Agent tool.
+   Its task message gives it only: the objective and its id, the requested length in minutes, `NNNN`, the core ideas and misconceptions from step 3, the sources from step 2 (names and links), and a reminder to read the learner files and write `drafts/NNNN-plan.md`.
+   Do not hand it your own draft of a plan.
+   **Wait for its report before you write anything**, then read `drafts/NNNN-plan.md`.
+   The plan gives each section a title, one idea, minutes, a word budget, an example and a practice check, and totals to the requested minutes and about 130 to 150 words per minute.
+   If the plan is missing or does not total to the length, ask it once to fix it; if the planner cannot run (the Agent tool is denied or fails), make the same plan yourself as "Fit the length" describes and say so in the review record.
 
 ## Fit the length
 
@@ -60,8 +67,8 @@ Reach the length with material that teaches, never with repetition or filler:
 - **A second look**: one case where the idea does not apply or breaks, and what to do instead.
 - **Reflection**: a prompt to explain the main idea in their own words, and a warm-up recall question from earlier material at the start.
 
-Write the plan as a table of sections with a minute budget and a word budget for each (about 140 words per minute of explanation and example, fewer where the learner is working on a task), and make the budgets add up to the whole length.
-Then write each section to its budget.
+The lesson-planner writes the plan as a table of sections with a minute budget and a word budget for each (about 140 words per minute of explanation and example, fewer where the learner is working on a task), and the budgets add up to the whole length.
+You then write each section to its budget in the plan.
 Do not repeat a point to fill a section; if a section has said what it needs to say, spend the leftover on a worked example, a practice item or a case where the idea fails.
 If the objective is too big for the time, teach its core well and say what the next lesson would cover; if it is too small, add worked examples and practice, never padding.
 
@@ -85,18 +92,23 @@ Interactive parts must work with the keyboard, the page must work with no networ
 
 The lesson is reviewed by a fresh reader before it is final, so write a draft first and the final lesson once.
 
-1. **Number it.**
-   Take the next free number `NNNN` in `lessons/` and a slug, as `FORMATS.md` and the template show.
-2. **Write the draft** to `drafts/NNNN-<slug>.html`: a complete HTML document, `<meta name="p3-minutes">` with the requested minutes and `<meta name="p3-objective">` with the objective id, self-contained, with no stylesheet, script, font or image from the web.
-   If `assets/lesson.css` exists, link it as `../assets/lesson.css`; otherwise copy the template's CSS into the page.
+1. **Use the number from the plan.**
+   The lesson takes the `NNNN` and the slug you chose in "Plan the lesson", as `FORMATS.md` and the template show.
+2. **Have the draft written from the plan.**
+   Start the `lesson-writer` subagent with the Agent tool.
+   Its task message gives it only: the path of the plan (`drafts/NNNN-plan.md`), `NNNN` and the slug, the objective and its id, the requested length in minutes, and the sources (names and links) from "Plan the lesson".
+   Do not hand it your own draft or your reasoning.
+   **Wait for its report before you do anything else**, then read `drafts/NNNN-<slug>.html`.
+   The draft is a complete HTML document: `<meta name="p3-minutes">` with the requested minutes and `<meta name="p3-objective">` with the objective id, self-contained, with no stylesheet, script, font or image from the web, and the plan's sections in order, each near its word budget.
    Never write a draft under `lessons/`: the bench counts the new lessons there, and exactly one is allowed.
-3. **Check the draft yourself first** and fix what you find.
+   If the writer cannot run (the Agent tool is denied or fails) or its draft is missing, write the draft yourself from the plan to the same file and say so in the review record.
+3. **Check the draft yourself first** and fix what you find, editing the draft in place with your Edit or Write tool, never with a shell command.
    Read the file back and estimate the words of every section by its budget, and the total against the target above.
    If it is short, add a worked example, a practice check or a misconception to the thinnest section, never filler; if it is long, cut repetition.
    Check also: the two meta tags are right; no external stylesheet, script or image; every link came from this session; every statistic or number has a source cited beside it; every practice question has feedback; the lesson ties to the mission; every term, comparison and analogy is explained where it first appears.
 4. **Review pass 1.**
    Start the `lesson-reviewer` subagent with the Agent tool.
-   Its task message gives it only: the path of the draft, the objective and its id, the requested length in minutes, and the files to read (`FORMATS.md`, `MISSION.md`, `PREFERENCES.md`, `NOTES.md`, `learning-records/`, earlier lessons, `RESOURCES.md`).
+   Its task message gives it only: the path of the draft and of the plan (to check the draft against its budgets), the objective and its id, the requested length in minutes, and the files to read (`FORMATS.md`, `MISSION.md`, `PREFERENCES.md`, `NOTES.md`, `learning-records/`, earlier lessons, `RESOURCES.md`).
    Do not give it your reasoning or your opinion of the draft.
    Wait for its report before you do anything else; never finish while a review is out.
 5. **Revise.**
@@ -104,11 +116,12 @@ The lesson is reviewed by a fresh reader before it is final, so write a draft fi
    Fix a short lesson with real teaching content, as above, never filler.
    If the report is `PASS` with nothing under "Must fix", go to step 6.
    Otherwise, after you have revised, run **review pass 2**: start the reviewer again with the same kind of task message, adding "second pass" and the previous findings, and wait for its report.
-   Fix what it still finds.
+   Fix what it still finds, in the draft file.
    **Two review passes at most**, never a third, even if the reviewer still has findings: the loop ends at the cap, and the record says what was left.
-6. **Write the final lesson, once**, to `lessons/NNNN-<slug>.html`, with the same number and slug, the two meta tags and the same self-contained rules.
+6. **Write the final lesson, once**, to `lessons/NNNN-<slug>.html` with your Write tool (never a shell copy), with the finished draft's content, with the same number and slug, the two meta tags and the same self-contained rules.
    Exactly one new lesson per request, and never change an existing one.
    Read it back once: the tags, no external resources, and nothing left from a failed edit.
+   Drafts, the plan and any scratch file stay in `drafts/`.
 7. **Write the record** to `review-records/NNNN-<slug>.md`, short: how many passes ran; for each pass the verdict and the findings, one line each; what you changed because of each, or why you did not; and a last line, `Result: passed` when the last pass was `PASS` or every must-fix was handled, or `Result: ended at the cap with open findings: ...`.
 8. If the reviewer cannot be started (the Agent tool is denied or fails), do the checks in step 3 once more yourself, note in the record that no review ran and why, and write the final lesson anyway.
    Leave the draft where it is.

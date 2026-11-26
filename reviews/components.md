@@ -80,3 +80,21 @@ An example of a finished entry:
 - With and without: reviews/c2-review.md, Round 3 (without) and the c2-review full run (with)
 - Review: TODO
 - Kept in final: TODO
+
+### lesson-planner
+
+- Kind: subagent
+- Step added: c3-split
+- Purpose: TODO
+- With and without: reviews/c3-split.md, Round 1 (without) and Round 2 (with)
+- Review: TODO
+- Kept in final: TODO
+
+### lesson-writer
+
+- Kind: subagent
+- Step added: c3-split
+- Purpose: TODO
+- With and without: reviews/c3-split.md, Round 2 (without) and the c3-split full run (with)
+- Review: TODO
+- Kept in final: TODO

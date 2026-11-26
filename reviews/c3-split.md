@@ -11,31 +11,31 @@ Keep every heading as it is, because `p3 check` reads them, and add a round by c
 
 ### Round 1
 
-**Run:** TODO
+**Run:** bench/runs/c2-review/20261126-030314-agent-architecture-m30-r1
 
 **My thoughts:**
 
-TODO
+The lesson passed factual checks (1.00), but its length ratio was only 0.76, equivalent to approximately 22.8 minutes of estimated reading for a requested 30-minute lesson. The reviewer caught dense explanations and terms introduced too quickly. I want a dedicated planner to assign section lengths, organize concepts, and budget time for worked examples and exercises.
 
 **What changed:**
 
-- Kind: TODO
-- Files: TODO
-- Why: TODO
+- Kind: new subagent
+- Files: tutor/.claude/agents/lesson-planner.md, tutor/.claude/skills/teach/SKILL.md
+- Why: The c2-review lesson passed the fact check but reached only a length ratio of 0.76 with dense sections and terms introduced too quickly; a lesson-planner subagent now writes drafts/NNNN-plan.md with sections, one idea each, minutes, word budgets of about 130 to 150 words per minute, examples, practice and where each term is defined, and the teach skill waits for that plan and writes the lesson from it before the two review passes.
 
 ### Round 2
 
-**Run:** TODO
+**Run:** bench/runs/_live/20261126-035703-agent-architecture-m30-r1
 
 **My thoughts:**
 
-TODO
+The planner improved the length ratio from 0.76 to 1.02, making the 30-minute lesson much closer to its intended duration, which is what we wanted improved from last time. Technical correctness remained at 1.00. The planner's section budgets were mostly followed, but the final lesson still had authoring problems and did not fully use your preferred examples. I want the writer to follow the plan more consistently, keep explanations accessible, and avoid inconsistencies in exercises and feedback.
 
 **What changed:**
 
-- Kind: TODO
-- Files: TODO
-- Why: TODO
+- Kind: new subagent
+- Files: tutor/.claude/agents/lesson-writer.md, tutor/.claude/skills/teach/SKILL.md
+- Why: The planner raised the length ratio from 0.76 to 1.02, but the main session still assembled the lesson in scratch chunks and left authoring faults (a doubled verdict in feedback, a mismatched figure caption, the right option always third) and too little of the preferred examples; a lesson-writer subagent now writes the whole draft from the plan section by section to its budgets, with personalization, defined terms and consistent practice feedback, and the teach skill waits for the plan, then the draft, before the lesson-reviewer loop.
 
 ## Major review
 
