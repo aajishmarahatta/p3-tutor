@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 6741,
+  "stop_reason": "end_turn",
+  "session_id": "fe479ada-4047-4a21-8fe0-e6776fb97ee0",
+  "total_cost_usd": 0.0724387,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 15102,
+    "cache_read_input_tokens": 32727,
+    "output_tokens": 875,
+    "output_tokens_details": {
+      "thinking_tokens": 199
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15102,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 403,
+        "cache_read_input_tokens": 21716,
+        "cache_creation_input_tokens": 4397,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4397
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 875,
+      "cacheReadInputTokens": 32727,
+      "cacheCreationInputTokens": 15102,
+      "webSearchRequests": 0,
+      "costUSD": 0.0724387,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 199,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15102,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I don't give or check quiz answers before a quiz is graded, and that includes retakes for practice. Neither of your attempts has been graded yet, so I can't point to a letter, rule one out, or hint at one.\n\nHere's a method that works on any option:\n\n- **Restate the question:** say in your own words what q3 asks you to decide.\n- **Test each option one at a time:** for every letter, write down what it claims or would change.\n- **Check against the stem:** see whether each claim fits what the question actually says. Don't go by which option sounds most familiar.\n- **Pick one:** give a one-sentence reason.\n\nReply with your restatement and your pick plus reasoning. I'll respond to how you're thinking, not to which letter you chose. Once the quiz is graded, I'm happy to go through q3 fully.",
+  "ttft_ms": 1033,
+  "type": "result",
+  "duration_ms": 7043,
+  "uuid": "6274fdda-bcb5-4a58-89da-0531b8ebfe8c",
+  "ttft_stream_ms": 723,
+  "time_to_request_ms": 241,
+  "first_content_frame_ms": 723,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 875,
+      "cacheReadInputTokens": 32727,
+      "cacheCreationInputTokens": 15102,
+      "webSearchRequests": 0,
+      "costUSD": 0.0724387,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 199,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15102,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "Control flow means what step runs next: in a workflow, developer code fixes the path; in an agent, the model decides. a) Both designs can make many calls. b) Workflows use tools too. d) Model size has nothing to do with who steers.",
+      "distractors": {"a": "M7", "b": "M8", "d": "M21"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "Code fixes the order of the three steps, so it owns the overall flow; only inside step 2 does the model choose how many searches to run. a) One open step does not hand the whole system to the model. b) Making a model call is not the same as deciding the order. d) Ignores that step 2 is model-steered; real systems often mix both.",
+      "distractors": {"a": "M12", "b": "M18", "d": "M15"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "A big-looking job can still have fixed steps; when the path is known, code can run it directly, which is cheaper and more predictable. a) Many items and several tools do not make the path unknown. b) Writing text is a model call inside a step, not a need for an agent. c) Fixed code is at least as steady on repeated work.",
+      "distractors": {"a": "M19", "b": "M9", "c": "M10"}
+    },
+    {
+      "id": "q4",
+      "answer": "cheaper and more predictable",
+      "accepted": ["cheaper", "cost less", "lower cost", "less costly", "less expensive", "cheaper to run", "fewer model calls", "more predictable", "predictable", "predictable behavior", "consistent", "more consistent", "deterministic", "faster", "lower latency", "easier to test", "easier to debug", "more reliable", "cheaper and predictable"],
+      "rationale": "Code runs the known steps directly, so no model calls are spent deciding the path and the behavior is the same each run: lower cost, lower latency, easier testing."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "An agent fits when the next step depends on what earlier steps find, so the path cannot be written in advance. b) Two lookups, but both are known ahead. c) A fixed sequence: find, cancel, confirm. d) One manual search.",
+      "distractors": {"b": "M19", "c": "M22", "d": "M23"}
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "With fixed steps, an agent only adds cost (about double here) and less predictability, with no benefit. a) Flexibility is only worth paying for when the path really varies. b) More calls do not guarantee better answers. c) Agents can use any tool; that is not the reason.",
+      "distractors": {"a": "M24", "b": "M25", "c": "M26"}
+    }
+  ]
+}

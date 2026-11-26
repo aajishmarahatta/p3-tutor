@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (pick action, run it, feed back the result) is what makes it an agent, not prompt length or model size."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong.\n- The model never opens the booking system. It only outputs a structured request naming check_calendar plus the arguments (laser cutter, tomorrow's date). The program around it runs the tool.\n- It feels like the model does the action because it chooses it, but think of it as returning a dict that the program then executes.\n- Review: who runs the tool, the program and not the model (learning record 0002)"
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- Same failing result 40 times means more steps add nothing; a stopping condition ends the loop."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong. The answer is 4, not 1.\n- The model does not run the tools itself. Each call ends with one tool request or the final answer, and the program runs the tool and calls the model again.\n- Three tool requests plus the final answer is 4 calls.\n- Review: one model call per step of the loop (learning record 0002)"
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right.\n- Right: the result goes back to the model.\n- Missing: the why, and that the model gets called again. It goes into the model's next input so the model can use it to pick its next step or write the final answer.\n- Review: why the model needs the result, to choose its next step or write the answer (learning record 0002)"
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "- Partly right.\n- Right: the model gets tool names and descriptions and picks the one that fits.\n- Where did it learn which tool it picked in earlier sessions? Nothing carries over between sessions automatically. The model only knows what the program puts in its input this time.\n- Review: the model knows only its training plus the text it is given (learning record 0001)"
+    }
+  ],
+  "summary": "2 correct, 2 partial, 2 wrong. You have down what makes an agent a loop and why it needs a stopping condition. Work on who does what: the model only requests tools, and the program runs them and feeds results back. Reread learning record 0002 and trace the three-tool run in q4 step by step."
+}

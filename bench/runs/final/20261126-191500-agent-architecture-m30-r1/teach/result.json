@@ -1,0 +1,129 @@
+{
+  "duration_api_ms": 578611,
+  "stop_reason": "end_turn",
+  "session_id": "d3a8c758-2280-4079-9a53-6a5f18c9ad55",
+  "total_cost_usd": 1.8289254050000003,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 26498,
+    "cache_read_input_tokens": 358585,
+    "output_tokens": 22768,
+    "output_tokens_details": {
+      "thinking_tokens": 472
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 26498,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 509,
+        "cache_read_input_tokens": 91787,
+        "cache_creation_input_tokens": 20841,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 20841
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 80,
+      "outputTokens": 82540,
+      "cacheReadInputTokens": 1456144,
+      "cacheCreationInputTokens": 264543,
+      "webSearchRequests": 0,
+      "costUSD": 1.7849574,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 19755,
+      "cacheCreationEphemeral5mInputTokens": 162926,
+      "cacheCreationEphemeral1hInputTokens": 101617,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 69723,
+      "outputTokens": 9521,
+      "cacheReadInputTokens": 3233,
+      "cacheCreationInputTokens": 17623,
+      "webSearchRequests": 3,
+      "costUSD": 0.043968005,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 4764,
+      "cacheCreationEphemeral5mInputTokens": 17623,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwxxusn5-897b7fc9"
+  },
+  "subagent_stats": {
+    "spawned": 5,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 5
+    },
+    "started_in_background": 4,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 5,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-planner": 1,
+      "lesson-writer": 1,
+      "lesson-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 11,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The lesson is at `lessons/0001-context-and-memory-in-an-agent.html`. It covers objective O3 and is built for 30 minutes (an estimated 27 to 31 by word count). I numbered it 0001 because `lessons/` was empty, so the plan and draft in `drafts/` are named 0003 (my mistake).\n\nI ran two review passes and both came back \"revise\", so the last one did not pass. I applied the second pass's fixes (token counts, warm-up wording, defining \"stub\") but did not re-review them. The review record is in `review-records/0001-context-and-memory-in-an-agent.md`. I did not read the final file back after writing it.\n\nAfter the lesson, you can decide for the makerspace assistant what stays in its context window, what it saves between sessions, and how it finds the right manual page.\n\n- **Sources:** I added the three sources to `RESOURCES.md`. The Lilian Weng article was only seen in search results. It is cited just for the short-term versus long-term memory framing, and the pass 1 reviewer fetched it and confirmed that framing.\n- **Notes:** I updated `NOTES.md` to record that the lesson covers O3. I wrote no learning record, since the lesson only covered the material and nothing shows it was learned yet.\n- **Next:** you can ask for a shorter or longer version, ask questions in the chat, or ask for a quiz when you're ready.\n\nQuestion for you: the examples use stand-in code for the model call, since you haven't called a model from code yet. Do you want the next lesson to include a real API call?",
+  "ttft_ms": 2052,
+  "type": "result",
+  "duration_ms": 117352,
+  "uuid": "0bc8451b-f8fe-41d7-8a62-6e6d9c3f8e06",
+  "ttft_stream_ms": 580,
+  "time_to_request_ms": 53,
+  "first_content_frame_ms": 581,
+  "queued_turn_count": 0,
+  "result_index": 4,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

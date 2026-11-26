@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (model picks an action, it runs, the result comes back) is what separates an agent from one model call."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong.\n- It sounds natural that the model just goes and reads the calendar, but the model only writes text. Here that text is a structured request naming check_calendar with the laser cutter and tomorrow's date as arguments.\n- The program around the model runs the tool and sends the result back.\n- Review: the agent loop (learning record 0002), the program runs the tool, not the model"
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- Repeating the same failing step needs a stopping condition, not more context or more steps."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong. You answered 1.\n- That treats the model as running all three tools itself inside one call. The program runs the tools. The model is called once per input it receives: the question, then each of the three tool results. That is 4 calls.\n- Review: the agent loop (learning record 0002), the repeat of ask, run, return"
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right.\n- Right: the result goes back to the model.\n- Missing: why. The model needs the result in its next input so it can choose its next step or write the final answer. Think of a play-caller who needs the result of the last play before calling the next.\n- Review: the agent loop (learning record 0002), why results are fed back"
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "- Partly right.\n- Right: the model gets a list of tools with names and descriptions and picks the one that fits.\n- What did you assume about where the model's memory of past sessions comes from? It has none on its own; it only sees what the program puts in its input, so it picks from the descriptions, not from remembered choices.\n- Review: what a language model does (learning record 0001): it knows only its training plus the text it is given. Memory across sessions is a later topic."
+    }
+  ],
+  "summary": "Score: 2 correct, 2 partial, 2 wrong. You have down what makes an agent and when to stop a loop. Work on who does what in the loop: the model only writes requests, and the program runs tools and returns results (that is why q4 is 4 calls). Next step: reread learning record 0002 and trace q4 call by call."
+}

@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (pick an action, run it, feed the result back) is the structure that makes it an agent, not a better prompt or bigger model."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The model only outputs a structured request naming the tool and its arguments; the program runs it."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "- Wrong.\n- You picked 'no change, it will eventually fix it'. Tempting, but the agent is getting the same failing result each step, so more steps add nothing.\n- The fix is a stopping condition like a step limit that ends the loop and reports back. All 40 steps already fit in context, so a bigger window wouldn't help.\n- Review: why an agent loop needs a stopping condition"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "- Partly right. 4 is the right count: three tool requests plus the final answer.\n- Quick check on your reason: when the model wants check_calendar, what does it actually output?\n- The model only requests a tool each call; the program runs it and feeds the result back. The count works because each input (the question plus 3 results) triggers one call.\n- Review: what the model outputs when it uses a tool"
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- You covered both parts: the result goes back in as the next input, and the model uses it to decide its next step."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right. The name does help the model pick a tool.\n- But a name alone can mislead. What would the model do with two tools with similar names? It relies on the whole description the program gives it: name, what it does, and the parameters it takes.\n- Review: tool descriptions (name, purpose, parameters)"
+    }
+  ],
+  "summary": "- 3 correct, 2 partial, 1 wrong.\n- You've got the agent loop structure and what happens to a tool result down.\n- Main thing to work on: in q4 you said the model runs the tools itself. It doesn't; it only outputs a request, and the program runs the tool.\n- Next step: re-trace q4 on paper, marking which steps are model calls and which are the program running a tool."
+}

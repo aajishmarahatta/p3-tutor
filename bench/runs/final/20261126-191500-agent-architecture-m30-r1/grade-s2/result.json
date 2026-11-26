@@ -1,0 +1,123 @@
+{
+  "duration_api_ms": 87459,
+  "stop_reason": "end_turn",
+  "session_id": "2d8a042a-6bed-415b-a36b-29bf40e0a820",
+  "total_cost_usd": 0.4338775,
+  "usage": {
+    "input_tokens": 20,
+    "cache_creation_input_tokens": 31107,
+    "cache_read_input_tokens": 318752,
+    "output_tokens": 4302,
+    "output_tokens_details": {
+      "thinking_tokens": 158
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 31107,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 267,
+        "cache_read_input_tokens": 41690,
+        "cache_creation_input_tokens": 428,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 428
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 38,
+      "outputTokens": 12929,
+      "cacheReadInputTokens": 397460,
+      "cacheCreationInputTokens": 87242,
+      "webSearchRequests": 0,
+      "costUSD": 0.4338775,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2261,
+      "cacheCreationEphemeral5mInputTokens": 56135,
+      "cacheCreationEphemeral1hInputTokens": 31107,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 1,
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 17,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Riley, your grades for quiz 0001, submission s2, are in `grades/0001-s2.json`.\n\n- **Counts:** 3 correct (q1, q2, q5), 2 partial (q4, q6), 1 wrong (q3).\n- **Review:** 2 passes ran. Pass 1 asked for a revision (the summary and one q4 question), and pass 2 passed.\n- **Work on next:** in q4 you got the count right but said the model runs the tools itself. It only outputs a request, and the program runs the tool. Re-trace q4 on paper and mark which steps are model calls and which are the program running a tool.\n\nI also updated `NOTES.md` and wrote the review record to `review-records/0001-s2-grades.md`. I wrote no learning record, since the open misconception is already in the notes.",
+  "ttft_ms": 1278,
+  "type": "result",
+  "duration_ms": 88303,
+  "uuid": "3c0a7f7c-2942-4fae-88d4-319105ef9ec0",
+  "ttft_stream_ms": 826,
+  "time_to_request_ms": 123,
+  "first_content_frame_ms": 826,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 38,
+      "outputTokens": 12929,
+      "cacheReadInputTokens": 397460,
+      "cacheCreationInputTokens": 87242,
+      "webSearchRequests": 0,
+      "costUSD": 0.4338775,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2261,
+      "cacheCreationEphemeral5mInputTokens": 56135,
+      "cacheCreationEphemeral1hInputTokens": 31107,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

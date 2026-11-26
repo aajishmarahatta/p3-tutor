@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop of choose action, run it, feed the result back is the defining structure."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The model only outputs a request naming the tool and its arguments; the program runs it."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "- Wrong.\n- Waiting it out is tempting, but the agent is getting the same failing result every step, so more steps add nothing. It needs a stopping condition, like a step limit, that ends the loop and hands the problem to a person.\n- Think of a `while True` with no break: what ends it if the test never passes?\n- Review: the stopping condition in the agent loop"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "- Partly right.\n- 4 is the right count.\n- Quick check: who actually runs check_calendar, the model or the program around it?\n- The model never runs a tool; it only requests one. The program runs it and feeds the result back. The count is 4 because the model is called once for the question and once for each of the 3 tool results.\n- Review: who runs the tool in the agent loop"
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- You gave both the what (result goes back in as the next input) and the why (so the model can decide its next step)."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right.\n- The name does carry information.\n- But the model goes by the whole tool description the program gives it: name, what the tool does, and its parameters. A name alone can mislead, e.g. a vague name hides what the tool really does.\n- Review: tool descriptions (not covered yet)"
+    }
+  ],
+  "summary": "3 correct, 2 partial, 1 wrong. You have down what the loop is and what the model outputs for a tool call. Work on the stopping condition: a loop that gets the same failing result needs a step limit. Next step: reread learning record 0002 on the agent loop and sketch where a step limit goes in the makerspace assistant's loop."
+}

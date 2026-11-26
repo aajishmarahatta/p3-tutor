@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 10807,
+  "stop_reason": "end_turn",
+  "session_id": "90df8c47-b456-43d4-8027-1cf939af258a",
+  "total_cost_usd": 0.0757237,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 14946,
+    "cache_read_input_tokens": 32717,
+    "output_tokens": 1266,
+    "output_tokens_details": {
+      "thinking_tokens": 297
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14946,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 912,
+        "cache_read_input_tokens": 21706,
+        "cache_creation_input_tokens": 4251,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4251
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 1266,
+      "cacheReadInputTokens": 32717,
+      "cacheCreationInputTokens": 14946,
+      "webSearchRequests": 0,
+      "costUSD": 0.0757237,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 297,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14946,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Short version: it's partly true, but it's the wrong tool for your project right now.\n\n**The idea (summary)**\n- RL (reinforcement learning) trains a model by trial and reward. It tries actions, gets a score, and shifts toward what scored well.\n- Labs do use it for agents, but they have huge compute budgets and a model they can train.\n\n**PPO in one pass (not a full derivation)**\n- Policy gradient is where it starts: raise the probability of actions that beat average. \"Beat average\" is the *advantage* `A`.\n- You reuse old samples via a probability ratio: `r = π_new(action) / π_old(action)`.\n- The problem is that big updates wreck the model. PPO's fix is clipping:\n  - `L = E[ min( r·A, clip(r, 1−ε, 1+ε)·A ) ]`\n- Sports analogy: a coach tweaks the playbook a little each week instead of rewriting it after one loss. `ε` (about 0.2) is the cap on how big a tweak can be. It breaks down because the model has no \"bad week\" recovery. A bad update can ruin it.\n\n**Why I wouldn't do this for your assistant**\n- You'd need an open-weights model you can train, GPUs, thousands of scored runs, and a reward function. For example, you'd have to define \"booked the right machine\" as a number.\n- Your budget is small, and the mission puts training and the math inside models out of scope.\n- Cheaper fixes usually get most of the gain:\n  - Sharper tool descriptions.\n  - Example calls in the prompt.\n  - A test set of 20 real student questions to measure tool-call accuracy.\n\nIf tool calling still fails after that, then look at fine-tuning.\n\nQuick check: what would your reward function be for the booking tool? Writing it will show you how hard this is.\n\nI can also write a lesson on tool descriptions if you want.",
+  "ttft_ms": 1509,
+  "type": "result",
+  "duration_ms": 11261,
+  "uuid": "f7108da6-32ad-427f-be5b-c18f8a05e178",
+  "ttft_stream_ms": 933,
+  "time_to_request_ms": 410,
+  "first_content_frame_ms": 933,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 1266,
+      "cacheReadInputTokens": 32717,
+      "cacheCreationInputTokens": 14946,
+      "webSearchRequests": 0,
+      "costUSD": 0.0757237,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 297,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14946,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

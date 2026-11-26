@@ -1,0 +1,73 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In a system built around a language model, what separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "How many times the model is called to answer one request"},
+        {"id": "b", "text": "Whether the system is allowed to call any tools at all"},
+        {"id": "c", "text": "Whether developer code or the model decides what happens next"},
+        {"id": "d", "text": "How large the model is and how much context it can hold"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A booking feature always runs three steps in this order, written in code: (1) a model call extracts the machine and date, (2) a model with a search tool and no set number of searches looks up the machine's rules, (3) code creates the booking. Which statement about who owns the control flow is accurate?",
+      "options": [
+        {"id": "a", "text": "The model owns all of it, because one step lets it choose its own searches"},
+        {"id": "b", "text": "The model owns the order, because it makes the calls in steps 1 and 2"},
+        {"id": "c", "text": "Code owns the step order, and the model owns only the choices inside step 2"},
+        {"id": "d", "text": "Code owns all of it, because the three steps always run in the same order"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Each night the assistant must go through tomorrow's bookings and email every student who lacks the required training. How should this job be built?",
+      "options": [
+        {"id": "a", "text": "As an agent, because there are many bookings and several tools to use"},
+        {"id": "b", "text": "As an agent, because the emails are free-form text that a model must write"},
+        {"id": "c", "text": "As an agent, because it will be more reliable than fixed code on repeated work"},
+        {"id": "d", "text": "As a workflow, because the check and the email follow the same steps for every booking"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one short phrase, name one advantage a fixed workflow has over an agent when a task's steps are known in advance."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which request to the makerspace assistant is the best fit for an agent rather than a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "A student reports a print that keeps failing and asks what to try"},
+        {"id": "b", "text": "A student asks if the laser cutter is free Friday and if they are trained on it"},
+        {"id": "c", "text": "A student asks to cancel a booking and be told once it is cancelled"},
+        {"id": "d", "text": "A student asks the maximum material thickness for the laser cutter"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "At the design review, a teammate proposes turning the 'is this machine free on this date?' feature into an agent. That feature only ever looks up one machine and date in the calendar, and the agent would average 4 model calls instead of 2. What is the best response?",
+      "options": [
+        {"id": "a", "text": "Build the agent; extra cost is justified by the chance it handles surprises"},
+        {"id": "b", "text": "Build the agent; more model calls always lead to more accurate answers"},
+        {"id": "c", "text": "Keep the workflow; an agent cannot be given a calendar tool to call"},
+        {"id": "d", "text": "Keep the workflow; the agent would double the cost with nothing gained"}
+      ]
+    }
+  ]
+}

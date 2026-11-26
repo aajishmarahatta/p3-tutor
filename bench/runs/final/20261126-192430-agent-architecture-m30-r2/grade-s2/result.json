@@ -1,0 +1,123 @@
+{
+  "duration_api_ms": 63844,
+  "stop_reason": "end_turn",
+  "session_id": "510d7e70-23bc-4f92-8ede-8fc5483fc263",
+  "total_cost_usd": 0.31558400000000003,
+  "usage": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 28769,
+    "cache_read_input_tokens": 209459,
+    "output_tokens": 3376,
+    "output_tokens_details": {
+      "thinking_tokens": 46
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 28769,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 212,
+        "cache_read_input_tokens": 38877,
+        "cache_creation_input_tokens": 903,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 903
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 28,
+      "outputTokens": 9639,
+      "cacheReadInputTokens": 295595,
+      "cacheCreationInputTokens": 58570,
+      "webSearchRequests": 0,
+      "costUSD": 0.31558400000000003,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1597,
+      "cacheCreationEphemeral5mInputTokens": 29801,
+      "cacheCreationEphemeral1hInputTokens": 28769,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 2,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 1,
+      "grade-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 15,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Riley, I've graded submission s2 for quiz 0001. The grades are in `grades/0001-s2.json`.\n\n- **Counts:** 3 correct, 2 partial, 1 wrong.\n- **Review:** 1 pass ran, and it passed.\n- **Work on next:** the stopping condition in the agent loop. Reread learning record 0002, then sketch where a step limit goes in the makerspace assistant's loop. Also check who runs a tool: the model only requests it. Your q4 count was right, but your reasoning wasn't.\n\nI also updated `NOTES.md` and added learning record 0003 for the two misconceptions.",
+  "ttft_ms": 1144,
+  "type": "result",
+  "duration_ms": 64309,
+  "uuid": "bfab89c4-b2d4-410b-b365-c385f9b933ba",
+  "ttft_stream_ms": 588,
+  "time_to_request_ms": 100,
+  "first_content_frame_ms": 588,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 28,
+      "outputTokens": 9639,
+      "cacheReadInputTokens": 295595,
+      "cacheCreationInputTokens": 58570,
+      "webSearchRequests": 0,
+      "costUSD": 0.31558400000000003,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1597,
+      "cacheCreationEphemeral5mInputTokens": 29801,
+      "cacheCreationEphemeral1hInputTokens": 28769,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

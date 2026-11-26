@@ -1,0 +1,79 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A teammate asks how to tell whether a system built on a language model is a workflow or an agent. Which question separates the two?",
+      "options": [
+        {"id": "a", "text": "How many times the model is called for one request"},
+        {"id": "b", "text": "Whether the system is given tools it can call"},
+        {"id": "c", "text": "Whether the code or the model decides the next step"},
+        {"id": "d", "text": "How large and capable the underlying model is"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A makerspace assistant handles every request like this. Step 1: one model call labels the question 'booking' or 'manual'. Step 2: Python code runs `if label == 'booking': book_flow() else: manual_flow()`. Step 3: each flow is a fixed list of steps, some of which call tools, and a final model call writes the reply. Which description is correct?",
+      "options": [
+        {"id": "a", "text": "A workflow: the code fixes the possible paths, and the model only supplies a label"},
+        {"id": "b", "text": "An agent: the model's label picks the path, so the model controls the flow"},
+        {"id": "c", "text": "A workflow, but only if no step in either flow calls a tool"},
+        {"id": "d", "text": "An agent: it makes several model calls in a row for one request"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The booking part of the assistant needs three things done for each booking: check the calendar, check the student's training status, then book the slot. Your sponsor's model budget is small. Which design should you pick for this part, and why?",
+      "options": [
+        {"id": "a", "text": "An agent, because a model that chooses its own steps books more accurately"},
+        {"id": "b", "text": "A workflow, because only a workflow can call the calendar and booking tools"},
+        {"id": "c", "text": "An agent, because it makes fewer model calls than a workflow on simple requests"},
+        {"id": "d", "text": "A workflow, because the steps are known ahead, so code can run them cheaply"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The assistant must book equipment, and also help students with open-ended equipment problems. Where should an agent loop sit, if anywhere?",
+      "options": [
+        {"id": "a", "text": "Over the whole assistant, with the booking steps written into its prompt"},
+        {"id": "b", "text": "Only on the troubleshooting path, with code sending bookings to a fixed workflow"},
+        {"id": "c", "text": "Nowhere, because a workflow with enough branches can handle any problem a student raises"},
+        {"id": "d", "text": "Only on the booking path, because bookings involve the most tool calls"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which request to the makerspace assistant is the best fit for an agent rather than a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "\"Check whether the laser cutter is free Friday at 3 pm and, if so, book it.\""},
+        {"id": "b", "text": "\"Show me the safety rules in the band saw manual before my session.\""},
+        {"id": "c", "text": "\"Find a machine that can make this part, compare options, and book one.\""},
+        {"id": "d", "text": "\"Which of my three training certificates expire this term?\""}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which of these is a true advantage of a fixed workflow over an agent?",
+      "options": [
+        {"id": "a", "text": "Its steps are set in code, so a request follows the same path each time"},
+        {"id": "b", "text": "It handles requests nobody planned for, because the code adapts to them"},
+        {"id": "c", "text": "It needs no model calls, because the code does all of the work"},
+        {"id": "d", "text": "It gives more accurate answers than an agent on open-ended requests"}
+      ]
+    }
+  ]
+}

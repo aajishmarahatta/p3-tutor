@@ -1,0 +1,123 @@
+{
+  "duration_api_ms": 101894,
+  "stop_reason": "end_turn",
+  "session_id": "996ef4e7-2ce3-458c-8d7b-c09b517d6566",
+  "total_cost_usd": 0.4491337,
+  "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 32168,
+    "cache_read_input_tokens": 285203,
+    "output_tokens": 4661,
+    "output_tokens_details": {
+      "thinking_tokens": 112
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 32168,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 289,
+        "cache_read_input_tokens": 41617,
+        "cache_creation_input_tokens": 1562,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1562
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 36,
+      "outputTokens": 15365,
+      "cacheReadInputTokens": 374447,
+      "cacheCreationInputTokens": 83886,
+      "webSearchRequests": 0,
+      "costUSD": 0.4491337,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3792,
+      "cacheCreationEphemeral5mInputTokens": 51718,
+      "cacheCreationEphemeral1hInputTokens": 32168,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 1,
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 18,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Riley, s1 is graded: `grades/0001-s1.json`.\n\n- **Counts:** 2 correct (q1, q3), 2 partial (q5, q6), 2 wrong (q2, q4).\n- **Review:** 2 passes ran. Pass 1 asked for a fix to one review pointer, and pass 2 passed.\n- **Work on next:** who does what in the loop. The program runs the tools, and the model is called once per input it receives. Reread learning record 0002 and trace q4 call by call.\n\nI didn't read the file back after writing it, so I haven't checked it by eye for JSON validity. It was copied from the reviewed draft, which the reviewers found valid.\n\nI also updated `NOTES.md`, added `learning-records/0003-model-does-not-run-tools.md`, and wrote the review record. `submissions/s2.json` is still ungraded.",
+  "ttft_ms": 1255,
+  "type": "result",
+  "duration_ms": 102561,
+  "uuid": "b6dd8f6f-739d-43c2-91e3-3c7f84f11065",
+  "ttft_stream_ms": 756,
+  "time_to_request_ms": 124,
+  "first_content_frame_ms": 756,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 36,
+      "outputTokens": 15365,
+      "cacheReadInputTokens": 374447,
+      "cacheCreationInputTokens": 83886,
+      "webSearchRequests": 0,
+      "costUSD": 0.4491337,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3792,
+      "cacheCreationEphemeral5mInputTokens": 51718,
+      "cacheCreationEphemeral1hInputTokens": 32168,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 244119,
+  "stop_reason": "end_turn",
+  "session_id": "c71f8018-065d-440b-a755-965815eaa54e",
+  "total_cost_usd": 0.6959376,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 10939,
+    "cache_read_input_tokens": 172565,
+    "output_tokens": 7744,
+    "output_tokens_details": {
+      "thinking_tokens": 1352
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 10939,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 301,
+        "cache_read_input_tokens": 61937,
+        "cache_creation_input_tokens": 2843,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2843
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 42,
+      "outputTokens": 33575,
+      "cacheReadInputTokens": 578751,
+      "cacheCreationInputTokens": 88630,
+      "webSearchRequests": 0,
+      "costUSD": 0.6959376,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 12254,
+      "cacheCreationEphemeral5mInputTokens": 34861,
+      "cacheCreationEphemeral1hInputTokens": 53769,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwxy1s4o-5f1bdd1d"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "quiz-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz 0002 is written at `quizzes/0002.json`, with its key at `keys/0002.json`. It covers O4 and has six items: five multiple choice and one short answer.\n\nTwo review passes ran. Both returned REVISE and I ran no third. I revised between passes, then fixed the pass-2 findings without a further review, so the final version was not re-reviewed. The open weak spots are some overlap between q3 and q5 (both turn on a known versus unknown path) and mostly easy difficulty. The record is `review-records/0002-quiz.md`.\n\nThe misconception ids M7 to M26 are new in this workspace, and the record defines each one.\n\nThe quiz is ahead of the lessons: no O4 lesson exists, and `NOTES.md` says Riley hasn't met workflows versus agents. It works as a cold diagnostic unless you'd rather teach O4 first.\n\nThe key is ready for grading.",
+  "ttft_ms": 11719,
+  "type": "result",
+  "duration_ms": 49044,
+  "uuid": "14d951b7-63a6-4b6f-93ca-3c1ec256c03c",
+  "ttft_stream_ms": 537,
+  "time_to_request_ms": 42,
+  "first_content_frame_ms": 538,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}
