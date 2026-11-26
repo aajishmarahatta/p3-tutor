@@ -42,9 +42,7 @@ I think the Grade reviewer was the most worthwhile because it caught vague feedb
 Did the lesson get better by your own ratings, and what did the split cost against `c2-review`?
 Say in one sentence whether you would pay that price again.
 
-TODO: your answer to prompt 3.
-
----
+Splitting Teach improved length from 0.760 to 0.908, but increased Teach runtime from 6.5 to 11.0 minutes and tokens from 1.35M to 2.30M. From this, we can reasonably say that the split improved lesson quality enough to be useful, but the extra cost makes it important to choose components carefully in Final. It can also be noted that the planner alone had already achieved a 1.02 length ratio in the focused run.
 
 ## 4. `final`: what you kept, what you dropped, and a change that did not pay
 

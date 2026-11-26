@@ -39,7 +39,7 @@ The planner improved the length ratio from 0.76 to 1.02, making the 30-minute le
 
 ## Major review
 
-**Run:** bench/runs/c3-split/TODO
+**Run:** bench/runs/c3-split/20261126-042346-agent-architecture-m30-r1
 
 **Live tries:**
 
@@ -49,32 +49,32 @@ TODO
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+100% factual correctness, no misconceptions or dead links.
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+Better pacing, corrected exercises, and learner-level fit improved from 4 to 5.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+Examples and exercises support O3 and the makerspace mission
 
 #### Overall quality
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Strong output, but personalization could improve and reviewer findings weren't independently rechecked after the final edits.
 
 ### Compared with the previous step
 
-TODO
+The key comparison with c2-review is that the lesson length ratio went up from 0.76 to 0.91, which is closer to the requested 30 min. The lesson level fit also went up from a 4 to a 5 by the judge. 
 
 ### What the next step should fix
 
-TODO
+I'd prioritize the remaining personalization issue and ensuring that the Final configuration retains the useful components without unnecessary cost.
