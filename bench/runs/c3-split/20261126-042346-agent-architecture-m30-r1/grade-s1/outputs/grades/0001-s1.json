@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (model picks an action, it runs, the result comes back) is what makes it an agent."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong.\n- The model never opens the booking system. It only outputs text, like {'tool': 'check_calendar', 'args': {'machine': 'laser cutter', 'date': 'tomorrow'}}. Your own Python loop is what calls the function.\n- Tempting because the whole system looks like one thing that 'checks the calendar'.\n- Review: the agent loop, the step where the program carries out the action"
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- Same failing feedback every step means more steps add nothing; you need a stopping condition."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong.\n- You said the model runs the 3 tools itself in one call. What did you picture happening between the model getting the question and it answering?\n- The program runs the tools, and those runs aren't model calls. The model is called once per input it receives: the question plus 3 tool results = 4 calls.\n- Review: one model call per input, with the program running the tools"
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right.\n- Right: the result goes back to the model.\n- Missing the why: the program adds it to the model's next input and calls the model again, so the model can use it to pick its next step or write the final answer.\n- Review: the agent loop, the step where the result is fed back"
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "- Partly right.\n- Right: the model is sent each tool's name and description and picks the one that fits.\n- Question: where did you picture it getting its record of earlier sessions?\n- It has no automatic memory of earlier sessions; only what the program puts in its input. The descriptions alone drive the choice.\n- Review: what a language model sees as input (learning record 0001)"
+    }
+  ],
+  "summary": "2 correct, 2 partial, 2 wrong. You have the loop and stopping conditions down, and you know tools are chosen from descriptions. Work on who does what: the model only requests, and the program runs the tool and feeds the result back. Next step: redo the laser-cutter trace, labelling each step 'model' or 'program'."
+}

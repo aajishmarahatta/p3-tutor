@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (model picks an action, it runs, the result comes back) is the structural difference from a single call."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The model only outputs a structured request (tool name plus arguments); the program runs the tool."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "- Wrong.\n- Waiting longer assumes the agent will eventually get there. It is repeating the same edit and the same failure, so more steps add nothing.\n- The fix is a stopping condition, like a step limit, that ends the loop and reports back.\n- Review: stopping conditions in the agent loop"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "- Partly right. 4 is the right count.\n- Quick check: you wrote that the model runs one tool itself each call. What does the model actually hand back when it wants a tool used, and who then runs it?\n- The model only requests a tool; the program runs it. Calls are 3 tool requests + 1 final answer = 4.\n- Review: the program, not the model, runs each tool"
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- Result goes back in as the next input, and the model uses it to decide its next step. The group-chat reply picture works here."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right. The name does matter.\n- But the name alone isn't enough: the model picks from the full description the program gives it (what the tool does and its parameters). A name can mislead, like a function called process() in your code.\n- Review: tool descriptions"
+    }
+  ],
+  "summary": "3 correct, 2 partial, 1 wrong. You have the agent loop itself down. Work on stopping conditions: a loop needs a limit even when the agent might eventually succeed. Also, q4 shows the idea that the program, not the model, runs tools is still shaky. Next step: reread your agent-loop notes (learning record 0002), then sketch a step limit for the makerspace assistant."
+}

@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 52253,
+  "stop_reason": "end_turn",
+  "session_id": "2821d04d-6aef-4452-857d-3c6d31f8e61d",
+  "total_cost_usd": 0.2723234,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 3650,
+    "cache_read_input_tokens": 81515,
+    "output_tokens": 1831,
+    "output_tokens_details": {
+      "thinking_tokens": 28
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3650,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 236,
+        "cache_read_input_tokens": 41620,
+        "cache_creation_input_tokens": 1925,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1925
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 22,
+      "outputTokens": 7889,
+      "cacheReadInputTokens": 260034,
+      "cacheCreationInputTokens": 47434,
+      "webSearchRequests": 0,
+      "costUSD": 0.2723234,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1437,
+      "cacheCreationEphemeral5mInputTokens": 14900,
+      "cacheCreationEphemeral1hInputTokens": 32534,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwx1so1a-46790071"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grade-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded s2 for quiz 0001. The grades are in `grades/0001-s2.json`.\n\n- **Counts:** 3 correct (q1, q2, q5), 2 partial (q4, q6), 1 wrong (q3).\n- **Review:** 1 review pass ran and it passed. I applied its three polish notes (the summary, the reread pointer and the q4 question) before writing the final file.\n- **Work on next:** stopping conditions in the agent loop (q3). Your q4 reasoning also still treats the model as running the tools itself, so go back over that.\n\nI updated `NOTES.md` with what you know and what is still open. I didn't write a learning record. `submissions/s1.json` is still ungraded.",
+  "ttft_ms": 839,
+  "type": "result",
+  "duration_ms": 10685,
+  "uuid": "cf40472e-f408-4393-9e12-93169afdc465",
+  "ttft_stream_ms": 543,
+  "time_to_request_ms": 43,
+  "first_content_frame_ms": 544,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

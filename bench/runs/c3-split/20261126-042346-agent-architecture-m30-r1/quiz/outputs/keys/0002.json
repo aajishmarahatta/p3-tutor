@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "In a workflow, the program's code (written in advance) decides the next step; in an agent, the model decides it.",
+      "accepted": [
+        "Workflow: the code or a predefined path decides. Agent: the model decides.",
+        "The developer's fixed code decides in a workflow; the model itself decides in an agent.",
+        "code; model",
+        "the code decides in a workflow and the model decides in an agent",
+        "workflow: the program, agent: the LLM"
+      ],
+      "rationale": "A workflow runs along paths the developer wrote in code beforehand; an agent lets the model direct its own steps and tool use. Both sides are needed for full credit; naming only one is partial. Answering that the difference is whether tools or a model are used is wrong (M7: tool use makes an agent)."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The code fixes the order (extract, check the calendar, write the reply), so the program owns the control flow and this is a workflow. A tool (a) and several model calls (b) both appear in workflows too (M7: tool use makes an agent; M8: several model calls make an agent). Handling natural language (d) is what a model does in either design (M9: language handling makes an agent).",
+      "distractors": {"a": "M7", "b": "M8", "d": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "Booking has the same steps in the same order every time, so they can be written in code beforehand, which makes a workflow cheaper and more predictable. The other three need the next step to depend on what earlier results show, or an open-ended search, which is where an agent earns its cost. All three wrong options show one belief, so they share M13: choosing by a task's topic or size instead of whether its steps are predictable.",
+      "distractors": {"a": "M13", "b": "M13", "c": "M13"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "In a workflow the code decides how many model calls happen, so the cost per request is known and capped; an agent's number of calls depends on what it decides, so cost varies. A workflow can make several calls (b, M10: a workflow is one model call), one call costs the same either way (c, M11: calls cost less inside a workflow), and predictability matters for a small budget, so it is more than saved development time (d, M12: the cost of the two designs is about equal).",
+      "distractors": {"b": "M10", "c": "M11", "d": "M12"}
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "The code owns the control flow: every sequence is written beforehand and the model's label only selects one of them. This is a routing workflow, meaning a workflow that sends each input down one of several fixed paths. A model making a choice (a, M14: any model decision makes an agent) or there being several paths (c, M15: branching makes an agent) does not hand over control. A router is not a separate third category (d, M16: routing is a third kind of system).",
+      "distractors": {"a": "M14", "c": "M15", "d": "M16"}
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "A workflow follows its fixed steps whatever comes back, so it moves on to step two and writes an answer from the wrong manual. That is the cost of fixed control flow: it cannot adapt to a case the code did not foresee, and an agent could notice and search again. A workflow does not loop until satisfied (a, M17: workflows retry on their own), does not hand the next step to the model (b, M18: workflows let the model adapt the path) and does not stop on a mismatch it was never written to check for (d, M19: workflows detect and stop on bad results).",
+      "distractors": {"a": "M17", "b": "M18", "d": "M19"}
+    }
+  ]
+}

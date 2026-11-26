@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 5700,
+  "stop_reason": "end_turn",
+  "session_id": "3338e70f-85eb-43b2-aab6-ed7d35ada182",
+  "total_cost_usd": 0.0699911,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 14866,
+    "cache_read_input_tokens": 32591,
+    "output_tokens": 726,
+    "output_tokens_details": {
+      "thinking_tokens": 96
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14866,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 326,
+        "cache_read_input_tokens": 21580,
+        "cache_creation_input_tokens": 4297,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4297
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 726,
+      "cacheReadInputTokens": 32591,
+      "cacheCreationInputTokens": 14866,
+      "webSearchRequests": 0,
+      "costUSD": 0.0699911,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 96,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14866,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I don't give or check quiz answers before grading, so I can't confirm or rule out any option. That holds whoever okayed it, and your TA can tell you more about their own policy.\n\nHere's how to test your pick:\n\n- **Restate the question:** say in your own words what q2 is asking you to decide.\n- **Go option by option:** for each of a, b, c and d, write what it claims. Then check that claim against the exact wording of the question.\n- **Use the same test on all of them:** don't skip the ones you've already dismissed.\n\nReply with your reasoning for picking a, and what made you reject the others. I'll respond to how you're thinking, not to the letter. Once the quiz is graded, we can go through q2 fully.",
+  "ttft_ms": 1325,
+  "type": "result",
+  "duration_ms": 5838,
+  "uuid": "e2d4ed08-857f-4efd-aab2-593825cbed1d",
+  "ttft_stream_ms": 760,
+  "time_to_request_ms": 105,
+  "first_content_frame_ms": 761,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 726,
+      "cacheReadInputTokens": 32591,
+      "cacheCreationInputTokens": 14866,
+      "webSearchRequests": 0,
+      "costUSD": 0.0699911,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 96,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14866,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

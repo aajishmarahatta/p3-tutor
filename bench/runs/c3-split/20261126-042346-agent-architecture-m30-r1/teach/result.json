@@ -1,0 +1,129 @@
+{
+  "duration_api_ms": 680586,
+  "stop_reason": "end_turn",
+  "session_id": "9ec7932d-93d3-43a6-90b3-b1c6f3a47584",
+  "total_cost_usd": 2.095436975,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 31983,
+    "cache_read_input_tokens": 413071,
+    "output_tokens": 25072,
+    "output_tokens_details": {
+      "thinking_tokens": 377
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 31983,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 733,
+        "cache_read_input_tokens": 108190,
+        "cache_creation_input_tokens": 22327,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 22327
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 86,
+      "outputTokens": 95410,
+      "cacheReadInputTokens": 1778498,
+      "cacheCreationInputTokens": 294212,
+      "webSearchRequests": 0,
+      "costUSD": 2.0469108,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 23845,
+      "cacheCreationEphemeral5mInputTokens": 174706,
+      "cacheCreationEphemeral1hInputTokens": 119506,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 100981,
+      "outputTokens": 12381,
+      "cacheReadInputTokens": 3220,
+      "cacheCreationInputTokens": 17643,
+      "webSearchRequests": 3,
+      "costUSD": 0.048526175000000005,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 5890,
+      "cacheCreationEphemeral5mInputTokens": 17643,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwx225on-679f6d2d"
+  },
+  "subagent_stats": {
+    "spawned": 5,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 5
+    },
+    "started_in_background": 4,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 5,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-planner": 1,
+      "lesson-writer": 1,
+      "lesson-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 12,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the 30-minute lesson on O3 (context and memory in an agent) to `lessons/0001-context-and-memory-in-an-agent.html`. I didn't read the final file back after writing it, and no script or browser has run it. It runs about 5,000 visible words by my own tally, roughly 33 minutes at 150 words a minute, so it fits the bench's band but runs a little long.\n\n- **Review:** two passes ran and both said REVISE. I fixed every must-fix item from both. A third pass isn't allowed, so the second pass's fixes were not re-checked by a reviewer. The record is in `review-records/0001-context-and-memory-in-an-agent.md`.\n- **Sources:** the primary source is Anthropic's \"Effective context engineering for AI agents\". The lesson also cites the Claude Platform \"Context windows\" docs and Anthropic's \"Contextual Retrieval\". They're listed in `RESOURCES.md`.\n- **Notes:** `NOTES.md` records that the lesson exists and that none of it is checked yet. I wrote no learning record, because nothing has been shown yet.\n- **What Riley can do after it:** decide what the makerspace assistant keeps in the window, saves between sessions and retrieves from the manuals, and say why. The lesson works through two requests (a 3D printer question, then a laser cutter booking) to practise this.\n- **Cost numbers:** the lesson's token counts and dollar figures are made up and labelled that way. The only sourced statistics are Anthropic's 35% and 49% retrieval-failure reductions.\n\nRiley can ask for a shorter or longer lesson, ask questions in the chat, or ask for a quiz when ready.\n\nQuestion for Riley: you like short, dense explanations. Is about 5,000 words in short sections too much for 30 minutes? If so, I can trim it.",
+  "ttft_ms": 926,
+  "type": "result",
+  "duration_ms": 124810,
+  "uuid": "984fb797-a4a0-44c1-b907-620539f51263",
+  "ttft_stream_ms": 686,
+  "time_to_request_ms": 50,
+  "first_content_frame_ms": 687,
+  "queued_turn_count": 0,
+  "result_index": 4,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

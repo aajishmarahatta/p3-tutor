@@ -1,0 +1,73 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Control flow means which step runs next. In one sentence each: in a workflow, what decides it, and in an agent, what decides it?"
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A program handles each student message in three steps: (1) one model call pulls the machine and date out of the message, (2) the program calls the check_calendar tool with those values, (3) one model call writes the reply from the result. Which description fits best?",
+      "options": [
+        {"id": "a", "text": "An agent, because it uses a tool the model cannot run itself"},
+        {"id": "b", "text": "An agent, because the model is called more than once per request"},
+        {"id": "c", "text": "A workflow, because the code fixes the order of the steps"},
+        {"id": "d", "text": "An agent, because it reads and writes natural language"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team wants one part of the makerspace assistant built as a fixed workflow rather than an agent. Which part is the best choice?",
+      "options": [
+        {"id": "a", "text": "Helping a student plan a project that may need several machines, depending on what the earlier lookups turn up"},
+        {"id": "b", "text": "Working out why a student's laser cut keeps coming out charred, from their settings, photos and the manuals"},
+        {"id": "c", "text": "Answering open questions that might touch any of the machine manuals, with a different search each time"},
+        {"id": "d", "text": "Booking a slot: check the machine is free, check the training, reserve it, then send a confirmation"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your sponsor's model budget is small. For a task whose steps are the same every time, why does a fixed workflow suit that budget better than an agent?",
+      "options": [
+        {"id": "a", "text": "The code sets how many model calls a request makes, so its cost is known up front"},
+        {"id": "b", "text": "A workflow calls the model exactly once per request, so it is always the cheapest"},
+        {"id": "c", "text": "Each model call costs less when a workflow makes it than when an agent does"},
+        {"id": "d", "text": "Both cost about the same per request, so a workflow only saves development time"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A program asks the model to label each student message as 'manual question', 'booking' or 'other'. The program then runs a separate sequence of steps for each label. Who owns the control flow, and what is the system?",
+      "options": [
+        {"id": "a", "text": "The model, because its label decides which sequence runs; it is an agent"},
+        {"id": "b", "text": "The code, because the model only picks among sequences set up beforehand; it is a workflow"},
+        {"id": "c", "text": "The model, because there are several sequences instead of one; it is an agent"},
+        {"id": "d", "text": "Neither, because a labeling step makes it a third kind of system; it is a router"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your manual-question workflow does two steps: search the manuals once, then write the answer. A student asks about the laser cutter, but the single search returns the 3D printer manual. What happens next in the workflow?",
+      "options": [
+        {"id": "a", "text": "It repeats the search until the results match the laser cutter"},
+        {"id": "b", "text": "It asks the model to choose a better step before going on"},
+        {"id": "c", "text": "It goes on to the second step and writes an answer from that result"},
+        {"id": "d", "text": "It turns itself into an agent for that one request"}
+      ]
+    }
+  ]
+}
