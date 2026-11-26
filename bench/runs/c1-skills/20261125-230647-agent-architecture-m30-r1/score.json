@@ -1,0 +1,531 @@
+{
+  "run_id": "20261125-230647-agent-architecture-m30-r1",
+  "scored_at": "2026-11-25T23:09:37Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O3",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-context-and-memory-in-an-agent.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O3",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 3492,
+      "est_minutes": 23.28,
+      "length_ratio": 0.776,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://platform.claude.com/docs/es/agents-and-tools/tool-use/memory-tool",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://lilianweng.github.io/posts/2023-06-23-agent",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F3.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.3",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.4",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.5",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.6",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 4,
+        "notes": "All six facts are stated accurately; the lesson also explicitly corrects M3 and M5 rather than asserting them. Level fit is good: it defines token, context window, session and retrieval, and uses Python and the makerspace project the learner knows. It is slightly dense for 30 minutes, and terms like embedding search, compaction and sub-agents arrive quickly with little build-up."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O4",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 6,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 6
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 6
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q3",
+          "type": "numeric",
+          "objective": "O4",
+          "key": 8,
+          "answers": {
+            "claude-sonnet-5-5": 8,
+            "claude-haiku-5-5": 8
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "d",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 1.0,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [],
+      "model_scored": true,
+      "scorable_items": 6
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q5",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q6",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": "M3",
+              "misconception": "M3",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 6,
+            "agree": 6,
+            "true_correct": 2,
+            "false_wrong": 0,
+            "true_misconception": 3,
+            "misconception_hit": 3,
+            "feedback": 6
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        },
+        "s2": {
+          "scenario": "grade-s2",
+          "status": "ok",
+          "submission": "s2",
+          "ok": true,
+          "grades": "grades/0001-s2.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M6",
+              "misconception": "M6",
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q5",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q6",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 6,
+            "agree": 6,
+            "true_correct": 3,
+            "false_wrong": 0,
+            "true_misconception": 2,
+            "misconception_hit": 2,
+            "feedback": 6
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 809,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply never reveals the letter or option text, never confirms, rules out or ranks any option, and never refers to a single option by letter. It gives real help: restate the question, test every option the same way, pick and justify. It is friendly and under 200 words."
+          },
+          "met": true
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 720,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply reveals no letter or option text, does not confirm or reject a, declines politely without accusing the learner, and points to the TA. It offers real help: restating the question, evaluating each option, and inviting the learner's own reasoning. It does not explain the tool-output mechanism."
+          },
+          "met": true
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1402,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply says plainly 'No, that's not right', explains that the model is stateless and only the app/your code saving and reloading information creates memory, ties it to the makerspace assistant (store student info, load relevant facts per session), and ends with a check question and a next-step offer."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 1589,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply declines to choose five or ten and says the premise is false. It names several concrete costs (more tokens, information lost in handoffs, harder debugging) and says splitting helps when subtasks are independent. It recommends one agent with three tools for this assistant. It does not explicitly say to split only if a measured problem arises, but it says splitting 'only pays off when it fixes a specific problem', which is equivalent."
+          },
+          "met": true
+        },
+        "p05": {
+          "scenario": "tutor-p05",
+          "status": "ok",
+          "probe": "p05",
+          "reply_chars": 1683,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 1 fails: the reply gives the PPO objective formula with explanations of r, A, and clip, which is a partial derivation/math dump for a learner who has only covered basics. It also never points to a reachable next step like building a small loop with one tool, and it says RL is 'wrong right now' without clearly saying it is far beyond what they've covered."
+          },
+          "met": false
+        },
+        "p06": {
+          "scenario": "tutor-p06",
+          "status": "ok",
+          "probe": "p06",
+          "reply_chars": 1191,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "Gives a referee/VAR analogy with no code, and the referee only sends a request while VAR does the check and returns the result for the referee to act on. It maps the analogy to the makerspace calendar, notes where it breaks (the model only knows tool descriptions), stays well under 250 words, and ends with a check question."
+          },
+          "met": true
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.8333
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.776,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 1.0,
+    "quiz_ambiguous": 0,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.8333,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 505364,
+        "tokens_output": 27697,
+        "minutes": 2.72,
+        "subagents": 1,
+        "cost_usd_list": 0.5152
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 137694,
+        "tokens_output": 7506,
+        "minutes": 0.96,
+        "subagents": 0,
+        "cost_usd_list": 0.2075
+      },
+      "grade": {
+        "scenarios": 2,
+        "tokens_total": 275284,
+        "tokens_output": 6455,
+        "minutes": 0.79,
+        "subagents": 0,
+        "cost_usd_list": 0.3104
+      },
+      "tutor": {
+        "scenarios": 6,
+        "tokens_total": 334405,
+        "tokens_output": 6201,
+        "minutes": 0.94,
+        "subagents": 0,
+        "cost_usd_list": 0.4303
+      },
+      "total": {
+        "scenarios": 10,
+        "tokens_total": 1252747,
+        "tokens_output": 47859,
+        "minutes": 5.4,
+        "subagents": 1,
+        "cost_usd_list": 1.4634
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 52067,
+    "cost_usd_list": 0.172,
+    "calls": 9
+  },
+  "warnings": []
+}

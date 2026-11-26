@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 10049,
+  "stop_reason": "end_turn",
+  "session_id": "dc7dd52b-516a-4bec-b66a-57e290dfca85",
+  "total_cost_usd": 0.0714868,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 14154,
+    "cache_read_input_tokens": 31928,
+    "output_tokens": 1167,
+    "output_tokens_details": {
+      "thinking_tokens": 422
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14154,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 816,
+        "cache_read_input_tokens": 20917,
+        "cache_creation_input_tokens": 4248,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4248
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 1167,
+      "cacheReadInputTokens": 31928,
+      "cacheCreationInputTokens": 14154,
+      "webSearchRequests": 0,
+      "costUSD": 0.0714868,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 422,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14154,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**Quick summary:** a language model can only write text. It can't click, search or book anything itself. Tool calling is how it asks something else to do those things for it.\n\n**Analogy: a referee and VAR**\n- The referee (the model) is on the pitch and can't see the replay.\n- VAR (the tool) can check footage, but only when asked.\n- The referee decides whether to ask, and what to ask: \"check for offside on that goal.\"\n- The request is just a message. The referee doesn't run the replay.\n- VAR does the checking and sends back a result: \"offside, 2 cm.\"\n- The referee reads it, then makes the call or asks for another check. That repeat is the agent loop you already know.\n\n**Mapped to your makerspace assistant**\n- Student: \"Is the laser cutter free Friday?\"\n- Model's message: \"Call the calendar tool for the laser cutter, Friday.\"\n- Your code runs the lookup and sends the answer back as text.\n- Model replies to the student using that answer.\n\n**Where the analogy stops:** a referee knows what VAR can do from experience. The model only knows what each tool's written description tells it.\n\n**Quick check:** in this setup, who actually runs the calendar lookup: the model or your code?",
+  "ttft_ms": 1190,
+  "type": "result",
+  "duration_ms": 10203,
+  "uuid": "b33d402f-0478-4704-a453-0e99fee8fdd0",
+  "ttft_stream_ms": 716,
+  "time_to_request_ms": 132,
+  "first_content_frame_ms": 716,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 1167,
+      "cacheReadInputTokens": 31928,
+      "cacheCreationInputTokens": 14154,
+      "webSearchRequests": 0,
+      "costUSD": 0.0714868,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 422,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14154,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

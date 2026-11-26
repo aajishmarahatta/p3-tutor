@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (model picks an action, it runs, the result comes back) is what makes it an agent, not a longer prompt or a bigger model."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The model only outputs a structured request (tool name plus arguments); the program runs it."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "- Wrong.\n- Choosing 'it will eventually fix the bug' assumes more steps will change something. Here every step gets the same failing result, so running longer just repeats it.\n- The fix is a stopping condition like a step limit, which ends the loop and hands the problem back to a person.\n- Review: the stopping condition in the agent loop"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "- Partly right. 4 is the right count.\n- What did you assume about who runs check_calendar and the other tools? The model does not run them; it only requests one per call, and the program runs each one.\n- So the count works because each of the 3 tool results triggers another call, plus the first call: 4 inputs, 4 calls.\n- Review: the model requests tools, the program runs them"
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The result goes back in as the model's next input, so it can decide its next step. Your group chat comparison works, since the model sees the reply before its turn."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right. The name is part of it.\n- But the model relies on the whole tool description the program gives it: the name, what the tool does and the parameters it takes. A name alone can mislead, like a function called process() that tells you nothing.\n- Review: tool descriptions (name, purpose, parameters)"
+    }
+  ],
+  "summary": "3 correct, 2 partial, 1 wrong. You have the agent loop down: what makes an agent, what the model outputs, and where the tool result goes. Work next on the stopping condition, since q3 assumed an agent finishes eventually. Next step: reread the part of the agent loop on limits, then write a step limit into a toy loop."
+}

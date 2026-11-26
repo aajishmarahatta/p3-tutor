@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (model picks an action, it runs, the result comes back) is what makes it an agent. Prompt length and model size don't change that structure."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong.\n- The model doesn't read the calendar or open the booking system. It only writes text: a structured request naming check_calendar plus the arguments (laser cutter, tomorrow's date).\n- The program around the model runs the tool and hands back the result. Think of the model as a coach calling the play, not a player on the field.\n- Review: the program runs the tools, not the model"
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- Same edit, same failure, so more steps add nothing. A step limit ends the loop and hands the problem back to a person."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong. You answered 1.\n- That treats the model as running all three tools inside one call. It can't: each call ends with one tool request or the final answer, and the program runs the tool between calls.\n- Count one call per input the model receives: the question plus three tool results gives 4.\n- Review: every step in the loop is a separate model call"
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right.\n- Right: the result goes back to the model.\n- Missing the why: it goes into the model's next input and the model is called again, so it can use the result to pick its next step or write the final answer. The model has no other way to see it.\n- Review: the result is fed back as the model's next input"
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "- Partly right.\n- Right: the model gets a list of tools with names and descriptions and picks the one that fits.\n- Check this claim: where would the model keep a memory of earlier sessions? What does it see on each call, apart from the text it is given? It starts fresh; it picks from the descriptions in front of it, not from remembered choices.\n- Review: the model only knows what is in its input"
+    }
+  ],
+  "summary": "Results: 2 correct, 2 partial, 2 wrong. You have the loop down: you spotted it and a stopping condition. Work on who does what: the model only writes requests as text, and the program runs the tools and calls the model again for each step. Next step: redo the laser cutter trace and mark each model call and each program action."
+}

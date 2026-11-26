@@ -1,0 +1,74 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement correctly separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow involves no language model, while an agent is built around a language model"},
+        {"id": "b", "text": "A workflow makes a single model call, while an agent keeps calling the model repeatedly"},
+        {"id": "c", "text": "A workflow follows steps its code sets in advance, while an agent's model picks its own next step"},
+        {"id": "d", "text": "A workflow cannot call tools, while an agent can call tools to take actions"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your assistant's Python code sends each student message to the model and asks it to reply with one label: booking, manual_question or other. The code then runs a pipeline you wrote for that label; for booking it always runs check_calendar, then check_training_record, then create_booking. Is this a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow: the model only picks a label, and the code defines every path and what runs next"},
+        {"id": "b", "text": "An agent: the model's label decides which branch runs, so the model controls the flow"},
+        {"id": "c", "text": "An agent: the model is called more than once for a single request, so it is a loop"},
+        {"id": "d", "text": "A workflow: the model is not used to take any actions, and agents are the ones that act"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Booking requests currently go through a fixed workflow of 3 model calls. A teammate's agent version handles the same requests with 7 model calls on average. Assume every model call costs $0.004 and ignore the cost of running tools. For 500 booking requests, how much more does the agent version cost than the workflow, in dollars?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the strongest candidate for a fixed workflow, if the goal is low and predictable cost per request?",
+      "options": [
+        {"id": "a", "text": "Answering a student's question that might need the manuals, the calendar, or both"},
+        {"id": "b", "text": "Diagnosing a machine fault that a student describes only vaguely"},
+        {"id": "c", "text": "Planning a project that spans several machines over several weeks"},
+        {"id": "d", "text": "Confirming a booking: check the slot, check the training, create the entry, send the receipt"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which is the best reason to choose an agent over a fixed workflow for part of a system?",
+      "options": [
+        {"id": "a", "text": "The budget is small, since an agent takes only the steps it needs"},
+        {"id": "b", "text": "The steps needed differ by request and cannot be listed in advance"},
+        {"id": "c", "text": "The task has many steps, and a workflow can only handle a few"},
+        {"id": "d", "text": "The output must be as repeatable as possible from one request to the next"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The assistant has two jobs: a booking sequence that is the same every time, and open-ended help with questions about machines. What architecture would you defend at the design review?",
+      "options": [
+        {"id": "a", "text": "One agent for both jobs, since an agent can also follow a fixed sequence"},
+        {"id": "b", "text": "One fixed workflow for both jobs, since workflows have the most predictable cost"},
+        {"id": "c", "text": "A fixed workflow for the booking sequence and an agent for the open-ended questions"},
+        {"id": "d", "text": "A separate agent for each job, so a model chooses the steps in both"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 21872,
+  "stop_reason": "end_turn",
+  "session_id": "a6f36258-212c-4108-a634-925a8d9d1d0a",
+  "total_cost_usd": 0.1518197,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 27456,
+    "cache_read_input_tokens": 104797,
+    "output_tokens": 3150,
+    "output_tokens_details": {
+      "thinking_tokens": 219
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 27456,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 276,
+        "cache_read_input_tokens": 36209,
+        "cache_creation_input_tokens": 2258,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2258
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3150,
+      "cacheReadInputTokens": 104797,
+      "cacheCreationInputTokens": 27456,
+      "webSearchRequests": 0,
+      "costUSD": 0.1518197,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 219,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 27456,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 13,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded s1 and wrote the result to `grades/0001-s1.json`. I didn't read the file back to check it.\n\n- **Correct:** q1 and q3.\n- **Partial:** q5 and q6.\n  - q5: the result goes back to the model, but you didn't say why.\n  - q6: you had the tool descriptions right, but you added that the model remembers its tool choices across sessions, which it doesn't.\n- **Wrong:** q2 and q4. Both come from thinking the model runs the tools itself. It only writes the request, and the program runs the tool and calls the model again.\n\n**Work on next:** who does what in the loop. Redo the laser cutter trace and mark each model call and each program action.\n\nI also added `learning-records/0003-who-runs-the-tools.md` and updated `NOTES.md`. s2 is still ungraded.",
+  "ttft_ms": 2033,
+  "type": "result",
+  "duration_ms": 22270,
+  "uuid": "db53e0c8-37df-4cec-89be-f7e052cbd9fe",
+  "ttft_stream_ms": 1491,
+  "time_to_request_ms": 126,
+  "first_content_frame_ms": 1491,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3150,
+      "cacheReadInputTokens": 104797,
+      "cacheCreationInputTokens": 27456,
+      "webSearchRequests": 0,
+      "costUSD": 0.1518197,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 219,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 27456,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

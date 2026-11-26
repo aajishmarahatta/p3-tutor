@@ -1,0 +1,154 @@
+{
+  "duration_api_ms": 171452,
+  "stop_reason": "end_turn",
+  "session_id": "c1ff5da5-7892-4325-8945-8c3787d09a63",
+  "total_cost_usd": 0.515187165,
+  "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 59153,
+    "cache_read_input_tokens": 336990,
+    "output_tokens": 20235,
+    "output_tokens_details": {
+      "thinking_tokens": 1578
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 59153,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 675,
+        "cache_read_input_tokens": 69662,
+        "cache_creation_input_tokens": 502,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 502
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 18,
+      "outputTokens": 20235,
+      "cacheReadInputTokens": 336990,
+      "cacheCreationInputTokens": 59153,
+      "webSearchRequests": 0,
+      "costUSD": 0.472697,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1578,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 59153,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 42264,
+      "outputTokens": 7462,
+      "cacheReadInputTokens": 3239,
+      "cacheCreationInputTokens": 36003,
+      "webSearchRequests": 3,
+      "costUSD": 0.042490164999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3514,
+      "cacheCreationEphemeral5mInputTokens": 36003,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 18,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 30-minute lesson on O3 is written at `lessons/0001-context-and-memory-in-an-agent.html`. I didn't run a word count. By my estimate it is about 3,700 words, which fits the bench's length range (2,700 to 6,750) but sits below the 4,500 target. I haven't opened it in a browser either.\n\n**What Riley can do afterwards:** say what the makerspace assistant holds in its context at each step, what it saves between sessions, and how it finds the right page in a long manual.\n\n**What's in it:**\n- Six short sections, one idea each, starting with the context window and ending with what to do when it fills up. Each opens with a short general summary and is followed by bullets, as `PREFERENCES.md` asks.\n- Analogies drawn from soccer, the NFL and DataFrames.\n- Runnable Python examples that don't call a model, since Riley hasn't done that yet.\n- Three figures and five checks with feedback on each option.\n- A worked example for a student asking to book the laser cutter, then a faded exercise for a new student on the resin printer, and a reflection prompt.\n- A warm-up recall on the agent loop.\n\n**Sources:** the primary source is Anthropic's context-engineering article. I read it, the Claude context-windows docs and the memory-tool docs. The memory-tool page I read was the Spanish version, and I said so in the lesson. The Lilian Weng post is listed from search results only, not opened. I added all four to `RESOURCES.md`. I also added a note to `NOTES.md` that this lesson exists.\n\nI wrote no quiz and no learning record, because nothing new about what Riley knows came up. The lesson has no community link because I haven't found a vetted one yet. `RESOURCES.md` lists that as a gap.\n\nRiley can ask for a shorter or longer lesson, ask questions in the chat, or ask for a quiz when ready.\n\nOne question for Riley: is there a campus group, such as a CS or data science club, where you'd be happy to test your design? I'd use it as the community link in future lessons.",
+  "ttft_ms": 2272,
+  "type": "result",
+  "duration_ms": 162060,
+  "uuid": "57dfb63b-84ee-403a-8373-1400d2f269e2",
+  "ttft_stream_ms": 1785,
+  "time_to_request_ms": 124,
+  "first_content_frame_ms": 1786,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 18,
+      "outputTokens": 20235,
+      "cacheReadInputTokens": 336990,
+      "cacheCreationInputTokens": 59153,
+      "webSearchRequests": 0,
+      "costUSD": 0.472697,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1578,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 59153,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 42264,
+      "outputTokens": 7462,
+      "cacheReadInputTokens": 3239,
+      "cacheCreationInputTokens": 36003,
+      "webSearchRequests": 3,
+      "costUSD": 0.042490164999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3514,
+      "cacheCreationEphemeral5mInputTokens": 36003,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

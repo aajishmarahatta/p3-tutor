@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference is who owns the control flow (the order of steps): in a workflow the code decides it in advance, in an agent the model decides it as it goes. Workflows often use models (a), can make several calls (b) and can call tools (d); none of those separates them.",
+      "distractors": {"a": "M7", "b": "M8", "d": "M9"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The model makes a decision, but only among branches your code defined, and every path is a fixed sequence the code runs. The code still owns the control flow, so it is a workflow. A model's choice does not make it an agent (b), multiple model calls do not make a loop (c), and workflows can run tools (d).",
+      "distractors": {"b": "M10", "c": "M8", "d": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": 8,
+      "tolerance": 0.01,
+      "rationale": "Extra calls per request = 7 - 3 = 4. Extra cost = 4 x $0.004 x 500 = $8. The agent's call count also varies per request, which makes its cost harder to predict."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "The booking steps are known in advance and run in the same order every time, so code can fix them: fewer model calls and predictable cost. The other three need the model to decide which steps to take, which suits an agent.",
+      "distractors": {"a": "M11", "b": "M11", "c": "M11"}
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "An agent pays off when the path cannot be written down ahead of time, because the model can choose steps per request. An agent is not cheaper (a): it makes more calls and its cost varies. Many steps alone do not need an agent (c): a workflow can chain many fixed steps. Repeatability (d) favors a workflow.",
+      "distractors": {"a": "M12", "c": "M13", "d": "M14"}
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "Choose per part: use a fixed workflow where the steps are known, for cost and predictability, and an agent only where the path varies. One agent for everything (a, d) spends model calls on steps that code could fix. One workflow for everything (b) cannot handle questions whose steps are unknown in advance.",
+      "distractors": {"a": "M15", "b": "M16", "d": "M15"}
+    }
+  ]
+}
