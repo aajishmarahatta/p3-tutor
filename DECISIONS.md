@@ -58,9 +58,7 @@ TODO: your answer to prompt 4.
 Which component did you remove, and what did you predict would happen to quality and to cost before you ran it?
 Then the result, with the numbers of the ablation's run beside `final`'s, and what one run lets you claim and what it does not.
 
-TODO: your answer to prompt 5.
-
----
+For my ablation, I chose to remove the lesson-writer subagent while keeping the lesson-planner and lesson-reviewer. I predict that the lesson will remain factually correct, but its explanations, examples, and practice questions may become less consistent because the main agent will have to handle the writing itself.I expect the ablation to be slightly cheaper and faster because it removes one subagent call. However, the main agent might use some of those saved resources to write and revise the lesson, so the cost reduction may be modest.
 
 ## 6. Your blind picks against your open reviews
 
