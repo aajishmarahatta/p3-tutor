@@ -14,17 +14,17 @@ Keep every heading as it is, because `p3 check` reads them, and add a round by c
 
 ### Round 1 (optional)
 
-**Run:** TODO
+**Run:** bench/runs/_live/20261126-190228-agent-architecture-m30-r1
 
 **My thoughts:**
 
-TODO
+The new grader subagent produced correct verdicts on every graded item, with 1.00 verdict agreement, 1.00 misconception hit rate, and no false-wrong grades. The main conversation did not read the answer key, while the grader and grade-reviewer accessed it successfully. The first benchmark trace did not directly demonstrate a block, but a separate controlled live probe confirmed that the PreToolUse hook blocks the main conversation and permits the authorized grader. The additional subagent calls increase grading cost, but protecting the answer key is necessary for the final architecture.
 
 **What changed:**
 
-- Kind: TODO
-- Files: TODO
-- Why: TODO
+- Kind: new subagent
+- Files: tutor/.claude/agents/grader.md, tutor/.claude/skills/grade/SKILL.md, tutor/.claude/skills/quiz/SKILL.md, tutor/.claude/skills/teach/SKILL.md, tutor/CLAUDE.md, tutor/.claude/settings.json, tutor/.claude/hooks/keys_guard.py, tests/test_guard.py
+- Why: With the answer-key guard on, the main conversation can no longer read keys/, so grading moves to a grader subagent that the guard allows; /grade now only starts the grader and the grade-reviewer and writes the final file once, and /quiz writes its key once from a draft, as the guide requires.
 
 ## Major review
 

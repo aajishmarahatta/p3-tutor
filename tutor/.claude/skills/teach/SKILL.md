@@ -40,7 +40,7 @@ If `MISSION.md` is missing or vague and the request names what to teach, teach i
    Never teach from memory: search the web for high-trust sources on exactly this objective, read the best two or three, and choose one as the primary source.
    Link only URLs you saw in a search result or opened in this session, exactly as you saw them.
    Add the sources to `RESOURCES.md` (`references/RESOURCES-FORMAT.md`).
-3. **List the core ideas** the objective needs, in a line each, and the misconceptions that go with them (from `NOTES.md`, the records, earlier keys' distractors and your sources).
+3. **List the core ideas** the objective needs, in a line each, and the misconceptions that go with them (from `NOTES.md`, the records, earlier quizzes and your sources).
 4. **Have the plan made.**
    Take the next free number `NNNN` in `lessons/` and a slug now, since the plan and the draft share them.
    Start the `lesson-planner` subagent with the Agent tool.

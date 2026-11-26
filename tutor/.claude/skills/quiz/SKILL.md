@@ -20,8 +20,9 @@ Do what it says now, without stopping to ask first, and put any question for the
 ## Read first
 
 Read `FORMATS.md`, `MISSION.md`, `PREFERENCES.md`, `NOTES.md` and every file in `learning-records/`.
-Then read the quizzes in `quizzes/` and their keys in `keys/` (to take the next number, avoid repeating an earlier quiz, and reuse the misconception ids the workspace already has), and any lesson in `lessons/` on the objective.
-You may read keys here because you are writing the next one; never show anything from `keys/` to the learner.
+Then read the quizzes in `quizzes/` (to take the next number and avoid repeating an earlier quiz), and any lesson in `lessons/` on the objective.
+You do not read the keys: a guard in `.claude/settings.json` blocks the main conversation from `keys/`, so you write the new key once, from a draft, and the `quiz-reviewer` subagent, which may read `keys/`, checks it against the earlier keys.
+Take misconception ids from `NOTES.md`, the learning records and the earlier quizzes' wrong options, and let the reviewer confirm them; never show anything from `keys/` to the learner.
 Work only inside this folder, and never write under `.claude/`.
 The drafts go in `drafts/` and the loop's record in `review-records/`; both are yours to create.
 
@@ -77,7 +78,7 @@ Each item in the key has, as `FORMATS.md` shows:
 - `answer`: the option id, the number, or the shortest complete reference answer.
 - `rationale`: why the answer is right, in one or two sentences, and then, for every wrong option of an `mcq` item, a short clause on why it is tempting and what it gets wrong.
   This is what the learner reads after grading, so write it clearly, define a new term once, and keep it short and direct as `PREFERENCES.md` asks.
-- `distractors`: for each wrong option built on a misconception, the misconception's id; reuse the ids the workspace already has, and never invent an id for something that already has one.
+- `distractors`: for each wrong option built on a misconception, the misconception's id; reuse the ids the workspace already has (from the notes, the learning records and the earlier quizzes), and never invent an id for something that already has one.
 - `accepted` and `tolerance` where they apply.
 
 ## Draft, review, revise, then write
@@ -88,6 +89,7 @@ The quiz is reviewed by a fresh reader before it is final, so write drafts first
    Take the next free number `NNNN` (the highest in `quizzes/` plus one, `0001` when empty) and use it for everything below.
 2. **Write the drafts**, with the same shape and keys `FORMATS.md` shows, to `drafts/NNNN-quiz.json` and `drafts/NNNN-key.json`.
    Never write a draft under `quizzes/` or `keys/`: the bench reads those folders, and a quiz there is final.
+   The draft key is the only place you hold the answers: you write it from what you know, check it by reading the draft, and never read `keys/`.
 3. **Check the drafts yourself first**, then fix what you find:
    - **Solve it blind.** Answer every item from its stem and options alone, without looking at the key, and compare. Rewrite any item where you hesitate, where a careful expert could argue for a second answer, or whose answer you could guess without knowing the subject.
    - **Check coverage.** Every core idea you meant to test has an item, no two items test the same idea, and every item serves the objective and carries its id.
@@ -95,7 +97,7 @@ The quiz is reviewed by a fresh reader before it is final, so write drafts first
    - **Check the JSON** as in step 6; fix any fault now, since the reviewer reads the drafts.
 4. **Review pass 1.**
    Start the `quiz-reviewer` subagent with the Agent tool.
-   Its task message gives it only: the paths of the two drafts, the objective and its id, the number of items asked for, and the files to read (`MISSION.md`, `NOTES.md`, `PREFERENCES.md`, `learning-records/`, the lesson if there is one, earlier quizzes and keys).
+   Its task message gives it only: the paths of the two drafts, the objective and its id, the number of items asked for, and the files to read (`MISSION.md`, `NOTES.md`, `PREFERENCES.md`, `learning-records/`, the lesson if there is one, earlier quizzes, and the earlier keys in `keys/`, which it alone may read).
    Do not give it your reasoning, your blind answers or your opinion of the draft.
    Wait for its report before you do anything else; never finish while a review is out.
 5. **Revise.**
@@ -105,14 +107,15 @@ The quiz is reviewed by a fresh reader before it is final, so write drafts first
    Fix what it still finds.
    **Two review passes at most**, never a third, even if the reviewer still has findings: the loop ends at the cap, and the record says what was left.
 6. **Write the final files, once.**
-   Write the quiz to `quizzes/NNNN.json` and its key to `keys/NNNN.json`, with the same number for both and exactly the keys `FORMATS.md` shows.
-   Then read each file back and check it yourself, character by character where a string is long, because a file that does not parse scores as no key at all:
+   Before you write, read the two drafts back and check them yourself, character by character where a string is long, because a file that does not parse scores as no key at all:
    - one JSON object per file, with no comments and no trailing commas;
    - every `"` inside a string value is escaped as `\"`, or, better, written as a single quote or left out; a quoted word in a rationale is the most common way a key breaks;
    - no raw line break inside a string, and every bracket and brace closed;
    - the key has one entry for every quiz item, with the same ids in the same order, and a `numeric` answer is a bare number;
    - the quiz file holds no answers and no rationale.
-   If you find a fault, fix the file and read it again.
+   If you find a fault, fix the draft and read it again.
+   Then write the quiz to `quizzes/NNNN.json` and the key to `keys/NNNN.json` with your Write tool (never a shell copy), with the same number for both, exactly the content of the checked drafts, and exactly the keys `FORMATS.md` shows.
+   Do not read the key file back: the guard blocks it, and the draft you checked is the same text.
    Do not rely on the shell: it may not be available in every run.
 7. **Write the record** to `review-records/NNNN-quiz.md`, short: how many passes ran; for each pass the verdict and the findings the reviewer made, one line each; what you changed because of each, or why you did not; and a last line, `Result: passed` when the last pass was `PASS` or every must-fix was handled, or `Result: ended at the cap with open findings: ...`.
    Keep the record free of answers beyond what the key already holds.
