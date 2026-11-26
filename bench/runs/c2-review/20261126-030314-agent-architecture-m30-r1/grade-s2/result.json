@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 89796,
+  "stop_reason": "end_turn",
+  "session_id": "f6e622d3-e326-4f1a-b8ac-ced15ed6a729",
+  "total_cost_usd": 0.394541,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 3650,
+    "cache_read_input_tokens": 89030,
+    "output_tokens": 2018,
+    "output_tokens_details": {
+      "thinking_tokens": 65
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3650,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 349,
+        "cache_read_input_tokens": 45342,
+        "cache_creation_input_tokens": 1996,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1996
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 34,
+      "outputTokens": 13337,
+      "cacheReadInputTokens": 369725,
+      "cacheCreationInputTokens": 67856,
+      "webSearchRequests": 0,
+      "costUSD": 0.394541,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3022,
+      "cacheCreationEphemeral5mInputTokens": 31529,
+      "cacheCreationEphemeral1hInputTokens": 36327,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwwyxtej-0cf5e919"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Your grades for quiz 0001, submission s2, are in `grades/0001-s2.json`.\n\n- **Counts:** 3 correct (q1, q2, q5), 2 partial (q4, q6), 1 wrong (q3).\n- **Review:** 2 passes ran. Pass 1 asked for revisions and I made them. Pass 2 passed.\n- **q3 (wrong):** waiting longer won't fix an agent that repeats the same failure. It needs a stopping condition, like a step limit.\n- **q4 (partial):** 4 is the right count, but your reasoning said the model runs the tools itself. The program runs them.\n- **q6 (partial):** the model reads the whole tool description, not just the name. This isn't taught yet.\n- **Work on next:** stopping conditions in the agent loop. Reread learning record 0002, then redo q3.\n\nI also added the graded result and your open misconceptions to `NOTES.md`, and wrote the review record to `review-records/0001-s2-grades.md`. The draft is still in `drafts/`.",
+  "ttft_ms": 1057,
+  "type": "result",
+  "duration_ms": 13266,
+  "uuid": "62136e06-5ebc-4da1-b9b1-0d832ba01f05",
+  "ttft_stream_ms": 541,
+  "time_to_request_ms": 42,
+  "first_content_frame_ms": 542,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop of choose an action, run it, feed the result back is what makes it an agent, not prompt length, model size or memory."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong.\n- You picked the calendar entries, as if the model opens the booking system itself. Tempting, since the assistant does end up with the answer.\n- The model only outputs a request: the tool name plus arguments. Think of it as returning the string {\"tool\": \"check_calendar\", \"args\": {...}}; your program calls the function.\n- Review: the model's output is a tool request, not the tool's result"
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- A step limit is a stopping condition; more context or a stronger prompt won't break a loop that keeps getting the same failure."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "- Wrong. The answer is 4, not 1.\n- You wrote that the model runs the 3 tools itself. It doesn't: each call ends with one tool request or the final answer, and the program runs the tools.\n- So: 3 tool requests + 1 final answer = 4 calls.\n- Review: each model call ends in one tool request or the final answer"
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right.\n- Right: the result goes back to the model.\n- Missing the why: it goes into the model's next input so the model can use it to pick its next step or write the final answer.\n- Review: the model needs the result in its next input to choose its next step"
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "- Partly right.\n- Right: the model gets tool names and descriptions and picks the one that fits.\n- Your last sentence says it remembers its past picks from earlier sessions. What would carry that memory over? A model only sees the text in its current input, so it picks from the descriptions alone. Nothing about earlier sessions is there unless the program adds it.\n- Review: the model only sees the text in its current input (learning record 0001)"
+    }
+  ],
+  "summary": "2 correct, 2 partial, 2 wrong. You have down what makes an agent: the loop and the stopping condition. Work on who does what in the loop: the model only requests a tool, the program runs it and feeds the result back. Next step: sketch the laser cutter question as a step-by-step loop, labelling model versus program at each step."
+}

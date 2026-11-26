@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The loop (pick action, run it, feed back the result) is the defining structure, not a bigger prompt or model."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The model only outputs a structured request (tool name plus arguments); the program runs it."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "- Wrong.\n- Waiting longer is tempting because more tries feel like they must eventually work. Here every step repeats the same edit and the same failure, so more steps add nothing.\n- The fix is a stopping condition, like a step limit, that ends the loop and reports back to a person.\n- Review: the stopping condition in the agent loop"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "- Partly right. 4 is the correct count.\n- Question: in your reasoning, what does it mean that the model 'runs' check_calendar during its call?\n- The program runs every tool. The model only writes one request per call, and the 4th call writes the answer: 3 requests + 1 final answer.\n- Review: the program, not the model, runs the tools (see q2 in this quiz)"
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- The result goes back in as the model's next input so it can decide its next step."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right. The name is part of what the model uses.\n- Missing: the model sees the whole tool description (name, what it does, parameters) and picks the one that fits. Like picking a function from its signature and docstring, not just its name; a vague name alone can mislead.\n- Review: tool descriptions (not covered yet)"
+    }
+  ],
+  "summary": "3 correct, 2 partial, 1 wrong. You have the loop structure and feeding results back down. Work on stopping conditions: an agent that repeats itself needs a step limit. Also recheck that the program runs the tools and every step is a separate model call. Next step: reread learning record 0002, then redo q3."
+}

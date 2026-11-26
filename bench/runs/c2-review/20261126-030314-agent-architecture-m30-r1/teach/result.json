@@ -1,0 +1,127 @@
+{
+  "duration_api_ms": 418699,
+  "stop_reason": "end_turn",
+  "session_id": "589ba7af-15eb-4a50-b500-f01324c5ffca",
+  "total_cost_usd": 1.2298904649999998,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 12492,
+    "cache_read_input_tokens": 284425,
+    "output_tokens": 8148,
+    "output_tokens_details": {
+      "thinking_tokens": 1493
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 12492,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 596,
+        "cache_read_input_tokens": 101178,
+        "cache_creation_input_tokens": 1400,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1400
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 48,
+      "outputTokens": 52766,
+      "cacheReadInputTokens": 1007412,
+      "cacheCreationInputTokens": 167007,
+      "webSearchRequests": 0,
+      "costUSD": 1.1833651999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 10229,
+      "cacheCreationEphemeral5mInputTokens": 75440,
+      "cacheCreationEphemeral1hInputTokens": 91567,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 87511,
+      "outputTokens": 11053,
+      "cacheReadInputTokens": 3204,
+      "cacheCreationInputTokens": 17725,
+      "webSearchRequests": 3,
+      "costUSD": 0.046525265,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 4700,
+      "cacheCreationEphemeral5mInputTokens": 17725,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwwz2idm-2a412fde"
+  },
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 3
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 17,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the lesson to `lessons/0001-context-and-memory-in-an-agent.html`. It teaches objective O3 as a 30-minute lesson. I ran two review passes, and both came back REVISE. I fixed everything they raised except two minor items, but the last round of fixes was never reviewed. I didn't measure the word count. The reviewer estimated about 4,500 words just before my last round of edits, which fits 30 minutes.\n\nAfter the lesson you can sort any piece of information in the makerspace assistant into one of three places:\n- **Context window:** what the model sees on one call.\n- **Saved notes:** facts kept between sessions.\n- **Searchable manual:** passages retrieved when a question needs them.\n\nThe lesson covers the context window, what carries over between steps, between sessions, and retrieval.\n\n- **Practice:** it has four practice checks, three misconceptions, and a worked laser-cutter example. It ends with a 3D-printer task that includes a stale note and a bad retrieval.\n- **Style:** I followed your preferences: a short summary first, bullets, and data science and soccer analogies.\n- **Sources:** these are in `RESOURCES.md`; the main one is Anthropic's context-engineering post, and I read two of the sources in full during the session.\n- **Review record:** it is in `review-records/0001-context-and-memory-in-an-agent.md`.\n\nTwo reviewer points I left open: the \"what did I book?\" check is easy, and one analogy's limit is only half-stated. I also added a line to `NOTES.md`.\n\nYou can ask for a shorter or longer lesson, ask questions in the chat, or ask for a quiz when you're ready.\n\nQuestion for you: does the planned review-and-quiz cadence suit your three hours a week, or would you rather have a quiz before the next lesson?",
+  "ttft_ms": 13085,
+  "type": "result",
+  "duration_ms": 59477,
+  "uuid": "c4b7c43e-8063-4531-91b3-dfb5b61d9b88",
+  "ttft_stream_ms": 828,
+  "time_to_request_ms": 41,
+  "first_content_frame_ms": 828,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

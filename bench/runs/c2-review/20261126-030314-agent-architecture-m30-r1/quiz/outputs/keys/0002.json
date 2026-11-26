@@ -1,0 +1,46 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "- Workflow: code decides which step runs next. Agent: the model decides it.\n- a: workflows use tools too (M7, tools make it an agent).\n- b: both designs use a model (M8, a workflow has no model).\n- d: call count follows from who decides; it is not the test (M11, more calls means agent).",
+      "distractors": {"a": "M7", "b": "M8", "d": "M11"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "- Code owns the loop: it runs the check, decides to retry and sets the cap of 3. That makes it a workflow.\n- a: a loop alone does not make an agent; who controls it does (M14, any loop means agent).\n- c: the model writes content but does not choose the steps (M13, the model doing the work means it owns the flow).\n- d: nothing here is split; code decides every step (M12, a loop makes a third category).",
+      "distractors": {"a": "M14", "c": "M13", "d": "M12"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "- Booking has known steps in the same order every time, so code can run them: cheaper, faster, more predictable.\n- a: repeated searching still follows a known pattern, but the number of rounds depends on results (M15, iterative search needs an agent).\n- b: the next check depends on the student's answers (M16, anything conversational needs an agent).\n- c: which sources to look at depends on the description (M17, bigger tasks need an agent).\n- In a, b and c the path depends on what comes back, which is where an agent pays off.",
+      "distractors": {"a": "M15", "b": "M16", "c": "M17"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "- A fixed workflow only handles paths written into the code, so you give up flexibility for requests nobody anticipated.\n- b, c: a workflow can use tools and a model (M7, M8).\n- d: predictable cost is what a workflow gains, not loses (M18, a workflow's cost is less predictable than an agent's).",
+      "distractors": {"b": "M7", "c": "M8", "d": "M18"}
+    },
+    {
+      "id": "q5",
+      "answer": "Code runs a fixed, known number of steps, so there are fewer model calls and none spent on deciding what to do next, while an agent's number of calls varies.",
+      "accepted": [
+        "The workflow has a known, fixed number of model calls, while an agent makes a variable number as it decides its own steps",
+        "An agent spends extra model calls deciding what to do next; a workflow's code already knows the steps",
+        "A workflow makes fewer and more predictable model calls because code, not the model, decides the steps",
+        "Fewer model calls, because the steps are fixed in code"
+      ],
+      "rationale": "- Cost follows model calls. In a workflow, code sets the steps, so the count is small and known.\n- An agent spends calls choosing its next action and may loop longer, so cost is higher and varies.\n- 'Workflows use a cheaper model' or 'workflows skip tools' is not the reason."
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "- Control flow can be split: the code rule constrains the order of those two tools; the model still chooses everything else.\n- a: the rule now overrides the model for that ordering (M19, a code rule changes nothing about who decides).\n- b: one rule does not make every step code-decided (M20, one fixed rule makes the whole system a workflow).\n- d: mixing is normal; the two are ends of a spectrum (M10, a system is wholly one or the other).",
+      "distractors": {"a": "M19", "b": "M20", "d": "M10"}
+    }
+  ]
+}

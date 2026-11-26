@@ -1,0 +1,73 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Control flow means who decides which step runs next. Which question tells you whether a design is a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "Does the design give the language model tools to call?"},
+        {"id": "b", "text": "Does the design use a language model at all?"},
+        {"id": "c", "text": "Does code or the model decide the next step?"},
+        {"id": "d", "text": "Does a request take more than one model call?"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In your assistant, the model drafts a reply to a student. Code then runs a check on the draft. If the check fails, code sends the draft back to the model, up to 3 times, and then sends the reply. How should this design be classified?",
+      "options": [
+        {"id": "a", "text": "An agent, because it repeats steps in a loop"},
+        {"id": "b", "text": "A workflow, because code decides whether and when to repeat"},
+        {"id": "c", "text": "An agent, because the model rewrites the draft each time"},
+        {"id": "d", "text": "Neither, because a retry loop makes it a hybrid of the two"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the best candidate to build as a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Answering a manual question: search, reread the results, and search again until the right page turns up"},
+        {"id": "b", "text": "Diagnosing a failed print: ask the student questions and pick the next check from their answers"},
+        {"id": "c", "text": "Planning a project: decide which machines, manuals and calendars to look at, based on a description"},
+        {"id": "d", "text": "Booking a slot: read the machine and time, check the calendar, book if free, send a confirmation"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team builds the booking part as a fixed workflow. What do you give up by doing that, compared with an agent?",
+      "options": [
+        {"id": "a", "text": "Handling requests whose steps nobody wrote into the code"},
+        {"id": "b", "text": "Letting the model call tools such as check_calendar"},
+        {"id": "c", "text": "Having a language model write the replies to students"},
+        {"id": "d", "text": "Keeping the cost of each request predictable"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, when is an agent a better fit than a fixed workflow?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your assistant is an agent: the model picks which tool to call next. The team then adds a code rule that book_machine can run only after check_calendar has returned for that machine. Which statement describes who decides what?",
+      "options": [
+        {"id": "a", "text": "The model decides every step, including the order of those two tools"},
+        {"id": "b", "text": "Code decides every step, so the system is now a pure workflow"},
+        {"id": "c", "text": "Code decides the order of those two tools, and the model decides the other steps"},
+        {"id": "d", "text": "A system is either an agent or a workflow, so this design must be redone"}
+      ]
+    }
+  ]
+}

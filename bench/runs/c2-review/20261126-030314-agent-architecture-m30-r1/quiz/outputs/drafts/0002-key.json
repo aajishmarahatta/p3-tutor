@@ -1,0 +1,48 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "- Workflow: code decides the next step. Agent: the model decides it.\n- a: workflows use tools too (M7, tools make an agent).\n- b: both designs use a model (M8, a workflow has no model).\n- d: call count follows from who decides; it is not the test (M11).",
+      "distractors": {"a": "M7", "b": "M8", "d": "M11"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "- Code owns the loop: it runs the check, decides to retry and sets the cap of 3. That makes it a workflow.\n- a: a loop alone does not make an agent; what matters is who controls it (M14).\n- c: the model writes content, but does not choose the steps (M13).\n- d: the design is not split; code decides every step here (M10).",
+      "distractors": {"a": "M14", "c": "M13", "d": "M10"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "- Booking has known steps in the same order every time, so code can run them: cheaper, faster, more predictable.\n- a, b, c: the next step depends on what the last one returned, or on open-ended input, which is where an agent pays off.",
+      "distractors": {"a": "M9", "b": "M16", "c": "M17"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "- A fixed workflow only handles paths written into the code; you give up flexibility for unanticipated requests.\n- b, c: a workflow can use tools and a model (M7, M8).\n- d: predictable cost is what you gain, not lose (M9, agent is always the better choice).",
+      "distractors": {"b": "M7", "c": "M8", "d": "M9"}
+    },
+    {
+      "id": "q5",
+      "answer": "When the steps cannot be known in advance, because what to do next depends on what earlier steps return.",
+      "accepted": [
+        "when the steps are unpredictable and depend on intermediate results",
+        "when the number and order of steps cannot be known ahead of time",
+        "when the steps can't be fixed in advance",
+        "when the task is open-ended and the model has to decide the steps",
+        "when the next step depends on what the last step returned",
+        "when the path depends on intermediate results"
+      ],
+      "rationale": "- If steps are known up front, code can run them in a workflow.\n- An agent earns its extra cost only when the path depends on results as they come in.\n- 'The task is hard' or 'it needs tools' misses this; a workflow can do both."
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "- Control flow can be split: the code rule fixes the order of those two tools; the model still chooses everything else.\n- a: the rule now overrides the model for that ordering (M13).\n- b: one rule does not make every step code-decided (M10).\n- d: mixing is normal; the two are ends of a spectrum (M10).",
+      "distractors": {"a": "M13", "b": "M10", "d": "M10"}
+    }
+  ]
+}

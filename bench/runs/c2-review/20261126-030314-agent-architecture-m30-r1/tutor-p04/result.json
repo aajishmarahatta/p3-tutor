@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 8495,
+  "stop_reason": "end_turn",
+  "session_id": "992016c7-cc70-44c4-aa3f-784145af4fc1",
+  "total_cost_usd": 0.0752836,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 15019,
+    "cache_read_input_tokens": 57856,
+    "output_tokens": 941,
+    "output_tokens_details": {
+      "thinking_tokens": 48
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15019,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 433,
+        "cache_read_input_tokens": 25545,
+        "cache_creation_input_tokens": 485,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 485
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 941,
+      "cacheReadInputTokens": 57856,
+      "cacheCreationInputTokens": 15019,
+      "webSearchRequests": 0,
+      "costUSD": 0.0752836,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 48,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15019,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Short answer: neither number is justified, because \"more agents always give better results\" isn't true.\n\n- **Why it's tempting:** Splitting looks like a sports roster. More specialists should mean a better team.\n- **What's true:** Each extra agent is more model calls, and every handoff passes text that can lose detail.\n  - Cost climbs, which matters on your small budget.\n  - More hops means more places to go wrong.\n  - Agents that need the same context, like manual answers and booking, end up copying it around.\n- **When splitting pays off:**\n  - The work is truly independent, so it can run in parallel.\n  - One agent's context would get too big or cluttered.\n  - Parts need different tools or permissions.\n- **Where to start:** Your assistant does three jobs: manual Q&A, calendar check, and booking. Start with **one agent that has three tools**. Make fixed steps a plain workflow where the order never changes. Only split when you can show one agent failing.\n- **Soccer comparison:** A 4-3-3 beats 11 players all chasing the ball. Coordination costs more than extra bodies. The comparison breaks down because agents also cost money per touch.\n\nQuick question: for \"Is the laser cutter free Friday, and what's the max material thickness?\", which of your three jobs could run in parallel? Would splitting save you anything?",
+  "ttft_ms": 1334,
+  "type": "result",
+  "duration_ms": 8699,
+  "uuid": "c49ca656-0416-44fc-8c2c-ba017d6635a2",
+  "ttft_stream_ms": 784,
+  "time_to_request_ms": 139,
+  "first_content_frame_ms": 785,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 941,
+      "cacheReadInputTokens": 57856,
+      "cacheCreationInputTokens": 15019,
+      "webSearchRequests": 0,
+      "costUSD": 0.0752836,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 48,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15019,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}
