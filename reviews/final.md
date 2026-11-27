@@ -153,12 +153,6 @@ I found the step-by-step questions and sports examples especially helpful. The m
 
 ## Test topics
 
-### agent-architecture
-
-This was the shared benchmark topic used throughout the architecture ladder. The Final configuration maintained factual correctness of 1.00, quiz key agreement of 1.00, and grading verdict agreement of 1.00 in both full runs, with no answer leaks.
-
-The teaching length ratios were 0.76 and 1.03, showing that lesson completeness still varied between runs. Tutor expected behavior was 0.50 and 0.67, which was lower than the c3-split result of 0.83. I think this shows that the architecture was accurate and secure, but tutoring behavior was still inconsistent.
-
 ### sql-joins
 
 I created SQL joins as my held-out topic to test whether the Final architecture could handle a different subject without being tuned specifically to agent architecture.

@@ -68,9 +68,17 @@ You reviewed `final` openly, knowing you built it, and then compared it with `c0
 Give the blind tally for each job, and say where it agreed with your open reviews and where it did not.
 Where they disagreed, say what you think happened.
 
-TODO: your answer to prompt 6.
+My blind comparisons produced the following results:
 
----
+- Teach: Final won 2, Baseline won 0.
+- Quiz: Final won 0, Baseline won 1, with 1 tie.
+- Grade: Final won 8, Baseline won 16.
+- Tutor: Final won 10, Baseline won 2.
+
+My teaching preferences agreed with my open review because I preferred Final's more organized and interactive lessons. The Final tutor also performed well in my blind preferences, even though its automatic behavior scores were not consistently better.
+The biggest disagreement was grading. I rated Final's grading quality positively in my open review, but I preferred Baseline in 16 of the 24 blind comparisons. I think this happened because both systems produced correct grading verdicts, while I personally preferred the paragraph-style explanations over the bullet-point formatting in some Final responses.
+The quiz results were mixed, with one Baseline win and one tie. This suggests that additional reviewer agents did not necessarily make the quiz more appealing to me, even though Final achieved better answer-key agreement.
+Overall, the blind comparisons showed that Final's architecture improved some aspects of my learning experience, but the added complexity did not automatically improve every output.
 
 ## 7. The test topic
 
@@ -78,9 +86,13 @@ You tuned the tutor on the shared topic only.
 On your test topic, did `final` still beat `c0-baseline`, and was the gain smaller, the same, or larger than on the shared topic?
 Give one number or one quote from each config's output on it.
 
-TODO: your answer to prompt 7.
+On my held-out sql-joins topic, Final improved lesson completeness but did not consistently outperform the Baseline in every category.
+The Baseline lesson had a length ratio of 0.57, while Final reached 0.81. Both configurations maintained 1.00 factual correctness, 1.00 quiz key agreement, and 1.00 grading verdict agreement.
+However, Baseline met 0.75 of the expected tutor behaviors while Final met only 0.50. Final was also substantially more expensive, with an estimated list cost of $3.48 compared with $1.39.
+On the shared agent-architecture topic, Final's average lesson length ratio was 0.89 compared with 0.75 for Baseline, an improvement of 0.14. On sql-joins, the improvement was 0.24. Therefore, the lesson-length gain was larger on my held-out topic, although tutoring behavior actually became worse.
+This suggests the architecture generalized well for producing longer, factually correct lessons, but its tutoring improvements did not generalize consistently.
 
----
+For example, on my held-out SQL joins topic, the Baseline lesson had a length ratio of 0.574 and contained 2,585 words, while the Final lesson had a length ratio of 0.807 and contained 3,632 words. Both achieved 1.00 factual correctness. This shows that Final generated a substantially more complete lesson without sacrificing factual accuracy, although it did not consistently improve tutor behavior.
 
 ## 8. The judge check
 
@@ -88,9 +100,10 @@ The bench's judge scored your lessons' facts and your tutor's replies.
 Label ten of the items it judged yourself, before you look at its verdicts.
 On how many of the ten did you agree with it, and what was one disagreement about?
 
-TODO: your answer to prompt 8.
+I independently labeled ten tutor responses from the first two c0-baseline benchmark runs on agent-architecture, following a selection rule chosen before inspecting their individual judge verdicts. I selected six probes from the first run and four from the second because I had already seen some of Final's individual probe results.
 
----
+My labels agreed with the automated judge on 9 out of 10 responses (90%). The only disagreement was tutor-p06 in the first run, which explained tool calling using a manager-and-runner analogy. I marked it "not met" because the response was about 356 words, exceeding the expected limit of about 250 words. The judge marked it "met" because it considered the length limit approximate and thought the otherwise accurate analogy satisfied the requirements.
+This suggests the judge was generally consistent with my assessment, although it was more lenient about length than I was. This check supports confidence in the tutor-behavior scores, but it does not independently validate the lesson-fact scores.
 
 ## 9. The stretch
 
@@ -98,4 +111,4 @@ What you tried, what it showed, and the one number that says so.
 For the length study, give the outcome your `PREREG.md` rule points to.
 If you did not take a stretch, write "No stretch."
 
-TODO: your answer to prompt 9.
+I completed the 498E personalization-swap stretch by creating a fictional learner profile that prefers restaurant examples, big-picture explanations, concise lessons, and direct feedback. I snapshotted it as configs/final-swap/ and ran one benchmark on agent-architecture. The lesson switched from a soccer-coach analogy to a cook-and-order-ticket analogy, the number of questions decreased from 24 to 13, and the grading feedback became shorter and more direct. However, the quiz did not adopt restaurant examples, and the lesson was only about 9% shorter. The swap preserved correctness: factual accuracy, quiz key agreement, and grading verdict agreement all remained at 1.00, while the length ratio of 0.95 stayed within Final's original range of 0.76–1.03.
