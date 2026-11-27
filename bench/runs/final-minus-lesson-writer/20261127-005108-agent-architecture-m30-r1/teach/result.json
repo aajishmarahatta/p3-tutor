@@ -1,0 +1,127 @@
+{
+  "duration_api_ms": 516973,
+  "stop_reason": "end_turn",
+  "session_id": "f0475796-9ab8-462d-aca3-04a063a0c5c4",
+  "total_cost_usd": 1.8320473,
+  "usage": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 46298,
+    "cache_read_input_tokens": 617561,
+    "output_tokens": 25700,
+    "output_tokens_details": {
+      "thinking_tokens": 717
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 46298,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 722,
+        "cache_read_input_tokens": 118363,
+        "cache_creation_input_tokens": 19204,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 19204
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 78,
+      "outputTokens": 75133,
+      "cacheReadInputTokens": 1827715,
+      "cacheCreationInputTokens": 267995,
+      "webSearchRequests": 0,
+      "costUSD": 1.7940790000000004,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 10554,
+      "cacheCreationEphemeral5mInputTokens": 141439,
+      "cacheCreationEphemeral1hInputTokens": 126556,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 56843,
+      "outputTokens": 4568,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.037968299999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1421,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwy9syq3-1ad9ffa6"
+  },
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 3
+    },
+    "started_in_background": 3,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "lesson-planner": 1,
+      "lesson-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 27,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The lesson is written: `lessons/0003-context-and-memory-in-an-agent.html`, objective O3, 30 minutes. Two review passes ran. Both said REVISE and I fixed what they raised, but a few smaller findings are still open (below). I haven't opened the page in a browser or counted its words. The reviewer estimated about 5,000 words.\n\n**What you can do after it:** sort the makerspace assistant's information into context, retrieval or saved notes, and say why each choice keeps cost down.\n\n**What it covers:**\n- **Context window:** the model is stateless, so every call re-sends the full context.\n- **Between steps:** your program keeps the message list, so each step costs more than the last. It includes a token-cost table and a figure.\n- **Keeping context small:** keep, summarize or clear.\n- **Between sessions:** nothing survives unless you store it.\n- **Retrieval and notes:** retrieval fetches only the manual chunks a question needs. Notes are files the assistant writes and reads back next session.\n- **Practice and mix-ups:** five common mix-ups, a section on where each approach fails, and a worked sorting example followed by a faded practice task.\n\n**Open findings:** Section 4 has only one practice check, and section 3's answer doesn't cover every tempting wrong sort. Both are in `review-records/0003-context-and-memory-in-an-agent.md`.\n\n**Other things to know:**\n- The token counts in the lesson are made up and labelled as illustrative. It states no window sizes or prices.\n- I added the three sources to `RESOURCES.md` and a line about this lesson to `NOTES.md`. I wrote no learning record, because you haven't shown anything on this topic yet.\n- Quiz 0001 is still ungraded, so the lesson briefly re-teaches tokens and the fact that your program, not the model, runs each tool.\n\nYou can ask for a shorter or longer version, ask questions in the chat, or ask for a quiz on O3 when you're ready.\n\nQuestion for you: do you want a community to test your design with, such as a forum for people building agents? I left that section out because I didn't know your preference.",
+  "ttft_ms": 3509,
+  "type": "result",
+  "duration_ms": 142512,
+  "uuid": "2b9bd51f-b7bf-449b-96e5-bb0e3ee6efab",
+  "ttft_stream_ms": 660,
+  "time_to_request_ms": 56,
+  "first_content_frame_ms": 661,
+  "queued_turn_count": 0,
+  "result_index": 3,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}
