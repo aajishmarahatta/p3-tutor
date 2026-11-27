@@ -59,6 +59,9 @@ Then the result, with the numbers of the ablation's run beside `final`'s, and wh
 
 For my ablation, I chose to remove the lesson-writer subagent while keeping the lesson-planner and lesson-reviewer. I predict that the lesson will remain factually correct, but its explanations, examples, and practice questions may become less consistent because the main agent will have to handle the writing itself.I expect the ablation to be slightly cheaper and faster because it removes one subagent call. However, the main agent might use some of those saved resources to write and revise the lesson, so the cost reduction may be modest.
 
+The ablation partly supported my prediction. Without the `lesson-writer`, factual correctness remained 1.00, with no detected misconceptions or dead links. The lesson length ratio was 0.84, compared with 0.76 and 1.03 in the two Final runs. However, the ablation had fewer practice and answer blocks (6 compared with 10 and 13), suggesting that the dedicated writer may help produce more complete learning activities.
+The ablation ran in 8.4 minutes, compared with 9.4 and 11.2 minutes for Final. Its estimated cost was $1.83, compared with $1.83 and $2.34, so it was faster but not consistently cheaper. Since this was only one ablation run and the two Final runs already varied substantially, I cannot confidently attribute the differences to removing the writer. I would keep the writer in Final for now, but the evidence for its added value is limited.
+
 ## 6. Your blind picks against your open reviews
 
 You reviewed `final` openly, knowing you built it, and then compared it with `c0-baseline` blind.
