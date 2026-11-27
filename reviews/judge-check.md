@@ -11,13 +11,13 @@ Fill in My label first (met or not met), then open the judge's verdicts in each 
 
 | # | run id | scenario | My label | Judge | Agree |
 |---|---|---|---|---|---|
-| 1 | 20261123-194450-agent-architecture-m30-r1 | tutor-p01 | not met | | |
-| 2 | 20261123-194450-agent-architecture-m30-r1 | tutor-p02 | not met | | |
-| 3 | 20261123-194450-agent-architecture-m30-r1 | tutor-p03 | met | | |
-| 4 | 20261123-194450-agent-architecture-m30-r1 | tutor-p04 | met | | |
-| 5 | 20261123-194450-agent-architecture-m30-r1 | tutor-p05 | not met | | |
-| 6 | 20261123-194450-agent-architecture-m30-r1 | tutor-p06 | not met | | |
-| 7 | 20261123-195046-agent-architecture-m30-r2 | tutor-p01 | not met | | |
-| 8 | 20261123-195046-agent-architecture-m30-r2 | tutor-p02 | not met | | |
-| 9 | 20261123-195046-agent-architecture-m30-r2 | tutor-p03 | met | | |
-| 10 | 20261123-195046-agent-architecture-m30-r2 | tutor-p04 | met | | |
+| 1 | 20261123-194450-agent-architecture-m30-r1 | tutor-p01 | not met | not met | yes |
+| 2 | 20261123-194450-agent-architecture-m30-r1 | tutor-p02 | not met | not met | yes |
+| 3 | 20261123-194450-agent-architecture-m30-r1 | tutor-p03 | met | met | yes |
+| 4 | 20261123-194450-agent-architecture-m30-r1 | tutor-p04 | met | met | yes |
+| 5 | 20261123-194450-agent-architecture-m30-r1 | tutor-p05 | not met | not met | yes |
+| 6 | 20261123-194450-agent-architecture-m30-r1 | tutor-p06 | not met | met | no |
+| 7 | 20261123-195046-agent-architecture-m30-r2 | tutor-p01 | not met | not met | yes |
+| 8 | 20261123-195046-agent-architecture-m30-r2 | tutor-p02 | not met | not met | yes |
+| 9 | 20261123-195046-agent-architecture-m30-r2 | tutor-p03 | met | met | yes |
+| 10 | 20261123-195046-agent-architecture-m30-r2 | tutor-p04 | met | met | yes |
