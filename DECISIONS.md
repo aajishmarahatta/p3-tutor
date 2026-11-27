@@ -86,13 +86,11 @@ You tuned the tutor on the shared topic only.
 On your test topic, did `final` still beat `c0-baseline`, and was the gain smaller, the same, or larger than on the shared topic?
 Give one number or one quote from each config's output on it.
 
-On my held-out sql-joins topic, Final improved lesson completeness but did not consistently outperform the Baseline in every category.
-The Baseline lesson had a length ratio of 0.57, while Final reached 0.81. Both configurations maintained 1.00 factual correctness, 1.00 quiz key agreement, and 1.00 grading verdict agreement.
-However, Baseline met 0.75 of the expected tutor behaviors while Final met only 0.50. Final was also substantially more expensive, with an estimated list cost of $3.48 compared with $1.39.
-On the shared agent-architecture topic, Final's average lesson length ratio was 0.89 compared with 0.75 for Baseline, an improvement of 0.14. On sql-joins, the improvement was 0.24. Therefore, the lesson-length gain was larger on my held-out topic, although tutoring behavior actually became worse.
-This suggests the architecture generalized well for producing longer, factually correct lessons, but its tutoring improvements did not generalize consistently.
+On my held-out sql-joins topic, Final improved lesson completeness but did not consistently outperform Baseline in every category.
+The Baseline lesson had a length ratio of 0.57, while Final reached 0.81. Both configurations maintained 1.00 factual correctness, 1.00 quiz key agreement, and 1.00 grading verdict agreement. However, Baseline met 0.75 of the expected tutor behaviors while Final met only 0.50. Final was also substantially more expensive, with an estimated list cost of $3.48 compared with $1.39.
 
-For example, on my held-out SQL joins topic, the Baseline lesson had a length ratio of 0.574 and contained 2,585 words, while the Final lesson had a length ratio of 0.807 and contained 3,632 words. Both achieved 1.00 factual correctness. This shows that Final generated a substantially more complete lesson without sacrificing factual accuracy, although it did not consistently improve tutor behavior.
+On the shared agent-architecture topic, Final's average lesson length ratio was 0.89 compared with 0.71 for Baseline, an improvement of 0.18. On sql-joins, the improvement was approximately 0.24. Therefore, the lesson-length gain was larger on my held-out topic, although tutoring behavior became worse.
+For example, on my held-out SQL joins topic, the Baseline lesson contained 2,585 words with a length ratio of 0.574, while the Final lesson contained 3,632 words with a length ratio of 0.807. Both achieved 1.00 factual correctness. This suggests the architecture generalized well for producing more complete, factually correct lessons, but its tutoring improvements did not generalize consistently.
 
 ## 8. The judge check
 
