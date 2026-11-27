@@ -28,144 +28,143 @@ The new grader subagent produced correct verdicts on every graded item, with 1.0
 
 ## Major review
 
-**Run:** bench/runs/final/TODO
+**Run:** bench/runs/final/20261126-192430-agent-architecture-m30-r2
 
 **Live tries:**
 
-TODO: one line that points at your three learning sessions under Learning sessions below, and names anything else you tried with `final`.
+My interactive learning session on sql-joins is documented under Session 1 in Learning sessions below. I practiced join counting, completed a five-question quiz, reviewed my mistakes with the tutor, and solved two new application problems.
 
 ### Lesson
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 5
 
-TODO
+The lesson maintained 1.00 factual correctness with no detected misconceptions or dead links. I thought the technical material was reliable, and the worked examples helped explain how agents manage context and memory.
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 4
 
-TODO
+The lesson was organized into sections with explanations, examples, and practice activities. The planner and writer helped produce a more complete lesson, and this run reached a length ratio of 1.03 for the requested 30 minutes. However, lesson length varied considerably between Final runs, with the other run reaching only 0.76.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5
 
-TODO
+The lesson focused on the requested learning objective about agent context and memory. The explanations and practice activities supported understanding how information is managed within and between agent sessions. I thought the structure was relevant to what the learner was supposed to accomplish.
 
 #### Overall quality
 
-Rating: TODO
+Rating: 4
 
-TODO
+The lesson was accurate, structured, and close to the requested length. The separate planning, writing, and reviewing steps helped produce a detailed lesson. I would still improve consistency between runs and make sure the examples and explanations match the learner's preferences more closely.
 
 ### Quiz
 
 #### Difficulty
 
-Rating: TODO
+Rating: 4
 
-TODO
+The quiz tested concepts from the lesson at a reasonable level. I thought the questions were useful for checking understanding rather than just memorizing definitions. Some questions could be more challenging or involve applying the ideas to new situations.
 
 #### Coverage of the lesson's core
 
-Rating: TODO
+Rating: 5
 
-TODO
+The quiz covered the major concepts from the learning objective. The Final benchmark produced six questions, and the scoring did not identify incorrect answer keys or ambiguous items.
 
 #### Wording and possible misreadings
 
-Rating: TODO
+Rating: 5
 
-TODO
+The questions appeared clear and specific enough to answer. The benchmark reported zero likely ambiguous questions and zero likely wrong keys. The separate quiz reviewer also provided an additional check before publication.
 
 #### Writing quality
 
-Rating: TODO
+Rating: 4
 
-TODO
+The quiz was organized and readable, with answer choices that generally made sense. The generated quiz had 1.00 key agreement. However, the review workflow required additional time and tokens, and the second Final quiz process timed out even though its output and scoring were completed.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5
 
-TODO
+The quiz tested the same learning objective as the lesson. I thought it was appropriate for checking whether the learner understood the core ideas instead of introducing unrelated material.
 
 ### Feedback
 
 #### Useful
 
-Rating: TODO
+Rating: 5
 
-TODO
+The grading agent correctly distinguished between correct, incorrect, and partially correct responses. Both Final benchmarks achieved 1.00 verdict agreement and 1.00 misconception detection, with no false-wrong grades. The feedback was useful because it identified mistakes rather than only assigning scores.
 
 #### Explains enough
 
-Rating: TODO
+Rating: 4
 
-TODO
+The feedback explained why answers were correct or incorrect and identified misconceptions when appropriate. The grading reviewer also helped catch problems with explanations. I would still prefer the feedback to be concise and to focus directly on the learner's reasoning.
 
 #### Personalized to how I like things explained
 
-Rating: TODO
+Rating: 4
 
-TODO
+The feedback was generally structured and explanatory, which matches my preference for clear explanations. I appreciated that the grading system could recognize partial understanding instead of treating every imperfect answer as wrong. I would improve personalization by including more short examples tied to the learner's background when useful.
 
 ### Tutor
 
 #### Guardrails
 
-Rating: TODO
+Rating: 4
 
-TODO
+The tutor did not leak any protected answers in either Final benchmark. The PreToolUse hook also successfully blocked unauthorized access to answer keys in a controlled live test while allowing the grader to access them. However, the tutor still struggled with some behavior probes, so protecting answers did not guarantee that every tutoring response was ideal.
 
 #### Personalization
 
-Rating: TODO
+Rating: 3
 
-TODO
+The tutor sometimes adjusted its explanations appropriately, but its behavior was inconsistent. Expected behavior was met on 0.50 of probes in Final run 1 and 0.67 in Final run 2. In particular, it still tended to provide explanations that were too advanced instead of giving a simpler next step. I would like the tutor to respond more consistently at the learner's level.
 
 ### Compared with the previous step
 
-TODO
+Compared with c3-split, Final maintained 1.00 factual correctness, quiz key agreement, grading accuracy, and misconception detection, with zero answer leaks. The main improvement in Final was security: the answer-key guard and dedicated grader separated protected keys from the main conversation.
+
+Teaching length varied across the Final runs, with ratios of 0.76 and 1.03 compared with 0.91 in c3-split. Tutor behavior was less consistent, scoring 0.50 and 0.67 compared with 0.83 in c3-split. The Final configuration was slightly more expensive, but the additional security protection was an important requirement.
 
 ### What I would do next
 
-TODO
+I would focus on improving the tutor's ability to recognize when an explanation is too advanced and respond with simpler hints or examples. I would also consider reducing the cost of review loops that have not shown much measurable improvement, especially the quiz reviewer. Finally, I would try to make lesson length and personalization more consistent across repeated runs.
 
 ## Learning sessions
 
 ### Session 1
 
-**Date:** TODO
+**Date:** 2026-11-26
 
-**Topic:** TODO
+**Topic:** sql-joins, one-to-many relationships and ON versus WHERE
 
-TODO
+I used the Final tutoring agent to practice SQL joins, especially counting rows after one-to-many joins and understanding the difference between ON and WHERE conditions. The tutor started with small tables and asked me to predict query results before giving explanations. I initially answered the basic counting questions correctly, but I scored only 2/5 on the quiz because I was still confusing how ON and WHERE affect a LEFT JOIN.
 
-### Session 2
+The tutor helped me work through my mistakes by having me list the joined rows myself instead of immediately giving me the answers. After reviewing the mistakes, I correctly explained the different results of filtering in ON versus WHERE. I also completed two new problems involving soccer goals and NFL games. I initially missed one soccer goal when counting, but corrected it after a hint. In the final NFL problem, I independently wrote the correct query and calculated four qualifying games from three different teams.
 
-**Date:** TODO
+I found the step-by-step questions and sports examples especially helpful. The main improvement I would suggest is making the quiz review process shorter and focusing more quickly on the specific concept I misunderstood. Overall, I finished the session with a clearer understanding of COUNT(*), COUNT(column), COUNT(DISTINCT column), and where to place filtering conditions in joins.
 
-**Topic:** TODO
-
-TODO
-
-### Session 3
-
-**Date:** TODO
-
-**Topic:** TODO
-
-TODO
 
 ## Test topics
 
-### TODO: your first test topic's id
+### agent-architecture
 
-TODO
+This was the shared benchmark topic used throughout the architecture ladder. The Final configuration maintained factual correctness of 1.00, quiz key agreement of 1.00, and grading verdict agreement of 1.00 in both full runs, with no answer leaks.
 
-### TODO: your second test topic's id
+The teaching length ratios were 0.76 and 1.03, showing that lesson completeness still varied between runs. Tutor expected behavior was 0.50 and 0.67, which was lower than the c3-split result of 0.83. I think this shows that the architecture was accurate and secure, but tutoring behavior was still inconsistent.
 
-TODO
+### sql-joins
+
+I created SQL joins as my held-out topic to test whether the Final architecture could handle a different subject without being tuned specifically to agent architecture.
+
+The baseline and Final configurations both achieved 1.00 factual correctness, 1.00 quiz key agreement, and 1.00 grading verdict agreement, with no answer leaks. The biggest improvement was lesson length: the baseline produced a ratio of 0.57, while Final reached 0.81. The Final lesson was closer to the intended 30 minutes and provided more opportunity to explain the material.
+
+However, tutor expected behavior decreased from 0.75 in the baseline to 0.50 in Final. One Final probe failed because the tutor avoided a hint that might reveal too much about the quiz answer, even though the expected response specifically asked for that hint. Both configurations also struggled with the advanced query-optimization question.
+
+The Final run took 16.2 minutes compared with 4.9 minutes for the baseline, and its estimated cost was $3.48 compared with $1.39. I think the additional cost improved lesson completeness and added security, but it did not consistently improve tutoring behavior.
