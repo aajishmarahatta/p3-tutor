@@ -1,0 +1,168 @@
+{
+  "session": "20261127-030043-teach",
+  "job": "teach",
+  "topic": "agent-architecture",
+  "configs": [
+    "c0-baseline",
+    "final"
+  ],
+  "created_at": "2026-11-27T03:00:43Z",
+  "minutes": 30,
+  "quick": false,
+  "teach_only": false,
+  "pairs": [
+    {
+      "pair_id": "001",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "teach"
+    },
+    {
+      "pair_id": "002",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "teach"
+    }
+  ],
+  "picks": [
+    {
+      "pair_id": "001",
+      "choice": "right",
+      "reason": "The lesson on the left has a nicer looking format and is in more of a bullet point form, which is what I prefer",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:05:38Z"
+    },
+    {
+      "pair_id": "002",
+      "choice": "right",
+      "reason": "The lesson on the right serves me better as it is in more of a bullet point for and is more interactive with more Q&A's for the learner.",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:06:47Z"
+    }
+  ],
+  "complete": true,
+  "revealed": {
+    "revealed_at": "2026-11-27T03:19:00Z",
+    "wins": {
+      "c0-baseline": 0,
+      "final": 2
+    },
+    "ties": 0,
+    "non_tie": 2,
+    "p_value": 0.5,
+    "could_tell": {
+      "yes": 0,
+      "pairs": 2,
+      "share": 0.0
+    },
+    "reasons": {
+      "c0-baseline": [],
+      "final": [
+        {
+          "pair_id": "001",
+          "item": "teach",
+          "reason": "The lesson on the left has a nicer looking format and is in more of a bullet point form, which is what I prefer"
+        },
+        {
+          "pair_id": "002",
+          "item": "teach",
+          "reason": "The lesson on the right serves me better as it is in more of a bullet point for and is more interactive with more Q&A's for the learner."
+        }
+      ],
+      "tie": []
+    },
+    "no_reason": 0,
+    "objective": {
+      "c0-baseline": {
+        "teach_facts_correct": [
+          1.0,
+          1.0
+        ],
+        "teach_misconceptions": [
+          0,
+          0
+        ],
+        "teach_length_ratio": [
+          0.742,
+          0.752
+        ],
+        "teach_dead_links": [
+          0,
+          0
+        ]
+      },
+      "final": {
+        "teach_facts_correct": [
+          1.0,
+          1.0
+        ],
+        "teach_misconceptions": [
+          0,
+          0
+        ],
+        "teach_length_ratio": [
+          0.76,
+          1.026
+        ],
+        "teach_dead_links": [
+          0,
+          0
+        ]
+      }
+    },
+    "cost": {
+      "c0-baseline": {
+        "runs": 2,
+        "scenarios": 2,
+        "tokens": [
+          550561,
+          651578
+        ],
+        "output": [
+          25155,
+          30396
+        ],
+        "minutes": [
+          2.69,
+          2.94
+        ],
+        "subagents": [
+          0,
+          1
+        ],
+        "cost": [
+          0.555861,
+          0.584308
+        ]
+      },
+      "final": {
+        "runs": 2,
+        "scenarios": 2,
+        "tokens": [
+          1903407,
+          3240692
+        ],
+        "output": [
+          92061,
+          107023
+        ],
+        "minutes": [
+          9.38,
+          11.21
+        ],
+        "subagents": [
+          5,
+          6
+        ],
+        "cost": [
+          1.828925,
+          2.340729
+        ]
+      }
+    }
+  }
+}

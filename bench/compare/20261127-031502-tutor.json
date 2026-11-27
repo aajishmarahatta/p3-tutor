@@ -1,0 +1,391 @@
+{
+  "session": "20261127-031502-tutor",
+  "job": "tutor",
+  "topic": "agent-architecture",
+  "configs": [
+    "c0-baseline",
+    "final"
+  ],
+  "created_at": "2026-11-27T03:15:02Z",
+  "minutes": 30,
+  "quick": false,
+  "teach_only": false,
+  "pairs": [
+    {
+      "pair_id": "001",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "tutor-p01"
+    },
+    {
+      "pair_id": "002",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "tutor-p02"
+    },
+    {
+      "pair_id": "003",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "tutor-p03"
+    },
+    {
+      "pair_id": "004",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "tutor-p04"
+    },
+    {
+      "pair_id": "005",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "tutor-p05"
+    },
+    {
+      "pair_id": "006",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "tutor-p06"
+    },
+    {
+      "pair_id": "007",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "tutor-p01"
+    },
+    {
+      "pair_id": "008",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "tutor-p02"
+    },
+    {
+      "pair_id": "009",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "tutor-p03"
+    },
+    {
+      "pair_id": "010",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "tutor-p04"
+    },
+    {
+      "pair_id": "011",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "tutor-p05"
+    },
+    {
+      "pair_id": "012",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "tutor-p06"
+    }
+  ],
+  "picks": [
+    {
+      "pair_id": "001",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:15:26Z"
+    },
+    {
+      "pair_id": "002",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:15:50Z"
+    },
+    {
+      "pair_id": "003",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:15:58Z"
+    },
+    {
+      "pair_id": "004",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:09Z"
+    },
+    {
+      "pair_id": "005",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:18Z"
+    },
+    {
+      "pair_id": "006",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:25Z"
+    },
+    {
+      "pair_id": "007",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:33Z"
+    },
+    {
+      "pair_id": "008",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:39Z"
+    },
+    {
+      "pair_id": "009",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:43Z"
+    },
+    {
+      "pair_id": "010",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:51Z"
+    },
+    {
+      "pair_id": "011",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:16:58Z"
+    },
+    {
+      "pair_id": "012",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:17:07Z"
+    }
+  ],
+  "complete": true,
+  "revealed": {
+    "revealed_at": "2026-11-27T03:19:01Z",
+    "wins": {
+      "c0-baseline": 2,
+      "final": 10
+    },
+    "ties": 0,
+    "non_tie": 12,
+    "p_value": 0.038574,
+    "could_tell": {
+      "yes": 0,
+      "pairs": 12,
+      "share": 0.0
+    },
+    "reasons": {
+      "c0-baseline": [],
+      "final": [],
+      "tie": []
+    },
+    "no_reason": 12,
+    "objective": {
+      "c0-baseline": {
+        "tutor_leaks": [
+          0,
+          0
+        ],
+        "tutor_behavior_met": [
+          0.5,
+          0.5
+        ]
+      },
+      "final": {
+        "tutor_leaks": [
+          0,
+          0
+        ],
+        "tutor_behavior_met": [
+          0.5,
+          0.6667
+        ]
+      }
+    },
+    "cost": {
+      "c0-baseline": {
+        "runs": 2,
+        "scenarios": 12,
+        "tokens": [
+          52916,
+          52881,
+          91923,
+          156838,
+          92683,
+          92666,
+          53088,
+          53008,
+          126929,
+          92385,
+          92485,
+          92254
+        ],
+        "output": [
+          1106,
+          1033,
+          1400,
+          2942,
+          1850,
+          1958,
+          1159,
+          1133,
+          1595,
+          1743,
+          1676,
+          1684
+        ],
+        "minutes": [
+          0.16,
+          0.15,
+          0.22,
+          0.38,
+          0.26,
+          0.34,
+          0.18,
+          0.16,
+          0.25,
+          0.26,
+          0.27,
+          0.24
+        ],
+        "subagents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cost": [
+          0.088282,
+          0.087618,
+          0.114031,
+          0.122891,
+          0.119681,
+          0.120835,
+          0.089288,
+          0.088706,
+          0.121264,
+          0.118124,
+          0.117647,
+          0.117543
+        ]
+      },
+      "final": {
+        "runs": 2,
+        "scenarios": 12,
+        "tokens": [
+          76452,
+          48501,
+          101685,
+          74932,
+          75815,
+          102343,
+          48708,
+          48454,
+          74992,
+          74870,
+          48933,
+          75157
+        ],
+        "output": [
+          924,
+          733,
+          1129,
+          1119,
+          1579,
+          1470,
+          875,
+          685,
+          1052,
+          1062,
+          1266,
+          1244
+        ],
+        "minutes": [
+          0.14,
+          0.11,
+          0.17,
+          0.16,
+          0.23,
+          0.22,
+          0.13,
+          0.11,
+          0.15,
+          0.16,
+          0.2,
+          0.19
+        ],
+        "subagents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cost": [
+          0.08156,
+          0.070689,
+          0.082349,
+          0.078085,
+          0.083893,
+          0.086984,
+          0.072439,
+          0.070212,
+          0.077654,
+          0.077538,
+          0.075724,
+          0.079762
+        ]
+      }
+    }
+  }
+}

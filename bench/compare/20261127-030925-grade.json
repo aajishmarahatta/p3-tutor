@@ -1,0 +1,515 @@
+{
+  "session": "20261127-030925-grade",
+  "job": "grade",
+  "topic": "agent-architecture",
+  "configs": [
+    "c0-baseline",
+    "final"
+  ],
+  "created_at": "2026-11-27T03:09:25Z",
+  "minutes": 30,
+  "quick": false,
+  "teach_only": false,
+  "pairs": [
+    {
+      "pair_id": "001",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s1/q1"
+    },
+    {
+      "pair_id": "002",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s1/q2"
+    },
+    {
+      "pair_id": "003",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s1/q3"
+    },
+    {
+      "pair_id": "004",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s1/q4"
+    },
+    {
+      "pair_id": "005",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s1/q5"
+    },
+    {
+      "pair_id": "006",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s1/q6"
+    },
+    {
+      "pair_id": "007",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s2/q1"
+    },
+    {
+      "pair_id": "008",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s2/q2"
+    },
+    {
+      "pair_id": "009",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s2/q3"
+    },
+    {
+      "pair_id": "010",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s2/q4"
+    },
+    {
+      "pair_id": "011",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s2/q5"
+    },
+    {
+      "pair_id": "012",
+      "run_pair": [
+        "20261123-194450-agent-architecture-m30-r1",
+        "20261126-191500-agent-architecture-m30-r1"
+      ],
+      "item": "grade-s2/q6"
+    },
+    {
+      "pair_id": "013",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s1/q1"
+    },
+    {
+      "pair_id": "014",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s1/q2"
+    },
+    {
+      "pair_id": "015",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s1/q3"
+    },
+    {
+      "pair_id": "016",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s1/q4"
+    },
+    {
+      "pair_id": "017",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s1/q5"
+    },
+    {
+      "pair_id": "018",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s1/q6"
+    },
+    {
+      "pair_id": "019",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s2/q1"
+    },
+    {
+      "pair_id": "020",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s2/q2"
+    },
+    {
+      "pair_id": "021",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s2/q3"
+    },
+    {
+      "pair_id": "022",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s2/q4"
+    },
+    {
+      "pair_id": "023",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s2/q5"
+    },
+    {
+      "pair_id": "024",
+      "run_pair": [
+        "20261123-195046-agent-architecture-m30-r2",
+        "20261126-192430-agent-architecture-m30-r2"
+      ],
+      "item": "grade-s2/q6"
+    }
+  ],
+  "picks": [
+    {
+      "pair_id": "001",
+      "choice": "right",
+      "reason": "I like the answer revealed in paragraph form not bulletpoints.",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:10:38Z"
+    },
+    {
+      "pair_id": "002",
+      "choice": "right",
+      "reason": "I like my answers in paragraph form not bullet points. The left just looks messy.",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:11:07Z"
+    },
+    {
+      "pair_id": "003",
+      "choice": "right",
+      "reason": "bulletpoint form",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:11:30Z"
+    },
+    {
+      "pair_id": "004",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:11:54Z"
+    },
+    {
+      "pair_id": "005",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:12:28Z"
+    },
+    {
+      "pair_id": "006",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:12:44Z"
+    },
+    {
+      "pair_id": "007",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:12:50Z"
+    },
+    {
+      "pair_id": "008",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:12:53Z"
+    },
+    {
+      "pair_id": "009",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:05Z"
+    },
+    {
+      "pair_id": "010",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:16Z"
+    },
+    {
+      "pair_id": "011",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:21Z"
+    },
+    {
+      "pair_id": "012",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:27Z"
+    },
+    {
+      "pair_id": "013",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:35Z"
+    },
+    {
+      "pair_id": "014",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:43Z"
+    },
+    {
+      "pair_id": "015",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:49Z"
+    },
+    {
+      "pair_id": "016",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:13:55Z"
+    },
+    {
+      "pair_id": "017",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:05Z"
+    },
+    {
+      "pair_id": "018",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:12Z"
+    },
+    {
+      "pair_id": "019",
+      "choice": "left",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:18Z"
+    },
+    {
+      "pair_id": "020",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:23Z"
+    },
+    {
+      "pair_id": "021",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:34Z"
+    },
+    {
+      "pair_id": "022",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:38Z"
+    },
+    {
+      "pair_id": "023",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:43Z"
+    },
+    {
+      "pair_id": "024",
+      "choice": "right",
+      "reason": "",
+      "could_tell": false,
+      "picked_at": "2026-11-27T03:14:51Z"
+    }
+  ],
+  "complete": true,
+  "revealed": {
+    "revealed_at": "2026-11-27T03:19:01Z",
+    "wins": {
+      "c0-baseline": 16,
+      "final": 8
+    },
+    "ties": 0,
+    "non_tie": 24,
+    "p_value": 0.15159,
+    "could_tell": {
+      "yes": 0,
+      "pairs": 24,
+      "share": 0.0
+    },
+    "reasons": {
+      "c0-baseline": [
+        {
+          "pair_id": "001",
+          "item": "grade-s1/q1",
+          "reason": "I like the answer revealed in paragraph form not bulletpoints."
+        },
+        {
+          "pair_id": "002",
+          "item": "grade-s1/q2",
+          "reason": "I like my answers in paragraph form not bullet points. The left just looks messy."
+        },
+        {
+          "pair_id": "003",
+          "item": "grade-s1/q3",
+          "reason": "bulletpoint form"
+        }
+      ],
+      "final": [],
+      "tie": []
+    },
+    "no_reason": 21,
+    "objective": {
+      "c0-baseline": {
+        "grade_verdict_agreement": [
+          1.0,
+          1.0
+        ],
+        "grade_false_wrong": [
+          0.0,
+          0.0
+        ],
+        "grade_misconception_hit": [
+          1.0,
+          1.0
+        ]
+      },
+      "final": {
+        "grade_verdict_agreement": [
+          1.0,
+          1.0
+        ],
+        "grade_false_wrong": [
+          0.0,
+          0.0
+        ],
+        "grade_misconception_hit": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "cost": {
+      "c0-baseline": {
+        "runs": 2,
+        "scenarios": 4,
+        "tokens": [
+          140494,
+          138700,
+          140565,
+          141462
+        ],
+        "output": [
+          3961,
+          3758,
+          3872,
+          3976
+        ],
+        "minutes": [
+          0.45,
+          0.45,
+          0.44,
+          0.45
+        ],
+        "subagents": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "cost": [
+          0.171874,
+          0.166214,
+          0.170976,
+          0.173733
+        ]
+      },
+      "final": {
+        "runs": 2,
+        "scenarios": 4,
+        "tokens": [
+          473734,
+          497669,
+          508407,
+          363832
+        ],
+        "output": [
+          15365,
+          12929,
+          15129,
+          9639
+        ],
+        "minutes": [
+          1.72,
+          1.48,
+          1.67,
+          1.08
+        ],
+        "subagents": [
+          3,
+          3,
+          3,
+          2
+        ],
+        "cost": [
+          0.449134,
+          0.433878,
+          0.44883,
+          0.315584
+        ]
+      }
+    }
+  }
+}
