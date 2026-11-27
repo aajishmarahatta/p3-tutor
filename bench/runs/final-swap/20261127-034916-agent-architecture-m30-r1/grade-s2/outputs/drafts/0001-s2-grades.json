@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The loop of action, execution and returned result is the defining structure, not prompt length or model size."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model only outputs a structured request; the program runs the tool."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. Option c is tempting because it assumes an agent will finish eventually without a stopping condition. Here it repeats the same failing edit, so more steps add nothing. A step limit ends the loop and hands the problem back to a person. Review: the stopping condition in the agent loop (learning record 0002)"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Partly right. Four is the correct count, but you described the model as running the tools itself. At the second call, what did the model receive that it did not have at the first? The model only writes a request, like a manager writing a ticket; the program, like the kitchen, cooks it and returns the result. Review: the program runs the tool, the model only requests it (quiz item q2)"
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. You gave both parts: the result returns as the next input, and the model uses it to decide its next step."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partly right. A tool's name is part of what the model reads, but the name alone can mislead. The model chooses using the whole description the program supplies: name, purpose and parameters. Review: tool descriptions as the model's only view of a tool (not covered yet in a lesson)"
+    }
+  ],
+  "summary": "3 correct, 2 partial, 1 wrong. You have down the loop structure and that each result returns to the model as its next input. Work next on who runs a tool: the program, never the model. Reread quiz item q2, then restate q4 with the program running each tool. Q3 (step limit) also needs review."
+}

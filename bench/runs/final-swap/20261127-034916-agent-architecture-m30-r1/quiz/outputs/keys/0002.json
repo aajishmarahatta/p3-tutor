@@ -1,0 +1,52 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "d",
+      "rationale": "The difference is who owns the control flow: in a workflow the code decides the steps in advance, in an agent the model decides the next step at run time. Option a is tempting because workflows seem simpler, but many workflows call a model. Option b mistakes the number of tools for the difference. Option c treats using tools as what makes an agent, but workflows call tools too.",
+      "distractors": {"a": "M10", "b": "M11", "c": "M12"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The code fixes the order and the model only fills in steps, so the code owns the control flow and this is a workflow. Option b treats the number of model calls as the test. Option c treats having a tool as the test. Option d treats the model producing the final text as the test; none of these changes who controls the flow.",
+      "distractors": {"b": "M16", "c": "M12", "d": "M17"}
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "The reminder runs the same steps in the same order every time, so code can own them, which is cheaper and more predictable. In a, b and d the next step depends on what the previous step finds, so a model has to choose it. Each is tempting for a learner who thinks that the more important or harder a task sounds, the more it needs an agent, whatever its steps are.",
+      "distractors": {"a": "M13", "b": "M13", "d": "M13"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Use a fixed workflow where the steps are known and an agent only where the model must choose them, so bookings stay cheap and predictable and troubleshooting keeps its flexibility. Option b assumes an agent is always the better tool. Option c assumes a workflow can cover open-ended requests by adding steps, but the steps cannot be listed in advance. Option d puts a model in charge of routing even for steps that never change, which spends model calls where code would do.",
+      "distractors": {"b": "M18", "c": "M19", "d": "M20"}
+    },
+    {
+      "id": "q5",
+      "answer": "It makes a model call after every tool result, so it uses more calls than a workflow's fixed steps.",
+      "accepted": [
+        "more model calls",
+        "it makes more model calls",
+        "the model is called at every step and the context grows each time",
+        "each step is another model call",
+        "it needs extra model calls to decide each next step",
+        "it spends model calls deciding what to do next",
+        "it calls the model more times",
+        "more calls to the model",
+        "it calls the model after every tool result",
+        "it makes several model calls instead of a fixed few"
+      ],
+      "rationale": "An agent calls the model to choose each next step, and the growing history is read again each time, so it makes more and larger calls than a workflow with fixed steps. A workflow only calls the model where code says to."
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "When a step must always happen, in a set order, code should own that order, which makes this part a workflow. Options a and c still rely on the model choosing to comply. Option d adds another model call, which may also skip or misjudge the check, so nothing is guaranteed.",
+      "distractors": {"a": "M14", "c": "M14", "d": "M15"}
+    }
+  ]
+}

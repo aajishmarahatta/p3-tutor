@@ -1,0 +1,123 @@
+{
+  "duration_api_ms": 121608,
+  "stop_reason": "end_turn",
+  "session_id": "0a037c6f-0dc1-46cd-a501-db3e6ecdb7d0",
+  "total_cost_usd": 0.5389586000000002,
+  "usage": {
+    "input_tokens": 20,
+    "cache_creation_input_tokens": 34554,
+    "cache_read_input_tokens": 330814,
+    "output_tokens": 4805,
+    "output_tokens_details": {
+      "thinking_tokens": 96
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 34554,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 288,
+        "cache_read_input_tokens": 43464,
+        "cache_creation_input_tokens": 2096,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2096
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 56,
+      "outputTokens": 18017,
+      "cacheReadInputTokens": 522331,
+      "cacheCreationInputTokens": 101845,
+      "webSearchRequests": 0,
+      "costUSD": 0.5389586000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3029,
+      "cacheCreationEphemeral5mInputTokens": 67291,
+      "cacheCreationEphemeral1hInputTokens": 34554,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 5,
+    "requested": {
+      "background": 0,
+      "foreground": 5,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 5,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 3,
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 18,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Riley, I graded s2 and saved the result to `grades/0001-s2.json`.\n\n- **Counts:** 3 correct (q1, q2, q5), 2 partial (q4, q6), 1 wrong (q3).\n- **Review:** two review passes ran, and both asked for changes. The grader fixed every finding after each pass, but the two-pass cap meant the last round of fixes had no further review. The record is in `review-records/0001-s2-grades.md`.\n- **Next:** work on who runs a tool. The program does, and the model only writes the request. Q4 shows this gap: you got the count right but said the model runs the tools. Reread quiz item q2, then restate q4 with the program running each tool.\n\nI also updated `NOTES.md`. I wrote no learning record, because the grades show a misconception to work on rather than new understanding. Submission s1 has not been graded.",
+  "ttft_ms": 1200,
+  "type": "result",
+  "duration_ms": 122518,
+  "uuid": "8a7fe809-c5f9-46a1-8bb2-903a07f9c8ad",
+  "ttft_stream_ms": 762,
+  "time_to_request_ms": 106,
+  "first_content_frame_ms": 762,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 56,
+      "outputTokens": 18017,
+      "cacheReadInputTokens": 522331,
+      "cacheCreationInputTokens": 101845,
+      "webSearchRequests": 0,
+      "costUSD": 0.5389586000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3029,
+      "cacheCreationEphemeral5mInputTokens": 67291,
+      "cacheCreationEphemeral1hInputTokens": 34554,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

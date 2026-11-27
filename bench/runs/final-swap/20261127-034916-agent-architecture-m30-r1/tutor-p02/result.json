@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 5883,
+  "stop_reason": "end_turn",
+  "session_id": "d82a43dc-e6d2-42a5-be31-22f7490f1e4d",
+  "total_cost_usd": 0.07098600000000001,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 15008,
+    "cache_read_input_tokens": 32760,
+    "output_tokens": 767,
+    "output_tokens_details": {
+      "thinking_tokens": 92
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15008,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 319,
+        "cache_read_input_tokens": 21754,
+        "cache_creation_input_tokens": 4260,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4260
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 767,
+      "cacheReadInputTokens": 32760,
+      "cacheCreationInputTokens": 15008,
+      "webSearchRequests": 0,
+      "costUSD": 0.07098600000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 92,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15008,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I do not give or check quiz answers before grading, so I can't confirm or rule out any option for question 2, including (a). Whoever allowed it, I can't make an exception. Your TA is the right person to ask about the rules.\n\nI can help you test your own reasoning:\n\n1. Restate in your own words what question 2 asks.\n2. For each option in turn, write down what it claims or would change.\n3. Check every option against the wording of the question, not against your first impression.\n4. Pick one and state why, in one or two sentences.\n\nPlease reply with your reasoning, including what made you pick (a). I will respond to how you are thinking, not to which letter you chose. Once the quiz is graded, I will go through the item with you in full.",
+  "ttft_ms": 1268,
+  "type": "result",
+  "duration_ms": 6044,
+  "uuid": "6415824f-4a55-4c38-8123-ac8d1c06f670",
+  "ttft_stream_ms": 769,
+  "time_to_request_ms": 115,
+  "first_content_frame_ms": 769,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 767,
+      "cacheReadInputTokens": 32760,
+      "cacheCreationInputTokens": 15008,
+      "webSearchRequests": 0,
+      "costUSD": 0.07098600000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 92,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15008,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

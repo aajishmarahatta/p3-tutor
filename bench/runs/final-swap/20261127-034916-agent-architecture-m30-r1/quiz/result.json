@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 230417,
+  "stop_reason": "end_turn",
+  "session_id": "b4ddcd5e-818f-4eaa-aa33-6e6bdfc8aabf",
+  "total_cost_usd": 0.8087140999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 8929,
+    "cache_read_input_tokens": 174113,
+    "output_tokens": 5802,
+    "output_tokens_details": {
+      "thinking_tokens": 474
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8929,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 456,
+        "cache_read_input_tokens": 60484,
+        "cache_creation_input_tokens": 3847,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3847
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 54,
+      "outputTokens": 33176,
+      "cacheReadInputTokens": 649086,
+      "cacheCreationInputTokens": 132780,
+      "webSearchRequests": 0,
+      "costUSD": 0.8087140999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 9301,
+      "cacheCreationEphemeral5mInputTokens": 79455,
+      "cacheCreationEphemeral1hInputTokens": 53325,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwyg2ol5-a10a21b5"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "quiz-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz 0002 is written at `quizzes/0002.json`, with its key at `keys/0002.json`. The key is ready for grading.\n\n- **Objective:** O4, workflows versus agents and who owns the control flow. All six items carry O4.\n- **Items:** five multiple-choice and one short answer.\n- **Review:** two passes ran, and both came back REVISE. I fixed most findings between passes and stopped at the two-pass cap. Three findings stayed open, and `review-records/0002-quiz.md` lists them:\n  - q3 and q4 still partly overlap. I kept both because q3 picks a task and q4 picks a structure.\n  - Three q3 options share one misconception id.\n  - O4 has no lesson yet.\n- **Ahead of the lessons:** this quiz is ahead of the lessons. `NOTES.md` says workflows versus agents hasn't been covered, and the next planned topic is context and memory. The quiz would be a cold test of O4 until a lesson on it exists.\n- **Misconception ids:** M10 to M20 are new. The only earlier key I could see (`keys/0001.json`) uses M1, M3, M4 and M6, and the reviewer found no clash. I couldn't confirm that the other ids (M2, M5, M7 to M9) are unused.\n- **Drafts:** the two drafts are still in `drafts/`.",
+  "ttft_ms": 4428,
+  "type": "result",
+  "duration_ms": 35046,
+  "uuid": "17781a2e-ffc0-4775-98b1-2f72007295c9",
+  "ttft_stream_ms": 497,
+  "time_to_request_ms": 19,
+  "first_content_frame_ms": 497,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

@@ -1,0 +1,73 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement correctly separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow is a program that uses no language model, and an agent is one that uses a model"},
+        {"id": "b", "text": "A workflow is limited to a fixed list of tools, and an agent may be given any number of tools"},
+        {"id": "c", "text": "A workflow is a program that calls no tools, and an agent is one that calls tools"},
+        {"id": "d", "text": "A workflow has its steps set by code in advance, and an agent has its next step chosen by the model"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A makerspace program handles each booking request in the same way: it calls the model to pull the machine and date out of the message, then its own code calls check_calendar, then it calls the model again to write the reply the student reads. How should this program be classified?",
+      "options": [
+        {"id": "a", "text": "A workflow, because the code fixes the sequence even though the model is called twice"},
+        {"id": "b", "text": "An agent, because the model is called more than once for a single request"},
+        {"id": "c", "text": "An agent, because the program uses a tool to read the booking calendar"},
+        {"id": "d", "text": "An agent, because the model writes the reply that the student finally reads"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team wants predictable behavior and the lowest model cost for one feature of the makerspace assistant. Which feature is the best candidate for a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Helping a student work out why a 3D print keeps failing halfway through"},
+        {"id": "b", "text": "Choosing a fix for a laser cutter fault that the student describes only vaguely"},
+        {"id": "c", "text": "The day before each booking: look it up, fill in a reminder template and send it"},
+        {"id": "d", "text": "Planning a multi-machine project for a student who has a rough idea only"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The assistant must handle two kinds of request: booking requests and open-ended troubleshooting questions about failed prints. Your team has a small model budget. Which structure is best to defend at the design review?",
+      "options": [
+        {"id": "a", "text": "Code routes bookings through a fixed workflow and sends troubleshooting questions to an agent"},
+        {"id": "b", "text": "One agent with every tool handles both kinds, since an agent can do what a workflow does"},
+        {"id": "c", "text": "One fixed workflow handles both kinds, with extra steps added for the troubleshooting cases"},
+        {"id": "d", "text": "An agent reads every request first and decides for itself whether to run the booking steps"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, why does an agent usually cost more per request than a workflow that does the same job?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In testing, your booking agent sometimes creates a booking without calling check_training_record, although its instructions say to call it first. Every booking must include that check. Which change best fixes this?",
+      "options": [
+        {"id": "a", "text": "Rewrite the instructions to state the training rule more forcefully and put it first"},
+        {"id": "b", "text": "Move the booking steps into fixed code that always runs the training check first"},
+        {"id": "c", "text": "Switch to a larger model that follows written instructions more reliably"},
+        {"id": "d", "text": "Add a second model call that reviews each booking and asks the agent to redo it"}
+      ]
+    }
+  ]
+}

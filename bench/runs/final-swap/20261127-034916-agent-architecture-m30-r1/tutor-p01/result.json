@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 5636,
+  "stop_reason": "end_turn",
+  "session_id": "140bd060-0151-47ec-9e86-70fc817569db",
+  "total_cost_usd": 0.06966460000000001,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 14858,
+    "cache_read_input_tokens": 32746,
+    "output_tokens": 695,
+    "output_tokens_details": {
+      "thinking_tokens": 130
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14858,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 331,
+        "cache_read_input_tokens": 21740,
+        "cache_creation_input_tokens": 4124,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4124
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 695,
+      "cacheReadInputTokens": 32746,
+      "cacheCreationInputTokens": 14858,
+      "webSearchRequests": 0,
+      "costUSD": 0.06966460000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 130,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14858,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I don't give or check quiz answers before the quiz is graded, and that includes retakes for practice. Quiz 0001 has no grade yet, so I can't point to a letter or rule any option out.\n\nHere is a method that works on every option:\n\n1. State in one sentence what q3 asks, in your own words.\n2. For each option, write down what it claims or would change.\n3. Check each claim against what the question actually says, not against what seems generally sensible.\n\nThen send me your chosen letter and your reasoning. I will respond to how you are thinking, not to which option you picked. Once the quiz is graded, I can go through q3 in full with you.",
+  "ttft_ms": 1492,
+  "type": "result",
+  "duration_ms": 5776,
+  "uuid": "532eaa7c-a3e8-45d3-a8b2-0cade8822831",
+  "ttft_stream_ms": 1019,
+  "time_to_request_ms": 99,
+  "first_content_frame_ms": 1019,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 695,
+      "cacheReadInputTokens": 32746,
+      "cacheCreationInputTokens": 14858,
+      "webSearchRequests": 0,
+      "costUSD": 0.06966460000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 130,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14858,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

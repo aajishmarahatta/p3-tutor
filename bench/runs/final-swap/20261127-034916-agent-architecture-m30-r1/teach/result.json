@@ -1,0 +1,129 @@
+{
+  "duration_api_ms": 686042,
+  "stop_reason": "end_turn",
+  "session_id": "88eafbe2-8a1f-40a2-ab98-4c7bd095019f",
+  "total_cost_usd": 2.06547401,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 45495,
+    "cache_read_input_tokens": 422947,
+    "output_tokens": 23479,
+    "output_tokens_details": {
+      "thinking_tokens": 459
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 45495,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 599,
+        "cache_read_input_tokens": 122531,
+        "cache_creation_input_tokens": 19301,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 19301
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 86,
+      "outputTokens": 94136,
+      "cacheReadInputTokens": 1927607,
+      "cacheCreationInputTokens": 280299,
+      "webSearchRequests": 0,
+      "costUSD": 2.0312792,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 26164,
+      "cacheCreationEphemeral5mInputTokens": 149473,
+      "cacheCreationEphemeral1hInputTokens": 130826,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 59408,
+      "outputTokens": 11021,
+      "cacheReadInputTokens": 15251,
+      "cacheCreationInputTokens": 20728,
+      "webSearchRequests": 2,
+      "costUSD": 0.03419481,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 5544,
+      "cacheCreationEphemeral5mInputTokens": 20728,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwykilo9-36add405"
+  },
+  "subagent_stats": {
+    "spawned": 5,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 5
+    },
+    "started_in_background": 4,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 5,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-planner": 1,
+      "lesson-writer": 1,
+      "lesson-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 16,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the O3 lesson, and the second review pass still returned REVISE.\n\n- **Lesson:** `lessons/0001-context-and-memory-in-an-agent.html`, objective O3, declared as 30 minutes. It has three figures, a worked example and a faded task.\n- **Review:** two passes ran, which is the cap, and both returned REVISE. I fixed all the first-pass findings and most of the second-pass ones. Two second-pass items remain open. \"The program runs the tool\" still repeats across sections, which I left in as cross-references. The lesson probably reads longer than 30 minutes: the reviewer estimated about 5,300 words before my last edits. That is inside the bench's 0.6 to 1.5 range, but I did not recount afterwards. The details are in `review-records/0001-context-and-memory-in-an-agent.md`.\n- **Win:** Riley can decide what the makerspace assistant keeps in its context window, what it saves between sessions as notes, and how it finds a manual page. It teaches fetching a named page from an index, not keyword or meaning search.\n- **Facts to check:**\n  - The 39%, 29% and 84% figures are Anthropic's own and are labelled so. The source doesn't define their baseline or measure, and the lesson says that.\n  - All token counts in the lesson are illustrative.\n  - The lesson names no prices.\n- **Other files:** I added both sources to `RESOURCES.md` and a note to `NOTES.md` that the lesson was written but is not yet evidence of learning. I wrote no learning record or quiz.\n\nRiley can ask for a shorter or longer version, ask questions in the chat, or ask for a quiz.\n\nQuestion for Riley: do you want a community pointer (a forum or club) in future lessons? The lesson has none, because none was chosen.",
+  "ttft_ms": 1875,
+  "type": "result",
+  "duration_ms": 123341,
+  "uuid": "94671c75-62fe-4d4f-a83b-8c2d545a6a3a",
+  "ttft_stream_ms": 748,
+  "time_to_request_ms": 62,
+  "first_content_frame_ms": 748,
+  "queued_turn_count": 0,
+  "result_index": 4,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

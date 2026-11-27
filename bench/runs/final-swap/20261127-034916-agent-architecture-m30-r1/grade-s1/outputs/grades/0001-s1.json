@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The loop of choosing an action, running it and returning the result is the defining structure."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. The model does not open the booking system. Think of the model as the manager writing an order ticket and the program as the kitchen that cooks and returns the dish. The belief is tempting because the final answer appears to come from one system. Fix: the model outputs only the request naming check_calendar and its arguments.\nReview: the model only requests a tool and the program runs it"
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. A step limit is a stopping condition; more context or stronger prompting does not end a repeating loop."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. The model does not run the three tools inside one call. It is tempting to see one question as one call, but the program runs each tool and calls the model again with the result. Fix: count one call for the question and one for each tool result, which gives four.\nReview: every step of the loop is a separate model call"
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partly right. Sending the result back to the model is the what. The why is missing: the model needs the result to choose its next step or write the final answer. Fix: state both the action and its purpose.\nReview: the result is fed back as the model's next input"
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partly right. The tool list with names and descriptions is how the model chooses. The claim that it remembers its earlier choices from past sessions is false: a model has no automatic memory, and it sees only the input the program supplies on each call. Fix: delete the memory claim.\nReview: the model sees only what the program puts in its input (memory is not covered yet)"
+    }
+  ],
+  "summary": "Two items correct, two partial and two wrong. You have the loop structure and the need for a stopping condition. Priority: the program, not the model, runs each tool, and every step is a separate model call (q2, q4); also drop the q6 claim of automatic memory, which is not covered yet. Next step: retrace one request on paper, marking what the model outputs and what the program does."
+}
