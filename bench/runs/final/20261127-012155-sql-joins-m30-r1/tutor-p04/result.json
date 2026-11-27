@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 12367,
+  "stop_reason": "end_turn",
+  "session_id": "564d9453-3c24-4c00-8464-aca7542561ff",
+  "total_cost_usd": 0.08200220000000001,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 15358,
+    "cache_read_input_tokens": 58482,
+    "output_tokens": 1471,
+    "output_tokens_details": {
+      "thinking_tokens": 316
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15358,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1012,
+        "cache_read_input_tokens": 25729,
+        "cache_creation_input_tokens": 640,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 640
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1471,
+      "cacheReadInputTokens": 58482,
+      "cacheCreationInputTokens": 15358,
+      "webSearchRequests": 0,
+      "costUSD": 0.08200220000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 316,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15358,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "This is well above where you are now (basic SELECT, WHERE, and INNER/LEFT JOIN). So here's an honest short version that's true as far as it goes, not the full derivation.\n\n**Summary:** The optimizer guesses how many rows each step returns (**cardinality**: row count). Then it picks the join method with the lowest estimated cost.\n\n**Estimating rows**\n- **Selectivity** is the fraction of rows that pass a filter. Estimated rows = table rows × selectivity.\n- `col = value`: if the value is in the **most-common-values (MCV) list**, selectivity is its recorded frequency. Otherwise it's roughly (1 − total MCV frequency) / (remaining distinct values).\n- `col > value`: a **histogram** splits the values into equal-count buckets, so you count the buckets above the value. Think of splitting a season's games into 10 equal chunks and asking how many chunks fall above a score.\n- Multiple columns: by default Postgres multiplies the selectivities, which assumes the columns are independent. That breaks when they're correlated, such as team and league. `CREATE STATISTICS` fixes this.\n- Join: for `a.x = b.y`, selectivity ≈ 1 / max(distinct values in x, distinct values in y). Rows ≈ rows_a × rows_b × that.\n\n**Choosing the join method**\n- **Nested loop:** best when the outer side is small and the inner side is indexed. It handles any join condition.\n- **Hash join:** builds a hash table from the smaller side. It's usually best for big, unsorted inputs, but only for `=`.\n- **Merge join:** best when both sides are already sorted or cheap to sort, and it needs `=`.\n\n**What this leaves out:** the actual cost formulas (page costs, CPU costs) and the full derivations.\n\n**Learn first:** one-to-many joins and row counts, which is exactly where you're working now.\n\nQuick check: a table has 1,000 rows and 10 distinct `team` values, with no MCV list. Roughly how many rows would you expect `WHERE team = 'X'` to return?",
+  "ttft_ms": 1226,
+  "type": "result",
+  "duration_ms": 12567,
+  "uuid": "bed7bd83-578a-4022-885e-e1ed9bdc9563",
+  "ttft_stream_ms": 749,
+  "time_to_request_ms": 108,
+  "first_content_frame_ms": 749,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1471,
+      "cacheReadInputTokens": 58482,
+      "cacheCreationInputTokens": 15358,
+      "webSearchRequests": 0,
+      "costUSD": 0.08200220000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 316,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15358,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

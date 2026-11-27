@@ -1,0 +1,25 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "wrong",
+      "misconception": "M1",
+      "feedback": "You picked 'The student is excluded'. That is what an INNER JOIN does, not a LEFT JOIN. A LEFT JOIN keeps every row from the left table (students), so the 4th student still appears, with NULL in the enrollment columns. Example: student Dana has no enrollment, so you get (Dana, NULL, NULL). Your answer to q3 states this correctly, so check q1 against your own q3 explanation."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: 3 rows. An INNER JOIN keeps only students with a match, and each of the 3 has exactly one enrollment, so you get 3 rows. The 2 unmatched students drop out. Keep checking 'how many matches does each student have?', because that is what changes the row count in the next topic."
+    },
+    {
+      "id": "q3",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The main idea is right: INNER JOIN shows only students with matching enrollments, and LEFT JOIN also keeps students with none. One part is off: the unmatched students' enrollment columns hold NULL, not blank. They are different things. A blank (empty string) is a value, while NULL means 'no value', and the difference matters for filtering (IS NULL) and for counting. Use 'NULL' in your explanations."
+    }
+  ],
+  "summary": "You can predict INNER JOIN row counts, and you can explain in words that LEFT JOIN keeps unmatched students. The gap is applying that to a concrete query: in q1 you picked the INNER JOIN behaviour for a LEFT JOIN. Also fix NULL versus blank. Next step: take 2 small tables (4 students, 3 enrollments), write out by hand the result rows for INNER JOIN and then LEFT JOIN, and mark where NULL appears, before moving on to duplicate rows and COUNT."
+}

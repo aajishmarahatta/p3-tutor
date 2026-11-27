@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="30">
+  <meta name="p3-objective" content="O2">
+  <title>One-to-many joins: why rows multiply and how to count them</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22;
+        --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing { font-family: var(--sans); }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    table.data { width: auto; min-width: 12rem; font-family: var(--mono); font-size: 0.85rem; margin: 0.75rem 0; }
+    table.data caption { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); text-align: left; padding-bottom: 0.25rem; }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) { html { font-size: 17px; } h1 { font-size: 1.75rem; } main { padding-top: 2rem; } }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; }
+      main { max-width: none; padding: 0; }
+      nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 1 &middot; 30 minutes</div>
+    <h1>One-to-many joins: why rows multiply and how to count them</h1>
+    <p class="lead">By the end of this lesson you can look at a join between students and enrollments, predict exactly how many rows it returns, and pick the count that answers "how many students?" or "how many enrollments?" correctly.</p>
+    <div class="meta">
+      <span>Objective O2: one-to-many joins, row counts, counting without duplication</span>
+      <span>About 30 minutes</span>
+      <span>Builds on your first session: INNER JOIN and LEFT JOIN</span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this matters for you</span>
+      <p>You told me you sometimes expect one row per student after a join, and sometimes mix up the number of students with the number of enrollment rows. This lesson targets exactly that. It is also the most common way analysts get wrong numbers from real data, which matters for your Data Science goal.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#warm-up">Warm-up</a></li>
+      <li><a href="#s1">The tables, and what "one-to-many" means</a></li>
+      <li><a href="#s2">Why a join multiplies rows</a></li>
+      <li><a href="#s3">A rule for predicting the row count</a></li>
+      <li><a href="#s4">Counting: three kinds of COUNT</a></li>
+      <li><a href="#s5">Sums and other traps</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="warm-up">
+    <h2>Warm-up <span class="section-time">3 min</span></h2>
+    <p>Before new material, recall from your first session. Answer in your head or on paper first, then check.</p>
+    <div class="check">
+      <span class="label">Recall</span>
+      <p>A <code>students</code> table has 5 students. Only 3 of them have an enrollment, and each of those 3 has exactly one. What does an INNER JOIN return, and what does a LEFT JOIN from students return?</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>INNER JOIN returns 3 rows: only students with a match. LEFT JOIN returns 5 rows: all students, with NULL in the enrollment columns for the 2 who have none. Today the twist is that students can have <em>several</em> enrollments, which changes these counts.</p>
+      </details>
+    </div>
+    <div class="check">
+      <span class="label">Recall</span>
+      <p>What is a foreign key, in one sentence?</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>A column in one table that holds the primary key of a row in another table, such as <code>student_id</code> in <code>enrollments</code> pointing to a row in <code>students</code>.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s1">
+    <h2>The tables, and what "one-to-many" means <span class="section-time">4 min</span></h2>
+    <p>We will use the same two small tables for the whole lesson. Look at them closely; every number below comes from them.</p>
+
+    <table class="data">
+      <caption>students (4 rows)</caption>
+      <thead><tr><th>student_id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ana</td></tr>
+        <tr><td>2</td><td>Ben</td></tr>
+        <tr><td>3</td><td>Chloe</td></tr>
+        <tr><td>4</td><td>Dev</td></tr>
+      </tbody>
+    </table>
+
+    <table class="data">
+      <caption>enrollments (6 rows)</caption>
+      <thead><tr><th>enrollment_id</th><th>student_id</th><th>course</th></tr></thead>
+      <tbody>
+        <tr><td>101</td><td>1</td><td>Math</td></tr>
+        <tr><td>102</td><td>1</td><td>Physics</td></tr>
+        <tr><td>103</td><td>1</td><td>Art</td></tr>
+        <tr><td>104</td><td>2</td><td>Math</td></tr>
+        <tr><td>105</td><td>2</td><td>Art</td></tr>
+        <tr><td>106</td><td>3</td><td>Physics</td></tr>
+      </tbody>
+    </table>
+
+    <p>Ana has 3 enrollments, Ben has 2, Chloe has 1, and Dev has none.</p>
+
+    <p>A <dfn>one-to-many relationship</dfn> means one row in the first table can match many rows in the second, while each row in the second matches at most one in the first. Here, one student has many enrollments, but each enrollment belongs to one student. The "one" side is <code>students</code>, the "many" side is <code>enrollments</code>, and the foreign key <code>enrollments.student_id</code> is what links them. The relationship is described in the same terms in database design guides such as the <a href="https://www.metabase.com/learn/sql/debugging-sql/sql-logic-duplicated-data">Metabase guide to duplicated data</a>, which names one-to-many joins as a main cause of unexpected duplicate rows.</p>
+
+    <p>Notice a second fact: the two tables have different <dfn>grain</dfn>. The grain of a table is what one row stands for. In <code>students</code> one row is one student. In <code>enrollments</code> one row is one enrollment. Many wrong counts come from forgetting that the grain of a joined result is not the grain of the table you were thinking about.</p>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Which statement about these tables is true?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Each enrollment row holds one student_id, so enrollments belong to one student. It is the students who can have several enrollments.">One enrollment can belong to many students at once.</button></li>
+        <li><button type="button" data-correct="false" data-why="Students has one row per student, so it is not the table with repeats. The repeats are in the enrollments table's student_id column.">One student can appear on many rows of students.</button></li>
+        <li><button type="button" data-correct="true" data-why="Right: student_id 1 appears in three enrollment rows, while each enrollment row has a single student_id.">One student can appear on many rows of enrollments.</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The third statement. Ana's student_id (1) appears on three enrollment rows. That repeat is the "many" in one-to-many.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>Why a join multiplies rows <span class="section-time">6 min</span></h2>
+    <p>Start with the query, and predict before you read on.</p>
+<pre><code>SELECT s.student_id, s.name, e.course
+FROM students s
+INNER JOIN enrollments e
+  ON e.student_id = s.student_id;</code></pre>
+
+    <p>How many rows? Many learners say 3, one per student who has enrollments. Let us find out how a join really works. A join builds its result by pairing rows: for each row in the left table, it finds every row in the right table where the <code>ON</code> condition is true, and it outputs one result row <em>per matching pair</em>. Ana matches three enrollment rows, so she produces three result rows.</p>
+
+    <table class="data">
+      <caption>Result of the INNER JOIN (6 rows)</caption>
+      <thead><tr><th>student_id</th><th>name</th><th>course</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ana</td><td>Math</td></tr>
+        <tr><td>1</td><td>Ana</td><td>Physics</td></tr>
+        <tr><td>1</td><td>Ana</td><td>Art</td></tr>
+        <tr><td>2</td><td>Ben</td><td>Math</td></tr>
+        <tr><td>2</td><td>Ben</td><td>Art</td></tr>
+        <tr><td>3</td><td>Chloe</td><td>Physics</td></tr>
+      </tbody>
+    </table>
+
+    <p>Six rows. Ana's name is repeated because her student row was paired with each of her enrollment rows. Dev has no match, so an INNER JOIN drops him.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 330" role="img" aria-labelledby="fig1-title">
+        <title id="fig1-title">Each student row fans out into one result row per matching enrollment</title>
+        <defs>
+          <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="20" y="40" width="130" height="36" rx="6" style="stroke: var(--accent)"/>
+          <rect x="20" y="130" width="130" height="36" rx="6"/>
+          <rect x="20" y="190" width="130" height="36" rx="6"/>
+          <rect x="20" y="260" width="130" height="36" rx="6" stroke-dasharray="5 4"/>
+          <rect x="450" y="10" width="170" height="30" rx="6"/>
+          <rect x="450" y="45" width="170" height="30" rx="6"/>
+          <rect x="450" y="80" width="170" height="30" rx="6"/>
+          <rect x="450" y="125" width="170" height="30" rx="6"/>
+          <rect x="450" y="160" width="170" height="30" rx="6"/>
+          <rect x="450" y="205" width="170" height="30" rx="6"/>
+          <line x1="150" y1="58" x2="446" y2="26" marker-end="url(#arrow1)" style="stroke: var(--accent)"/>
+          <line x1="150" y1="58" x2="446" y2="60" marker-end="url(#arrow1)" style="stroke: var(--accent)"/>
+          <line x1="150" y1="58" x2="446" y2="95" marker-end="url(#arrow1)" style="stroke: var(--accent)"/>
+          <line x1="150" y1="148" x2="446" y2="140" marker-end="url(#arrow1)"/>
+          <line x1="150" y1="148" x2="446" y2="175" marker-end="url(#arrow1)"/>
+          <line x1="150" y1="208" x2="446" y2="220" marker-end="url(#arrow1)"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">
+          <text x="85" y="64" style="fill: var(--accent)">Ana (1 row)</text>
+          <text x="85" y="154">Ben (1 row)</text>
+          <text x="85" y="214">Chloe (1 row)</text>
+          <text x="85" y="284">Dev (1 row)</text>
+          <text x="535" y="31">Ana, Math</text>
+          <text x="535" y="66">Ana, Physics</text>
+          <text x="535" y="101">Ana, Art</text>
+          <text x="535" y="146">Ben, Math</text>
+          <text x="535" y="181">Ben, Art</text>
+          <text x="535" y="226">Chloe, Physics</text>
+          <text x="300" y="285" style="fill: var(--muted)">Dev: no match, so no output (INNER)</text>
+        </g>
+      </svg>
+      <figcaption>Figure 1. Four student rows go in; six rows come out. The count of result rows follows the matches, not the students. Dev's dashed box has no arrow, so an INNER JOIN drops him.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p><strong>"A join keeps one row per student."</strong> This feels natural because you start from the students table and the join looks like it just adds columns. But a join adds <em>rows</em> too whenever a student matches more than once. The first table's rows are repeated, one copy per match. If you expected 3 or 4 rows above, count the matches instead: 3 + 2 + 1 = 6.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Predict first. Suppose a new student, Eli, enrolls in Math, Art, Physics and Music, so he has 4 enrollment rows. Starting from the original tables plus Eli, how many rows does the INNER JOIN above return now?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="That counts one row per student who has enrollments (Ana, Ben, Chloe, Eli). A join returns one row per matching pair, so repeats count.">4 rows, one for each student who is enrolled</button></li>
+        <li><button type="button" data-correct="false" data-why="That is 6 plus 1 and counts Eli as if he had a single match. He has four matches, so he adds four rows.">7 rows, because Eli is a single new student</button></li>
+        <li><button type="button" data-correct="true" data-why="Right: the old 6 matches plus Eli's 4 matches is 10.">10 rows, because Eli adds four matches</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>10. The result has one row per matching pair: 3 + 2 + 1 + 4 = 10.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2>A rule for predicting the row count <span class="section-time">5 min</span></h2>
+    <p>You can predict the size of a join without running it. Use this procedure.</p>
+    <ol>
+      <li>Find the <strong>many</strong> side (here, <code>enrollments</code>).</li>
+      <li>For an <strong>INNER JOIN</strong>: count the many-side rows whose foreign key matches a row on the one side. If every enrollment points at a real student, that is simply the number of enrollment rows: 6.</li>
+      <li>For a <strong>LEFT JOIN</strong> from the one side: start with the INNER JOIN count, then add one row for each one-side row that has no match at all. Those rows stay, with NULL in the many-side columns.</li>
+    </ol>
+    <p>For our tables, the LEFT JOIN is 6 + 1 = 7, because Dev has no enrollments and adds one row with NULL for <code>course</code>.</p>
+
+    <table class="data">
+      <caption>Result of the LEFT JOIN from students (7 rows)</caption>
+      <thead><tr><th>student_id</th><th>name</th><th>course</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ana</td><td>Math</td></tr>
+        <tr><td>1</td><td>Ana</td><td>Physics</td></tr>
+        <tr><td>1</td><td>Ana</td><td>Art</td></tr>
+        <tr><td>2</td><td>Ben</td><td>Math</td></tr>
+        <tr><td>2</td><td>Ben</td><td>Art</td></tr>
+        <tr><td>3</td><td>Chloe</td><td>Physics</td></tr>
+        <tr><td>4</td><td>Dev</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead><tr><th>Join</th><th>Rows with our data</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>INNER JOIN</td><td>6</td><td>One row per matching pair; Dev has none</td></tr>
+        <tr><td>LEFT JOIN from students</td><td>7</td><td>The 6 pairs, plus one NULL row for Dev</td></tr>
+      </tbody>
+    </table>
+
+    <aside class="note">The shortcut "INNER gives 6 because enrollments has 6 rows" only holds when each enrollment's student exists. In well-designed databases a foreign key constraint guarantees that. If some enrollments had a <code>student_id</code> with no student, they would not match, and the count would be lower.</aside>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Using the original tables, you run a LEFT JOIN from <code>enrollments</code> to <code>students</code> (enrollments on the left). How many rows come back?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Seven came from keeping every student. With enrollments on the left, the unmatched-row rule applies to enrollments, and all six have a student.">7 rows, because Dev still shows up</button></li>
+        <li><button type="button" data-correct="false" data-why="Four counts the students. The left table is now enrollments, so the result follows its rows.">4 rows, one for each student</button></li>
+        <li><button type="button" data-correct="true" data-why="Right: each enrollment matches exactly one student, so each enrollment row appears once. Joining from the many side to the one side does not multiply rows.">6 rows, one for each enrollment</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>6. Each enrollment matches exactly one student, so no row is repeated, and Dev is not kept because he is on the right side. Rows multiply when the left row matches <em>many</em> right rows, not the other way round.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s4">
+    <h2>Counting: three kinds of COUNT <span class="section-time">7 min</span></h2>
+    <p>Now the part that trips up many analysts. Take the LEFT JOIN above, with its 7 rows, and ask: <em>how many students are there, and how many enrollments?</em> Each question needs a different count. Remember that <code>COUNT</code> works on the rows of the result, after the join has happened.</p>
+
+    <dl>
+      <dt><code>COUNT(*)</code></dt>
+      <dd>Counts <strong>rows</strong>, no matter what they contain.</dd>
+      <dt><code>COUNT(column)</code></dt>
+      <dd>Counts the rows where that column is <strong>not NULL</strong>.</dd>
+      <dt><code>COUNT(DISTINCT column)</code></dt>
+      <dd>Counts the <strong>different non-NULL values</strong> in that column, so repeats count once.</dd>
+    </dl>
+    <p>These definitions are standard SQL behavior; you can confirm them in the aggregate-functions chapter of your database's manual.</p>
+
+    <p>Apply them to the 7-row LEFT JOIN result:</p>
+    <table>
+      <thead><tr><th>Expression</th><th>Result</th><th>What it counted</th></tr></thead>
+      <tbody>
+        <tr><td><code>COUNT(*)</code></td><td>7</td><td>Every result row, including Dev's NULL row</td></tr>
+        <tr><td><code>COUNT(e.enrollment_id)</code></td><td>6</td><td>Rows with a real enrollment; Dev's NULL is skipped</td></tr>
+        <tr><td><code>COUNT(s.student_id)</code></td><td>7</td><td>Not NULL on every row, so repeats are counted</td></tr>
+        <tr><td><code>COUNT(DISTINCT s.student_id)</code></td><td>4</td><td>The four different students</td></tr>
+        <tr><td><code>COUNT(DISTINCT e.student_id)</code></td><td>3</td><td>Students who have at least one enrollment</td></tr>
+      </tbody>
+    </table>
+
+    <figure>
+      <svg viewBox="0 0 640 250" role="img" aria-labelledby="fig2-title">
+        <title id="fig2-title">The same seven result rows counted four ways</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="20" y="20" width="250" height="210" rx="8"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18">
+          <text x="35" y="52" font-weight="600">LEFT JOIN result</text>
+          <text x="35" y="84">Ana, Math</text>
+          <text x="35" y="108">Ana, Physics</text>
+          <text x="35" y="132">Ana, Art</text>
+          <text x="35" y="156">Ben, Math</text>
+          <text x="35" y="180">Ben, Art</text>
+          <text x="35" y="204">Chloe, Physics</text>
+          <text x="35" y="224">Dev, NULL</text>
+          <text x="310" y="60">COUNT(*)</text>
+          <text x="520" y="60" style="fill: var(--accent)">7 rows</text>
+          <text x="310" y="108">COUNT(e.enrollment_id)</text>
+          <text x="520" y="108" style="fill: var(--accent)">6 enrollments</text>
+          <text x="310" y="156">COUNT(DISTINCT s.student_id)</text>
+          <text x="520" y="190" style="fill: var(--accent)">4 students</text>
+          <text x="310" y="214" style="fill: var(--muted)">(Dev included)</text>
+        </g>
+      </svg>
+      <figcaption>Figure 2. One result, three honest answers. Choose the count that matches the thing you want to count: rows, enrollments or students.</figcaption>
+    </figure>
+
+    <p>The key habit: <strong>name the thing you are counting</strong>, then pick the expression that counts exactly that thing.</p>
+    <ul>
+      <li>"How many enrollments?" Count a column from the many side that is never NULL for a real enrollment, such as <code>COUNT(e.enrollment_id)</code>. Using a primary key is safest.</li>
+      <li>"How many students?" Count the distinct one-side key: <code>COUNT(DISTINCT s.student_id)</code>.</li>
+      <li>"How many rows does this join return?" Use <code>COUNT(*)</code>, and expect it to match the prediction rule from the last section.</li>
+    </ul>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p><strong>"COUNT(*) tells me how many students."</strong> It tells you how many <em>rows</em>, and after a one-to-many join, rows are enrollments, not students. In the INNER JOIN, <code>COUNT(*)</code> is 6, yet only 3 students appear. Running <code>COUNT(*)</code> on a join and reporting it as a number of students is the classic error: Ana is counted three times.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>On the INNER JOIN between students and enrollments (6 rows), which expression returns the number of students who are enrolled in at least one course?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="true" data-why="Right: the distinct student_id values in the joined rows are 1, 2 and 3, so it returns 3.">COUNT(DISTINCT s.student_id)</button></li>
+        <li><button type="button" data-correct="false" data-why="COUNT(s.student_id) skips only NULLs, and no student_id is NULL, so it counts every row and returns 6.">COUNT(s.student_id) on the joined rows</button></li>
+        <li><button type="button" data-correct="false" data-why="COUNT(*) counts rows, so it returns 6, the number of enrollments here.">COUNT(*) on the joined rows</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p><code>COUNT(DISTINCT s.student_id)</code>, which returns 3. The other two both return 6, because repeats are not removed.</p>
+      </details>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>On the 7-row LEFT JOIN result, what does <code>COUNT(e.course)</code> return?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Seven is what COUNT(*) gives. COUNT(e.course) skips the NULL course on Dev's row.">7, one for every row</button></li>
+        <li><button type="button" data-correct="false" data-why="Four counts distinct students; course values are not distinct students.">4, one for every student</button></li>
+        <li><button type="button" data-correct="true" data-why="Right: Dev's course is NULL and is skipped, leaving the six real enrollments.">6, skipping the NULL course</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>6. Dev's row has a NULL course, and <code>COUNT(column)</code> ignores NULLs.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s5">
+    <h2>Sums and other traps <span class="section-time">2 min</span></h2>
+    <p>The same repetition that inflates <code>COUNT(*)</code> also inflates sums of one-side columns. Suppose each student pays a tuition of 1000, stored in <code>students.tuition</code>. After the INNER JOIN, Ana's 1000 appears on three rows, so <code>SUM(s.tuition)</code> gives 3000 + 2000 + 1000 = 6000, but the true total for the three enrolled students is 3000. Rule: <strong>a value from the "one" side is repeated once per matching "many" row</strong>, so aggregate it only after reducing the many side.</p>
+
+    <p>Two clean ways to do that:</p>
+    <ul>
+      <li><strong>Count or sum distinct keys</strong> when the quantity is a simple key, as in <code>COUNT(DISTINCT s.student_id)</code>. Be careful with <code>SUM(DISTINCT s.tuition)</code>: it would collapse students who happen to pay the same amount, and it silently gives a wrong answer.</li>
+      <li><strong>Pre-aggregate the many side</strong> in a subquery or CTE so it has one row per student, then join. Both the <a href="https://www.metabase.com/learn/sql/debugging-sql/sql-logic-duplicated-data">Metabase guide</a> and the <a href="https://learnsql.com/blog/get-rid-of-duplicates-sql-join/">LearnSQL article on duplicates in joins</a> describe this approach.</li>
+    </ul>
+
+<pre><code>SELECT s.student_id, s.name,
+       COALESCE(c.n_enrollments, 0) AS n_enrollments
+FROM students s
+LEFT JOIN (
+  SELECT student_id, COUNT(*) AS n_enrollments
+  FROM enrollments
+  GROUP BY student_id
+) c ON c.student_id = s.student_id;</code></pre>
+    <p>The subquery <code>c</code> has one row per student who has enrollments. Joined to <code>students</code>, the result has exactly 4 rows, one per student, and Dev gets 0 because <code>COALESCE</code> replaces his NULL with 0.</p>
+
+    <aside class="note">A cheap sanity check before you trust any number: compare <code>COUNT(*)</code> of the joined result with the row count of the table you meant to keep. If the join result is larger, a one-to-many relationship has multiplied your rows.</aside>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">6 min</span></h2>
+
+    <div class="box worked">
+      <span class="label">Worked example</span>
+      <p>A book club has a <code>members</code> table (Mia, Noor, Omar) and a <code>loans</code> table. Mia borrowed 2 books, Noor borrowed 1, and Omar borrowed none. Question: using a LEFT JOIN from members to loans, what are the row count, the number of loans and the number of members?</p>
+      <ol>
+        <li><strong>Name the many side.</strong> Loans are the many side: a member can have several loans.</li>
+        <li><strong>Count the matches.</strong> Mia has 2, Noor has 1, so there are 3 matching pairs.</li>
+        <li><strong>Add unmatched one-side rows for a LEFT JOIN.</strong> Omar has no loans, so add 1 row. Total rows: 3 + 1 = 4. This is <code>COUNT(*)</code>.</li>
+        <li><strong>Number of loans:</strong> <code>COUNT(l.loan_id)</code> skips Omar's NULL, giving 3.</li>
+        <li><strong>Number of members:</strong> <code>COUNT(DISTINCT m.member_id)</code> removes Mia's repeat, giving 3. (Here the number of loans and the number of members happen to match; they are still different questions with different expressions.)</li>
+      </ol>
+    </div>
+
+    <div class="check">
+      <span class="label">Your turn</span>
+      <p>A pet clinic has an <code>owners</code> table (4 owners) and a <code>pets</code> table. Owner A has 3 pets, owner B has 1 pet, owners C and D have none. Using a LEFT JOIN from owners to pets, find: (1) the number of result rows; (2) the number of pets; (3) the number of owners with at least one pet. Step 1 is given: the many side is <code>pets</code>. Do the rest yourself and write each answer with the expression you would use.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>Matches: 3 + 1 = 4. Unmatched owners C and D add 2 rows. (1) Rows = 6, from <code>COUNT(*)</code>. (2) Pets = 4, from <code>COUNT(p.pet_id)</code>, since C and D contribute NULLs that are skipped. (3) Owners with a pet = 2, from <code>COUNT(DISTINCT p.owner_id)</code>, which skips the NULLs and counts A and B once each. Counting all owners would be <code>COUNT(DISTINCT o.owner_id)</code>, which gives 4.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">3 min</span></h2>
+    <div class="box summary">
+      <ul>
+        <li>A join returns one row per matching pair. When one row matches many, the one-side row is repeated, so the result is not one row per student.</li>
+        <li>Predict the size: INNER JOIN = number of matches; LEFT JOIN = matches plus one row per unmatched left row.</li>
+        <li><code>COUNT(*)</code> counts rows, <code>COUNT(column)</code> counts non-NULL values, and <code>COUNT(DISTINCT column)</code> counts different values. Name what you are counting, then choose.</li>
+        <li>One-side values (such as tuition) repeat once per match, so they inflate sums; reduce the many side first, or count distinct keys.</li>
+      </ul>
+      <p><strong>Say it in your own words:</strong> without looking back, explain to an imaginary friend why a join of 4 students and 6 enrollments can return more than 4 rows, and which expression you would use to count the students.</p>
+    </div>
+    <p>Next lesson idea: filtering after a LEFT JOIN (<code>WHERE</code> versus <code>ON</code>) and many-to-many relationships.</p>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read next:</strong> <a href="https://www.metabase.com/learn/sql/debugging-sql/sql-logic-duplicated-data">Debugging duplicated data in SQL query results (Metabase)</a>, a short guide to why joins duplicate rows and how to detect and fix it. Its pre-aggregation template is only a sketch, so use the example in this lesson as your runnable pattern.</p>
+    <ul>
+      <li><a href="https://learnsql.com/blog/get-rid-of-duplicates-sql-join/">Get rid of duplicates in a SQL JOIN (LearnSQL)</a>: more examples of the same fix.</li>
+      <li>Your database's manual page on aggregate functions: the reference for <code>COUNT</code>.</li>
+    </ul>
+    <p><strong>Test it with others:</strong> the r/SQL community on Reddit, or a study group or class. Post a small made-up table and your predicted row count, and ask people to check your reasoning.</p>
+  </section>
+
+  <footer class="closing">
+    <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
+    <p>A short quiz on this lesson is ready (quiz 0002): ask me for it when you want to check what stuck.</p>
+  </footer>
+
+</main>
+<script>
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

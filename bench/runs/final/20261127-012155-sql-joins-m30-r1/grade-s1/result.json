@@ -1,0 +1,123 @@
+{
+  "duration_api_ms": 85414,
+  "stop_reason": "end_turn",
+  "session_id": "bb20d226-3357-4907-8d62-81f562ad62d3",
+  "total_cost_usd": 0.4179227,
+  "usage": {
+    "input_tokens": 22,
+    "cache_creation_input_tokens": 29938,
+    "cache_read_input_tokens": 350695,
+    "output_tokens": 4337,
+    "output_tokens_details": {
+      "thinking_tokens": 218
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29938,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 284,
+        "cache_read_input_tokens": 40576,
+        "cache_creation_input_tokens": 373,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 373
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 42,
+      "outputTokens": 12459,
+      "cacheReadInputTokens": 448542,
+      "cacheCreationInputTokens": 81395,
+      "webSearchRequests": 0,
+      "costUSD": 0.4179227,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1808,
+      "cacheCreationEphemeral5mInputTokens": 51457,
+      "cacheCreationEphemeral1hInputTokens": 29938,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 1,
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 17,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Alex, your grades are in `grades/0001-s1.json`: 1 correct, 1 partial, 1 wrong.\n\n- **Review passes:** Two ran, which is the cap, and both came back REVISE. I made the fixes from pass 1. After pass 2 I made one more wording fix to the q3 feedback, and no reviewer saw that change. The verdicts and misconception ids were not in question: both reviewers regraded the three items independently and matched the draft each time.\n- **Record:** The loop is in `review-records/0001-s1-grades.md`. I also added a short note to `NOTES.md`.\n- **Next:** Work on one thing: a LEFT JOIN keeps unmatched rows and fills the right-side columns with NULL. Make a 4-student, 3-enrollment table and predict the LEFT JOIN result row by row before you run it.",
+  "ttft_ms": 1477,
+  "type": "result",
+  "duration_ms": 86072,
+  "uuid": "27099570-7253-42a1-9282-b426a9f66fba",
+  "ttft_stream_ms": 986,
+  "time_to_request_ms": 128,
+  "first_content_frame_ms": 986,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 42,
+      "outputTokens": 12459,
+      "cacheReadInputTokens": 448542,
+      "cacheCreationInputTokens": 81395,
+      "webSearchRequests": 0,
+      "costUSD": 0.4179227,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1808,
+      "cacheCreationEphemeral5mInputTokens": 51457,
+      "cacheCreationEphemeral1hInputTokens": 29938,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

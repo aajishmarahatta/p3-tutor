@@ -1,0 +1,62 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Choosing the right JOIN for the job",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A school wants a report that lists every student with the course they are enrolled in, and students with no enrollment must still appear with a blank course. Every enrollment row refers to a real student. Which query fits?",
+      "options": [
+        {"id": "a", "text": "students INNER JOIN enrollments, matching on student_id"},
+        {"id": "b", "text": "students LEFT JOIN enrollments, matching on student_id"},
+        {"id": "c", "text": "enrollments LEFT JOIN students, matching on student_id"},
+        {"id": "d", "text": "students INNER JOIN enrollments, then drop blank courses"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A teacher wants to email only the students who are enrolled in at least one course, using the students and enrollments tables. Which join type should be used: INNER JOIN or LEFT JOIN? Answer with the join type only."
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "An advisor wants a list of students who have never enrolled in any course. The enrollments table has a non-NULL enrollment_id in every row. Which query returns exactly those students?",
+      "options": [
+        {"id": "a", "text": "students INNER JOIN enrollments, keeping rows where enrollment_id IS NULL"},
+        {"id": "b", "text": "students LEFT JOIN enrollments, keeping rows where enrollment_id IS NOT NULL"},
+        {"id": "c", "text": "students LEFT JOIN enrollments, keeping rows where enrollment_id IS NULL"},
+        {"id": "d", "text": "students INNER JOIN enrollments, keeping rows where student_id IS NOT NULL"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "The students table has 4 students. Their enrollment rows are: Ana 3, Ben 1, Cy 0, Dee 2. A query runs students LEFT JOIN enrollments, matching on student_id, with no WHERE clause. How many rows does it return?",
+      "unit": "rows"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A report runs departments LEFT JOIN courses, grouped by department, and must show 0 for a department that has no courses. Which expression should be used for the count: COUNT(*) or COUNT(courses.course_id)? Answer with the expression."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A query is students LEFT JOIN enrollments ON students.student_id = enrollments.student_id WHERE enrollments.term = 'Fall'. What happens to a student who has no enrollments at all?",
+      "options": [
+        {"id": "a", "text": "They are removed, because a NULL term fails the filter"},
+        {"id": "b", "text": "They stay, with a NULL term in their row"},
+        {"id": "c", "text": "They stay, because LEFT JOIN keeps all students"},
+        {"id": "d", "text": "The query fails, because term can be NULL"}
+      ]
+    }
+  ]
+}

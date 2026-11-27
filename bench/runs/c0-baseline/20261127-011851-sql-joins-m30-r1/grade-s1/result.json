@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 21845,
+  "stop_reason": "end_turn",
+  "session_id": "74570cef-51a1-4d51-95be-098cf6f0bfb3",
+  "total_cost_usd": 0.1576943,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 28663,
+    "cache_read_input_tokens": 103863,
+    "output_tokens": 3264,
+    "output_tokens_details": {
+      "thinking_tokens": 130
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 28663,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 467,
+        "cache_read_input_tokens": 37702,
+        "cache_creation_input_tokens": 1972,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1972
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3264,
+      "cacheReadInputTokens": 103863,
+      "cacheCreationInputTokens": 28663,
+      "webSearchRequests": 0,
+      "costUSD": 0.1576943,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 130,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 28663,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 15,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded Alex's quiz 0001 submission and wrote the grades to `grades/0001-s1.json`.\n\n| Item | Verdict | Feedback |\n|---|---|---|\n| q1 | Wrong (M1) | You picked \"the student is excluded\", which is what an INNER JOIN does. A LEFT JOIN keeps the 4th student, with NULL in the enrollment columns. |\n| q2 | Correct | 3 rows is right. Only students with a match survive an INNER JOIN. |\n| q3 | Partial | Your INNER JOIN versus LEFT JOIN explanation is right. The unmatched columns hold NULL, not \"blank\". NULL means no value, and a blank is a real value. |\n\nYour q3 answer says a LEFT JOIN keeps unmatched students, but in q1 you chose the INNER JOIN behaviour. The idea isn't reliable yet when you apply it to a query.\n\n**Next step:** Take two small tables with 4 students and 3 enrollments. Write out the result rows by hand for an INNER JOIN and then a LEFT JOIN, and mark where the NULLs appear. After that, we can move on to duplicate rows and COUNT.\n\nI also added `learning-records/0002-left-join-unmatched-rows.md` and updated `NOTES.md`.\n\nDo you want a short lesson on predicting LEFT JOIN results, with that practice built in?",
+  "ttft_ms": 1499,
+  "type": "result",
+  "duration_ms": 22021,
+  "uuid": "6b04ae69-3f29-40c6-afde-9db57234f9a0",
+  "ttft_stream_ms": 997,
+  "time_to_request_ms": 105,
+  "first_content_frame_ms": 997,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3264,
+      "cacheReadInputTokens": 103863,
+      "cacheCreationInputTokens": 28663,
+      "webSearchRequests": 0,
+      "costUSD": 0.1576943,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 130,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 28663,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

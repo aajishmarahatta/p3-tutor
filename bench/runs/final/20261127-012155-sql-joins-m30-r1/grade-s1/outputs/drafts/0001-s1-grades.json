@@ -1,0 +1,25 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "wrong",
+      "misconception": "M1",
+      "feedback": "- Wrong.\n- You picked the option that drops the student, which is how INNER JOIN behaves. It's an easy mix-up since both joins keep matched rows.\n- LEFT JOIN keeps every row from the left table (students). The unmatched student still shows up, with NULL in the enrollment columns.\n- Review: LEFT JOIN with unmatched rows"
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "- Correct.\n- Only the 3 matched students survive an INNER JOIN."
+    },
+    {
+      "id": "q3",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "- Partly right.\n- Your core idea is right: INNER JOIN keeps only matched students, LEFT JOIN also keeps the unmatched ones.\n- You said the enrollment columns come back blank rather than NULL. If a student has no enrollment row at all, what value is there to show in enrollment_id? An empty string is still a value; NULL means no value. A missing match gives NULL.\n- Review: NULL vs empty string in unmatched LEFT JOIN columns"
+    }
+  ],
+  "summary": "1 correct, 1 partial, 1 wrong. You can predict INNER JOIN row counts and explain the INNER vs LEFT difference in words. Work on one thing: LEFT JOIN keeps unmatched rows, filling the right-side columns with NULL. Next, write a 4-student, 3-enrollment table and predict the LEFT JOIN result row by row before running it."
+}

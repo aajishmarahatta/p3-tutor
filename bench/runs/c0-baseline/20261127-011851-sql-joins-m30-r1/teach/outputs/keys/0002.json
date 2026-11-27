@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "A join returns one row per matching pair: 4 + 1 + 2 = 7 matches. A LEFT JOIN adds one NULL row for each of the 2 customers with no orders, so 7 + 2 = 9. Answering 5 shows the belief that a join keeps one row per customer; 7 is the INNER JOIN count and forgets the unmatched customers.",
+      "distractors": {"a": "M3", "b": "M1"}
+    },
+    {
+      "id": "q2",
+      "answer": 3,
+      "tolerance": 0.5,
+      "rationale": "The INNER JOIN keeps only customers with orders: A, B and E. COUNT(DISTINCT c.customer_id) counts each once, so 3. An answer of 7 is the number of joined rows (M4); 5 forgets the INNER JOIN drops unmatched customers."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "COUNT(o.order_id) skips the NULL order_id on the rows for customers C and D, leaving the 7 real orders. COUNT(*) and COUNT(c.customer_id) both return 9 because every joined row counts; COUNT(DISTINCT c.customer_id) returns 5, the customers.",
+      "distractors": {"a": "M4", "c": "M4", "d": "M4"}
+    },
+    {
+      "id": "q4",
+      "answer": 900,
+      "tolerance": 0.5,
+      "rationale": "The LEFT JOIN has 9 rows and each row carries its customer's credit_limit of 100, so the sum is 9 x 100 = 900, not the true 500. Answering 500 shows the belief that one-side values are not repeated by the join (M5); 700 comes from using the INNER JOIN row count.",
+      "distractors": {}
+    },
+    {
+      "id": "q5",
+      "answer": "DISTINCT",
+      "accepted": ["distinct", "DISTINCT keyword", "COUNT(DISTINCT c.customer_id)"],
+      "rationale": "COUNT(DISTINCT c.customer_id) counts each customer once even when a customer has several order rows. Plain COUNT(c.customer_id) would return 7 here, the number of joined rows."
+    }
+  ]
+}

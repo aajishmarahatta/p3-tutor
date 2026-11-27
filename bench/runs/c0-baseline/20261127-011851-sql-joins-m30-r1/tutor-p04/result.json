@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 19931,
+  "stop_reason": "end_turn",
+  "session_id": "4c249216-30ce-4b69-bb57-c49a4037eaeb",
+  "total_cost_usd": 0.1387867,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 25681,
+    "cache_read_input_tokens": 101967,
+    "output_tokens": 2585,
+    "output_tokens_details": {
+      "thinking_tokens": 645
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 25681,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 785,
+        "cache_read_input_tokens": 35708,
+        "cache_creation_input_tokens": 984,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 984
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2585,
+      "cacheReadInputTokens": 101967,
+      "cacheCreationInputTokens": 25681,
+      "webSearchRequests": 0,
+      "costUSD": 0.1387867,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 645,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25681,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "This is a big topic, and it sits a few steps past where your notes say you are. Here is the short version, using your students and enrollments tables.\n\n**Estimating rows.** The planner keeps statistics per column and turns each filter into a *selectivity*, the fraction of rows that survive. The estimate is selectivity × table rows.\n- `WHERE status = 'active'`: if 'active' is in the column's most-common-values list with frequency 0.30, selectivity is 0.30. Otherwise PostgreSQL spreads the leftover frequency evenly across the remaining distinct values.\n- `WHERE age > 20`: a histogram splits the values into equal-count buckets. The planner counts the buckets above 20 and interpolates inside the bucket that contains 20.\n- Two filters: PostgreSQL assumes the columns are independent and multiplies the selectivities. That goes wrong for correlated columns such as city and zip code. `CREATE STATISTICS` (multi-column statistics) fixes it.\n\n**Join size.** For an equality join, the estimate is roughly\nrows(A) × rows(B) / max(distinct values in A's key, distinct values in B's key).\nFor example, 1,000 students and 3,000 enrollments, with 1,000 distinct `student_id` values on each side, gives 1,000 × 3,000 / 1,000 = **3,000 rows**, not 1,000. This is the same fan-out you've been predicting by hand.\n\n**Choosing the algorithm.** PostgreSQL costs each plan and picks the cheapest:\n- **Nested loop:** for each outer row, look up matches in the inner table. It wins when the outer side is small and the inner side has an index.\n- **Hash join:** build a hash table on the smaller input, then scan the other input once. It needs an equality condition and does best when the table fits in memory.\n- **Merge join:** sort both inputs on the key, then walk them together. It wins on large inputs that are already sorted or indexed.\n\n**What I left out.** The exact formulas, the cost constants and the full derivation. You'd need three things first: reliably predicting join row counts, reading `EXPLAIN` output, and a bit of probability. I can build that as a staged lesson, starting with row-count prediction on small tables.\n\nQuick check: if enrollments had 3,000 rows but only 500 distinct `student_id` values, what would the join estimate become?",
+  "ttft_ms": 911,
+  "type": "result",
+  "duration_ms": 20108,
+  "uuid": "42c5a96b-2d28-402f-bd86-d0bb1f1062cd",
+  "ttft_stream_ms": 884,
+  "time_to_request_ms": 96,
+  "first_content_frame_ms": 884,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2585,
+      "cacheReadInputTokens": 101967,
+      "cacheCreationInputTokens": 25681,
+      "webSearchRequests": 0,
+      "costUSD": 0.1387867,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 645,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25681,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

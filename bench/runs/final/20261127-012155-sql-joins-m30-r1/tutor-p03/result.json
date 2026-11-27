@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 9803,
+  "stop_reason": "end_turn",
+  "session_id": "e3d1a168-1ea9-479b-8dfa-2996cad405c6",
+  "total_cost_usd": 0.0836841,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15635,
+    "cache_read_input_tokens": 84581,
+    "output_tokens": 1267,
+    "output_tokens_details": {
+      "thinking_tokens": 51
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15635,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 527,
+        "cache_read_input_tokens": 26279,
+        "cache_creation_input_tokens": 367,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 367
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1267,
+      "cacheReadInputTokens": 84581,
+      "cacheCreationInputTokens": 15635,
+      "webSearchRequests": 0,
+      "costUSD": 0.0836841,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 51,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15635,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The premise isn't right. INNER JOIN keeps only the rows that have a match in both tables. LEFT JOIN is the one that keeps every row from the left table. That difference is why you need both.\n\n**Quick definitions**\n- **Matched row:** a row whose join key (e.g. `student_id`) appears in the other table.\n- **Unmatched row:** a row whose key has no partner in the other table.\n\n**Example**\n\n`students`: Ana, Ben, Cy\n`enrollments`: Ana→Math, Ana→Art, Ben→Math (Cy has none)\n\n- **`INNER JOIN`** returns Ana (Math), Ana (Art) and Ben (Math). Cy is dropped.\n- **`LEFT JOIN`** returns the same three rows plus Cy with `NULL` for the course.\n\n**Why you'd pick LEFT JOIN**\n- You want to find the students who have no enrollments. Use a LEFT JOIN and `WHERE course IS NULL`. An INNER JOIN can never show you Cy.\n- You want a count for every student, including 0. An INNER JOIN silently leaves out the zeros.\n\n**Sports analogy**\n- Say you list every player on a roster next to their stats. An INNER JOIN shows only the players who got on the field. A LEFT JOIN also shows the bench players, with blank stats.\n- The analogy breaks down because a bench player is still one row. A student with 2 enrollments shows up twice in both joins.\n\n**Your turn:** if you want a list of every student and how many courses each takes, which join do you use, and what does Cy's row look like?",
+  "ttft_ms": 1206,
+  "type": "result",
+  "duration_ms": 10011,
+  "uuid": "1f838396-ef6e-4f9d-9ea4-4c7d0226492e",
+  "ttft_stream_ms": 719,
+  "time_to_request_ms": 109,
+  "first_content_frame_ms": 719,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1267,
+      "cacheReadInputTokens": 84581,
+      "cacheCreationInputTokens": 15635,
+      "webSearchRequests": 0,
+      "costUSD": 0.0836841,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 51,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15635,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "- INNER JOIN returns only rows with a match on both sides, which is exactly 'players who played at least one match'. - LEFT JOIN keeps players with no appearances (NULL columns), which the report excludes. - FULL JOIN keeps unmatched rows from both tables, so it adds even more unwanted rows. - CROSS JOIN ignores the matching column and pairs every player with every appearance, so it gives wrong rows.",
+      "distractors": {"b": "M10", "c": "M11", "d": "M15"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "- LEFT JOIN keeps every row from the table named first. - Here that is enrollments, so students with no enrollments have no row to appear in. - Option a describes FULL JOIN, which keeps unmatched rows from both tables. - Option b ignores that table order decides what is kept. - Option c says LEFT JOIN drops unmatched rows, which is the INNER JOIN rule.",
+      "distractors": {"a": "M11", "b": "M12", "c": "M1"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "- WHERE runs after the join. - Dana's row has NULL in e.term, and NULL = 'Fall' is not true, so her row is removed and the LEFT JOIN acts like an INNER JOIN. - To keep Dana, put the term test in the ON clause (the condition that decides which rows match). - Option b says LEFT JOIN drops unmatched students, which it does not. - Option c has the order backwards: the join happens first.",
+      "distractors": {"b": "M1", "c": "M13"}
+    },
+    {
+      "id": "q4",
+      "answer": 6,
+      "tolerance": 0,
+      "rationale": "- A matches 3 enrollments, so 3 rows. - B gives 1 row. - C and D each give 1 row with NULL enrollment columns. - Total 3 + 1 + 1 + 1 = 6. - An answer of 4 assumes one row per student, but a join returns one row per match."
+    },
+    {
+      "id": "q5",
+      "answer": "LEFT JOIN",
+      "accepted": ["left", "left join", "LEFT OUTER JOIN", "left outer join", "left outer", "a left join"],
+      "rationale": "- LEFT JOIN with students first keeps unenrolled students with NULL enrollment columns. - Testing for NULL then isolates them. - An INNER JOIN drops them before the NULL test, leaving no rows."
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "- The INNER JOIN returns 4 rows (one per enrollment), so student A appears 3 times. - COUNT(DISTINCT s.student_id) counts each student once and gives 2. - COUNT(*) counts joined rows, giving 4. - COUNT(DISTINCT e.enrollment_id) counts enrollments, also 4.",
+      "distractors": {"a": "M14", "b": "M14"}
+    }
+  ]
+}

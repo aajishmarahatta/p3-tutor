@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 225666,
+  "stop_reason": "end_turn",
+  "session_id": "26241867-2f61-4d43-ae26-ba4e1b6430a5",
+  "total_cost_usd": 0.6879521,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 6959,
+    "cache_read_input_tokens": 115449,
+    "output_tokens": 4319,
+    "output_tokens_details": {
+      "thinking_tokens": 548
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6959,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 331,
+        "cache_read_input_tokens": 59048,
+        "cache_creation_input_tokens": 4312,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4312
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 44,
+      "outputTokens": 33048,
+      "cacheReadInputTokens": 613356,
+      "cacheCreationInputTokens": 87010,
+      "webSearchRequests": 0,
+      "costUSD": 0.6879521,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 11178,
+      "cacheCreationEphemeral5mInputTokens": 34661,
+      "cacheCreationEphemeral1hInputTokens": 52349,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwyathx2-0a166cda"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "quiz-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz 0002 is written to `quizzes/0002.json`, and its key is ready for grading.\n\n- **Objective:** O3, choosing the right JOIN type and how that choice changes the results.\n- **Items:** six. Four are multiple choice, one is numeric and one is a short answer.\n- **Review:** two passes ran, and both came back REVISE. I fixed most of what they found, then stopped at the two-pass cap. Two findings are still open:\n  - **q1:** its options aren't fully parallel, because two carry a gloss and two don't.\n  - **q6:** it tests counting after a join, not join choice.\n\n  I kept q6 because counting after a join is a stated gap for you. The details are in `review-records/0002-quiz.md`.\n- **Misconception ids:** the new ones (M10 and up) aren't defined anywhere else yet. Each key rationale says what the belief is.\n- **Lessons:** no lesson exists for O3 yet, so this quiz is ahead of the lessons.",
+  "ttft_ms": 5873,
+  "type": "result",
+  "duration_ms": 26366,
+  "uuid": "c9b2e5ac-35aa-41a8-8864-544682a59ce7",
+  "ttft_stream_ms": 1316,
+  "time_to_request_ms": 60,
+  "first_content_frame_ms": 1317,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

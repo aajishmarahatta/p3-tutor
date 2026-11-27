@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "To keep every student, including those with no enrollment, the students table must be the preserved (left) side of a LEFT JOIN. An INNER JOIN drops unmatched students; a LEFT JOIN from enrollments keeps all enrollments, which adds no unenrolled students.",
+      "distractors": {"a": "M2", "c": "M4", "d": "M2"}
+    },
+    {
+      "id": "q2",
+      "answer": "INNER JOIN",
+      "accepted": ["inner join", "inner", "an inner join", "use inner join"],
+      "rationale": "INNER JOIN returns only students with at least one matching enrollment, which is exactly the mailing list. A LEFT JOIN would also return students with no enrollments."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "A LEFT JOIN keeps unmatched students with NULL enrollment columns, and filtering for enrollment_id IS NULL keeps only those students. An INNER JOIN has no unmatched rows, so options a and d cannot find the students; option b returns the enrolled students instead.",
+      "distractors": {"a": "M2", "b": "M5", "d": "M2"}
+    },
+    {
+      "id": "q4",
+      "answer": 7,
+      "tolerance": 0.5,
+      "rationale": "A LEFT JOIN returns one row per matching enrollment (3 + 1 + 2 = 6) plus one row with NULLs for the student with no enrollments (Cy), so 7. Answering 4 assumes one row per student (M3); 6 forgets that unmatched students are kept."
+    },
+    {
+      "id": "q5",
+      "answer": "COUNT(courses.course_id)",
+      "accepted": ["COUNT(course_id)", "count(courses.course_id)", "COUNT(c.course_id)", "COUNT(courses.course_id) counts only non-NULL values", "courses.course_id"],
+      "rationale": "For a department with no courses, the LEFT JOIN produces one row with NULL course columns. COUNT(*) counts that row and gives 1; COUNT(courses.course_id) ignores NULLs and gives 0."
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "The unmatched student's row has NULL in enrollments.term, and NULL = 'Fall' is not true, so WHERE removes the row. The filter on the right-hand table effectively turns the LEFT JOIN into an INNER JOIN; to keep them, put the condition in the ON clause.",
+      "distractors": {"b": "M6", "c": "M6"}
+    }
+  ]
+}

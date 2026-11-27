@@ -1,0 +1,66 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Choosing the Right JOIN for the Job",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A soccer analyst has a players table and an appearances table (one row per match a player played). The report must list each player who played at least one match, with the details of those matches. Players who never played must not be in the report. Which join type fits best?",
+      "options": [
+        {"id": "a", "text": "INNER JOIN"},
+        {"id": "b", "text": "LEFT JOIN from players to appearances"},
+        {"id": "c", "text": "FULL JOIN (keeps unmatched rows from both tables)"},
+        {"id": "d", "text": "CROSS JOIN (pairs every player with every appearance)"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A report must list every student, including students with no enrollments. A teammate writes: FROM enrollments e LEFT JOIN students s ON s.student_id = e.student_id. Does this query meet the requirement?",
+      "options": [
+        {"id": "a", "text": "Yes, because LEFT JOIN keeps unmatched rows from both tables."},
+        {"id": "b", "text": "Yes, because LEFT JOIN keeps students whichever table is named first."},
+        {"id": "c", "text": "No, because LEFT JOIN drops rows that have no match in the other table."},
+        {"id": "d", "text": "No, because LEFT JOIN keeps every enrollment, so unenrolled students never appear."}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The students table has 4 rows, including Dana, who has no enrollments. This query runs: SELECT s.name, e.course_id FROM students s LEFT JOIN enrollments e ON s.student_id = e.student_id WHERE e.term = 'Fall'. The goal was to list all 4 students, showing a course only when it is a Fall one. Dana is missing from the output. Why?",
+      "options": [
+        {"id": "a", "text": "LEFT JOIN only keeps students who have at least one enrollment in any term."},
+        {"id": "b", "text": "Her enrollment columns are empty after the join, so the WHERE test fails for her row."},
+        {"id": "c", "text": "WHERE is applied before the join, so Dana is filtered out of the students table first."}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "The students table has 4 students: A, B, C and D. The enrollments table has 4 rows: three for student A, one for student B, and none for C or D. How many rows does students LEFT JOIN enrollments (matching on student_id, no WHERE clause) return?",
+      "unit": "rows"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "You need the students who have no enrollments at all. Use students as the first table, and use a join that never returns an enrollment row that lacks a student. Which join type do you write?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The students table has 4 students: A, B, C and D. The enrollments table has 4 rows (each with a non-NULL enrollment_id): three for student A, one for student B, and none for C or D. A query uses students s INNER JOIN enrollments e ON s.student_id = e.student_id. Which expression returns the number of students who have at least one enrollment?",
+      "options": [
+        {"id": "a", "text": "COUNT(*)"},
+        {"id": "b", "text": "COUNT(DISTINCT e.enrollment_id)"},
+        {"id": "c", "text": "COUNT(DISTINCT s.student_id)"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "objective": "O2",
+  "title": "One-to-many joins: predicting and counting rows",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A customers table has 5 customers. An orders table has 7 orders: customer A has 4 orders, customer B has 1, customer E has 2, and customers C and D have none. How many rows does customers LEFT JOIN orders (matching on customer_id) return?",
+      "options": [
+        {"id": "a", "text": "5 rows, one per customer"},
+        {"id": "b", "text": "7 rows, one per order"},
+        {"id": "c", "text": "9 rows, orders plus unmatched"},
+        {"id": "d", "text": "12 rows, customers plus orders"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O2",
+      "stem": "Same tables as the previous question. You run customers INNER JOIN orders on customer_id and then compute COUNT(DISTINCT c.customer_id), where c is the customers table. What number does it return?",
+      "unit": "customers"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "Same tables again, using the LEFT JOIN from customers to orders (alias o for orders, c for customers). Which expression returns the number of orders, which is 7?",
+      "options": [
+        {"id": "a", "text": "COUNT(*) over the joined rows"},
+        {"id": "b", "text": "COUNT(o.order_id) over the joined rows"},
+        {"id": "c", "text": "COUNT(c.customer_id) over the joined rows"},
+        {"id": "d", "text": "COUNT(DISTINCT c.customer_id) over the joined rows"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O2",
+      "stem": "Same tables again. Every one of the 5 customers has a credit_limit of 100 in the customers table. After the LEFT JOIN from customers to orders, what does SUM(c.credit_limit) return?",
+      "unit": "credit"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O2",
+      "stem": "Fill in the blank with one SQL keyword so the query returns the number of customers who have placed at least one order, not the number of joined rows: SELECT COUNT(____ c.customer_id) FROM customers c INNER JOIN orders o ON o.customer_id = c.customer_id;"
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "run_id": "20261127-011851-sql-joins-m30-r1",
+  "scored_at": "2026-11-27T01:21:44Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O2",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-one-to-many-joins-and-counting.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O2",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 2585,
+      "est_minutes": 17.23,
+      "length_ratio": 0.574,
+      "length_ok": false,
+      "links": [
+        {
+          "url": "https://www.metabase.com/learn/sql/debugging-sql/sql-logic-duplicated-data",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://learnsql.com/blog/get-rid-of-duplicates-sql-join/",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F2.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.3",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 5,
+        "notes": "All three facts are stated and accurate: the join multiplies Ana's rows, COUNT(*) vs COUNT(column) NULL behavior is explained and COUNT(DISTINCT s.student_id) is used for unique students. No misconceptions are asserted; M3 and M4 are raised only to correct them. The level fits well, with small tables, prediction exercises, defined terms and a pace suited to a learner with basic SQL."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O3",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 6,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 6
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 6
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "short",
+          "objective": "O3",
+          "key": "INNER JOIN",
+          "answers": {
+            "claude-sonnet-5-5": "INNER JOIN",
+            "claude-haiku-5-5": "INNER JOIN"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q4",
+          "type": "numeric",
+          "objective": "O3",
+          "key": 7,
+          "answers": {
+            "claude-sonnet-5-5": 7,
+            "claude-haiku-5-5": 7
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q5",
+          "type": "short",
+          "objective": "O3",
+          "key": "COUNT(courses.course_id)",
+          "answers": {
+            "claude-sonnet-5-5": "COUNT(courses.course_id)",
+            "claude-haiku-5-5": "COUNT(courses.course_id)"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 1.0,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [],
+      "model_scored": true,
+      "scorable_items": 6
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M1",
+              "misconception": "M1",
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 3,
+            "agree": 3,
+            "true_correct": 1,
+            "false_wrong": 0,
+            "true_misconception": 1,
+            "misconception_hit": 1,
+            "feedback": 3
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 1244,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply declines to give the letter, doesn't confirm or rule out any option, prompts the learner to think about what happens to unmatched rows (Dee with no enrollment), and offers a worked-through reasoning approach plus a follow-up lesson."
+          },
+          "met": true
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 1460,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply corrects the misconception (LEFT JOIN keeps all left-table rows, unlike INNER JOIN), explains unmatched right-side columns are NULL, uses a small students/enrollments example, and ends with a brief follow-up check question about WHERE e.course IS NULL."
+          },
+          "met": true
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1593,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply directly rejects the false premise, explains INNER JOIN returns only matching rows while LEFT JOIN preserves all left-table rows, gives a concrete students/enrollments example with results, and explains when unmatched records matter (finding unenrolled students, counting including zeros)."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 2247,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply recognizes the request is beyond the learner's level, but it then launches into advanced material anyway: selectivity formulas, MCV lists, histogram interpolation, multi-column statistics, join size formula, and detailed hash/merge/nested-loop selection. The expected behavior is to avoid advanced equations and optimizer internals, giving only a brief conceptual explanation and a simple next step."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.75
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.574,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 1.0,
+    "quiz_ambiguous": 0,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.75,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 608311,
+        "tokens_output": 27832,
+        "minutes": 2.77,
+        "subagents": 1,
+        "cost_usd_list": 0.5769
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 140270,
+        "tokens_output": 6243,
+        "minutes": 0.77,
+        "subagents": 0,
+        "cost_usd_list": 0.194
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 135798,
+        "tokens_output": 3264,
+        "minutes": 0.38,
+        "subagents": 0,
+        "cost_usd_list": 0.1577
+      },
+      "tutor": {
+        "scenarios": 4,
+        "tokens_total": 367740,
+        "tokens_output": 7082,
+        "minutes": 0.94,
+        "subagents": 0,
+        "cost_usd_list": 0.4595
+      },
+      "total": {
+        "scenarios": 7,
+        "tokens_total": 1252119,
+        "tokens_output": 44421,
+        "minutes": 4.86,
+        "subagents": 1,
+        "cost_usd_list": 1.3881
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 40066,
+    "cost_usd_list": 0.1282,
+    "calls": 7
+  },
+  "warnings": []
+}

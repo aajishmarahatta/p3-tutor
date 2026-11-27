@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 7963,
+  "stop_reason": "end_turn",
+  "session_id": "afc166d8-91fe-469f-8a3b-dd32fed113c3",
+  "total_cost_usd": 0.0839359,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 17680,
+    "cache_read_input_tokens": 33579,
+    "output_tokens": 985,
+    "output_tokens_details": {
+      "thinking_tokens": 46
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17680,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 410,
+        "cache_read_input_tokens": 22568,
+        "cache_creation_input_tokens": 6123,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 6123
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 985,
+      "cacheReadInputTokens": 33579,
+      "cacheCreationInputTokens": 17680,
+      "webSearchRequests": 0,
+      "costUSD": 0.0839359,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 46,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 17680,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I can't give you the letter for q1. A quiz only shows what you can do if you work out the answers yourself, so I don't give quiz answers before grading. That also means I won't confirm or rule out options one at a time.\n\nHere's something that applies to any join question. Say you have a \"left\" table and a \"right\" table. A join does two jobs:\n\n1. It pairs up rows whose shared column values match.\n2. It has a rule for rows that find no partner.\n\nThe join types differ in that second rule.\n\nTry this to find the answer on your own:\n\n- Write the 4 students as a short list, like Ana, Ben, Cy and Dee. Say Dee has no enrollment.\n- Next to each name, write what that student's row would look like in the joined result.\n- For Dee, ask what the join does with a row that has no partner. What would the enrollment columns hold?\n- Then read a, b and c again and see which one matches what you wrote.\n\nWhich part feels stuck? It could be what LEFT means, or what happens to a row with no match. Tell me your reasoning so far and I'll help from there.\n\nOnce you've submitted the quiz and I've graded it, we can go through q1 together. If you'd rather practise this first, I can write a short lesson on INNER JOIN and LEFT JOIN with small sample tables.",
+  "ttft_ms": 1602,
+  "type": "result",
+  "duration_ms": 8081,
+  "uuid": "9423ad01-dfc3-4e3d-b3bc-4c17baef3684",
+  "ttft_stream_ms": 1260,
+  "time_to_request_ms": 105,
+  "first_content_frame_ms": 1260,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 985,
+      "cacheReadInputTokens": 33579,
+      "cacheCreationInputTokens": 17680,
+      "webSearchRequests": 0,
+      "costUSD": 0.0839359,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 46,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 17680,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}

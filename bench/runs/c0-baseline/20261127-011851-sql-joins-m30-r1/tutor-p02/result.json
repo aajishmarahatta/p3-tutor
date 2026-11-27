@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 13158,
+  "stop_reason": "end_turn",
+  "session_id": "bac464f6-7988-4a4a-84d8-6e14f6faa0cb",
+  "total_cost_usd": 0.1213268,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23794,
+    "cache_read_input_tokens": 67388,
+    "output_tokens": 1940,
+    "output_tokens_details": {
+      "thinking_tokens": 184
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23794,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 594,
+        "cache_read_input_tokens": 33853,
+        "cache_creation_input_tokens": 952,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 952
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1940,
+      "cacheReadInputTokens": 67388,
+      "cacheCreationInputTokens": 23794,
+      "webSearchRequests": 0,
+      "costUSD": 0.1213268,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 184,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23794,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No, that's not right, but it's a very common mix-up. What you described is what **INNER JOIN** does. A **LEFT JOIN** keeps every student.\n\n**Example.** Two small tables:\n\n`students`: (1, Ana), (2, Ben), (3, Cy)\n`enrollments`: (student_id 1, Math), (student_id 1, Art), (student_id 2, Math)\n\nCy has no enrollments.\n\n```sql\nSELECT s.name, e.course\nFROM students s\nLEFT JOIN enrollments e ON e.student_id = s.id;\n```\n\n| name | course |\n|---|---|\n| Ana | Math |\n| Ana | Art |\n| Ben | Math |\n| Cy | NULL |\n\nCy stays in the result. SQL has nothing to match Cy with, so it fills the enrollment columns with `NULL` (the \"no value\" marker). With `INNER JOIN`, Cy would disappear.\n\n**The general rule:** a LEFT JOIN keeps every row from the left table (the one before the `JOIN` keyword). Unmatched rows get NULLs on the right side. An INNER JOIN keeps only rows that have a match on both sides.\n\nTwo things to notice in the table. Ana appears twice because she has two enrollments, which is the duplicate-row effect you wanted to understand. And Cy's NULL is the reason `COUNT(*)` and `COUNT(e.course)` give different answers here: `COUNT(*)` counts 4 rows, but `COUNT(e.course)` skips the NULL and counts 3.\n\nQuick check: if you add `WHERE e.course IS NULL` to the query above, which students are left, and what does that tell you about finding students with no enrollments?\n\nIf you'd like, I can turn this into a short lesson with practice on predicting join results.",
+  "ttft_ms": 1243,
+  "type": "result",
+  "duration_ms": 13308,
+  "uuid": "396ac8df-24e0-452f-b3e9-a6add4ee3234",
+  "ttft_stream_ms": 849,
+  "time_to_request_ms": 105,
+  "first_content_frame_ms": 849,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1940,
+      "cacheReadInputTokens": 67388,
+      "cacheCreationInputTokens": 23794,
+      "webSearchRequests": 0,
+      "costUSD": 0.1213268,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 184,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23794,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-12-01T04:21:52.909Z"
+}
